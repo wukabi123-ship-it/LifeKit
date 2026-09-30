@@ -1,0 +1,378 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Image Compressor - LifeKit
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==============================
+         Header
+         ============================== -->
+
+    <header>
+
+        <h1>
+            🖼️ Image Compressor
+        </h1>
+
+        <p>
+            Make your images smaller, quickly and easily.
+        </p>
+
+    </header>
+
+
+
+    <!-- ==============================
+         Main
+         ============================== -->
+
+    <main>
+
+        <section class="hero">
+
+
+            <h2>
+                Compress Your Image
+            </h2>
+
+
+            <p>
+                Choose an image to reduce its file size.
+            </p>
+
+
+
+            <br>
+
+
+
+            <!-- ==============================
+                 Drag & Drop Upload
+                 ============================== -->
+
+            <div
+                id="dropZone"
+                class="drop-zone"
+            >
+
+                <div class="drop-zone-icon">
+                    🖼️
+                </div>
+
+
+                <h3>
+                    Drag & Drop Your Image
+                </h3>
+
+
+                <p>
+                    or
+                </p>
+
+
+                <label
+                    for="imageInput"
+                    class="upload-button"
+                >
+                    Choose Image
+                </label>
+
+
+                <p class="drop-zone-hint">
+                    JPG, PNG, WEBP and other image formats
+                </p>
+
+
+                <input
+                    type="file"
+                    id="imageInput"
+                    accept="image/*"
+                    hidden
+                >
+
+            </div>
+
+
+
+            <br><br>
+
+
+
+            <!-- ==============================
+                 Preview
+                 ============================== -->
+
+            <img
+                id="preview"
+                alt="Image Preview"
+                style="
+                    max-width: 400px;
+                    max-height: 400px;
+                    display: none;
+                "
+            >
+
+
+            <br><br>
+
+
+
+            <!-- ==============================
+                 Original Size
+                 ============================== -->
+
+            <div id="originalSize">
+
+                <strong>
+                    Original Size:
+                </strong>
+
+                —
+
+            </div>
+
+
+
+            <br>
+
+
+
+            <!-- ==============================
+                 Compression Mode
+                 ============================== -->
+
+            <label for="compressionMode">
+
+                <strong>
+                    Compression Mode:
+                </strong>
+
+            </label>
+
+
+            <br><br>
+
+
+            <select id="compressionMode">
+
+                <option value="quality">
+                    Quality
+                </option>
+
+                <option value="target">
+                    Target Size
+                </option>
+
+            </select>
+
+
+
+            <br><br>
+
+
+
+            <!-- ==============================
+                 Quality Mode
+                 ============================== -->
+
+            <div id="qualityMode">
+
+
+                <label for="quality">
+
+                    Compression Quality:
+
+                    <strong>
+
+                        <span id="qualityValue">
+                            60
+                        </span>%
+
+                    </strong>
+
+                </label>
+
+
+                <br><br>
+
+
+                <input
+                    type="range"
+                    id="quality"
+                    min="10"
+                    max="100"
+                    value="60"
+                    step="1"
+                >
+
+
+                <p>
+
+                    Lower quality usually creates
+                    a smaller file.
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- ==============================
+                 Target Size Mode
+                 ============================== -->
+
+            <div
+                id="targetMode"
+                style="display: none;"
+            >
+
+
+                <label for="targetSize">
+
+                    <strong>
+                        Target Size:
+                    </strong>
+
+                </label>
+
+
+                <br><br>
+
+
+                <input
+                    type="number"
+                    id="targetSize"
+                    min="1"
+                    step="0.1"
+                    value="1"
+                >
+
+
+                <select id="targetUnit">
+
+                    <option value="KB">
+                        KB
+                    </option>
+
+                    <option
+                        value="MB"
+                        selected
+                    >
+                        MB
+                    </option>
+
+                </select>
+
+
+                <p>
+
+                    LifeKit will try to make the
+                    compressed image as close as
+                    possible to your target size.
+
+                </p>
+
+
+            </div>
+
+
+
+            <br>
+
+
+
+            <!-- ==============================
+                 Compress Button
+                 ============================== -->
+
+            <button
+                id="compressButton"
+                type="button"
+            >
+
+                Compress Image
+
+            </button>
+
+
+
+            <br><br>
+
+
+
+            <!-- ==============================
+                 Reset Button
+                 ============================== -->
+
+            <button
+                id="resetButton"
+                type="button"
+                style="display: none;"
+            >
+
+                Choose Another Image
+
+            </button>
+
+
+
+            <br><br>
+
+
+
+            <!-- ==============================
+                 Result
+                 ============================== -->
+
+            <div id="downloadArea"></div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==============================
+         Footer
+         ============================== -->
+
+    <footer>
+
+        <p>
+            © 2026 LifeKit
+        </p>
+
+    </footer>
+
+
+
+    <script src="compressor.js"></script>
+
+</body>
+
+</html>
+```

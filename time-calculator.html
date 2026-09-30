@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Time Calculator - LifeKit</title>
+
+    <!-- Global LifeKit CSS -->
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <!-- Time Calculator CSS -->
+    <link
+        rel="stylesheet"
+        href="time-calculator.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==============================
+         Header
+         ============================== -->
+
+    <header>
+
+        <h1>
+            ⏱️ Time Calculator
+        </h1>
+
+        <p>
+            Calculate time differences and durations easily.
+        </p>
+
+    </header>
+
+
+
+    <!-- ==============================
+         Main
+         ============================== -->
+
+    <main>
+
+        <section class="hero time-calculator-page">
+
+
+            <!-- Page Title -->
+
+            <h2>
+                Time Between
+            </h2>
+
+            <p class="time-intro">
+                Find out how much time is between two times.
+            </p>
+
+
+
+            <!-- ==============================
+                 Time Format
+                 ============================== -->
+
+            <div class="time-format-section">
+
+                <div class="time-section-title">
+                    Time Format
+                </div>
+
+
+                <div class="time-format-buttons">
+
+                    <button
+                        type="button"
+                        id="format12Button"
+                        class="time-format-button active"
+                    >
+                        12-hour
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="format24Button"
+                        class="time-format-button"
+                    >
+                        24-hour
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==============================
+                 Start Time
+                 ============================== -->
+
+            <div class="time-card">
+
+
+                <div class="time-card-title">
+
+                    <h3>
+                        Start Time
+                    </h3>
+
+                    <p>
+                        When does the time period start?
+                    </p>
+
+                </div>
+
+
+
+                <!-- Start Quick Buttons -->
+
+                <div class="quick-section">
+
+                    <span>
+                        Quick select
+                    </span>
+
+
+                    <div class="quick-buttons">
+
+                        <button
+                            type="button"
+                            class="quick-time-button"
+                            data-target="start"
+                            data-action="now"
+                        >
+                            Now
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="quick-time-button"
+                            data-target="start"
+                            data-action="midnight"
+                        >
+                            Midnight
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="quick-time-button"
+                            data-target="start"
+                            data-action="noon"
+                        >
+                            Noon
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Start Time Input -->
+
+                <div class="time-input-row">
+
+
+                    <input
+                        type="number"
+                        id="startHour"
+                        min="1"
+                        max="12"
+                        value="9"
+                        inputmode="numeric"
+                        aria-label="Start hour"
+                    >
+
+
+                    <span class="time-colon">
+                        :
+                    </span>
+
+
+                    <input
+                        type="number"
+                        id="startMinute"
+                        min="0"
+                        max="59"
+                        value="00"
+                        inputmode="numeric"
+                        aria-label="Start minute"
+                    >
+
+
+                    <button
+                        type="button"
+                        id="startPeriod"
+                        class="period-button"
+                    >
+                        AM
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==============================
+                 End Time
+                 ============================== -->
+
+            <div class="time-card">
+
+
+                <div class="time-card-title">
+
+                    <h3>
+                        End Time
+                    </h3>
+
+                    <p>
+                        When does the time period end?
+                    </p>
+
+                </div>
+
+
+
+                <!-- End Quick Buttons -->
+
+                <div class="quick-section">
+
+                    <span>
+                        Quick select
+                    </span>
+
+
+                    <div class="quick-buttons">
+
+                        <button
+                            type="button"
+                            class="quick-time-button"
+                            data-target="end"
+                            data-action="now"
+                        >
+                            Now
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="quick-time-button"
+                            data-target="end"
+                            data-action="midnight"
+                        >
+                            Midnight
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="quick-time-button"
+                            data-target="end"
+                            data-action="noon"
+                        >
+                            Noon
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- End Time Input -->
+
+                <div class="time-input-row">
+
+
+                    <input
+                        type="number"
+                        id="endHour"
+                        min="1"
+                        max="12"
+                        value="5"
+                        inputmode="numeric"
+                        aria-label="End hour"
+                    >
+
+
+                    <span class="time-colon">
+                        :
+                    </span>
+
+
+                    <input
+                        type="number"
+                        id="endMinute"
+                        min="0"
+                        max="59"
+                        value="00"
+                        inputmode="numeric"
+                        aria-label="End minute"
+                    >
+
+
+                    <button
+                        type="button"
+                        id="endPeriod"
+                        class="period-button"
+                    >
+                        PM
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==============================
+                 Next Day
+                 ============================== -->
+
+            <label class="next-day-option">
+
+                <input
+                    type="checkbox"
+                    id="nextDay"
+                >
+
+                <span>
+                    End time is on the next day
+                </span>
+
+            </label>
+
+
+
+            <!-- ==============================
+                 Calculate
+                 ============================== -->
+
+            <button
+                type="button"
+                id="calculateTimeButton"
+                class="time-calculate-button"
+            >
+                Calculate Duration
+            </button>
+
+
+
+            <!-- ==============================
+                 Error Message
+                 ============================== -->
+
+            <div
+                id="timeError"
+                class="time-error"
+                role="alert"
+            ></div>
+
+
+
+            <!-- ==============================
+                 Result
+                 ============================== -->
+
+            <div
+                id="timeResult"
+                class="time-result-card"
+            >
+
+
+                <div class="result-label">
+                    RESULT
+                </div>
+
+
+                <div
+                    id="mainResult"
+                    class="main-result"
+                >
+                    —
+                </div>
+
+
+                <div
+                    id="resultDescription"
+                    class="result-description"
+                >
+                    Enter two times to calculate the duration.
+                </div>
+
+
+                <!-- Result Details -->
+
+                <div class="result-details">
+
+
+                    <div class="result-detail">
+
+                        <span>
+                            Total minutes
+                        </span>
+
+                        <strong id="totalMinutes">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-detail">
+
+                        <span>
+                            Decimal hours
+                        </span>
+
+                        <strong id="decimalHours">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- Copy -->
+
+                <button
+                    type="button"
+                    id="copyResultButton"
+                    class="copy-result-button"
+                    disabled
+                >
+                    📋 Copy Result
+                </button>
+
+
+                <div
+                    id="copyMessage"
+                    class="copy-message"
+                ></div>
+
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==============================
+         Footer
+         ============================== -->
+
+    <footer>
+
+        <p>
+            © 2026 LifeKit
+        </p>
+
+    </footer>
+
+
+
+    <script src="time-calculator.js"></script>
+
+</body>
+
+</html>

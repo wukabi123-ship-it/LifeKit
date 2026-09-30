@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JPG to PDF - LifeKit</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .jpg-pdf-page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        .jpg-pdf-panel {
+            background: #ffffff;
+            border: 1px solid #e8eaed;
+            border-radius: 18px;
+            padding: 26px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            margin-top: 24px;
+        }
+
+        .jpg-pdf-file-summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .jpg-pdf-stat {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .jpg-pdf-stat-number {
+            font-size: 22px;
+            font-weight: 800;
+            color: #202124;
+        }
+
+        .jpg-pdf-stat-label {
+            margin-top: 4px;
+            font-size: 12px;
+            color: #5f6368;
+        }
+
+        .jpg-pdf-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .jpg-pdf-small-button {
+            border: 1px solid #dadce0;
+            background: #ffffff;
+            color: #202124;
+            border-radius: 9px;
+            padding: 10px 14px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .jpg-pdf-small-button:hover {
+            background: #f8f9fa;
+        }
+
+        .jpg-pdf-small-button.danger:hover {
+            background: #fce8e6;
+            border-color: #f28b82;
+        }
+
+        .jpg-pdf-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .jpg-pdf-setting {
+            border: 1px solid #e0e0e0;
+            border-radius: 14px;
+            padding: 16px;
+        }
+
+        .jpg-pdf-setting label {
+            display: block;
+            margin-bottom: 9px;
+            color: #202124;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .jpg-pdf-setting select {
+            width: 100%;
+            padding: 11px 12px;
+            border: 1px solid #dadce0;
+            border-radius: 9px;
+            background: #fff;
+            font-size: 14px;
+            color: #202124;
+        }
+
+        .jpg-pdf-setting-description {
+            margin-top: 7px;
+            color: #5f6368;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .jpg-pdf-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 22px;
+        }
+
+        .jpg-pdf-image-card {
+            position: relative;
+            border: 2px solid #e0e0e0;
+            border-radius: 14px;
+            background: #ffffff;
+            overflow: hidden;
+            cursor: grab;
+            transition:
+                transform 0.18s ease,
+                border-color 0.18s ease,
+                opacity 0.18s ease;
+        }
+
+        .jpg-pdf-image-card:hover {
+            transform: translateY(-2px);
+            border-color: #9aa0a6;
+        }
+
+        .jpg-pdf-image-card.dragging {
+            opacity: 0.45;
+            border-color: #202124;
+        }
+
+        .jpg-pdf-image-card.drag-over {
+            border-color: #202124;
+            transform: scale(1.02);
+        }
+
+        .jpg-pdf-image-card img {
+            display: block;
+            width: 100%;
+            height: 270px;
+            object-fit: contain;
+            background: #f1f3f4;
+        }
+
+        .jpg-pdf-card-info {
+            padding: 12px;
+        }
+
+        .jpg-pdf-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .jpg-pdf-card-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 28px;
+            height: 28px;
+            padding: 0 8px;
+            border-radius: 99px;
+            background: #202124;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .jpg-pdf-remove {
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #f1f3f4;
+            color: #5f6368;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .jpg-pdf-remove:hover {
+            background: #fce8e6;
+            color: #b3261e;
+        }
+
+        .jpg-pdf-file-name {
+            margin-top: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #202124;
+            overflow-wrap: anywhere;
+            line-height: 1.4;
+        }
+
+        .jpg-pdf-file-size {
+            margin-top: 3px;
+            color: #5f6368;
+            font-size: 12px;
+        }
+
+        .jpg-pdf-empty {
+            padding: 45px 20px;
+            text-align: center;
+            color: #5f6368;
+        }
+
+        .jpg-pdf-empty-icon {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .jpg-pdf-main-button {
+            width: 100%;
+            margin-top: 22px;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 10px;
+            background: #202124;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .jpg-pdf-main-button:hover {
+            background: #3c4043;
+        }
+
+        .jpg-pdf-main-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .jpg-pdf-secondary-button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 13px 20px;
+            border: 1px solid #dadce0;
+            border-radius: 10px;
+            background: #ffffff;
+            color: #202124;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .jpg-pdf-secondary-button:hover {
+            background: #f8f9fa;
+        }
+
+        .jpg-pdf-progress {
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 12px;
+            background: #f8f9fa;
+        }
+
+        .jpg-pdf-progress-text {
+            font-size: 14px;
+            color: #202124;
+        }
+
+        .jpg-pdf-progress-track {
+            width: 100%;
+            height: 8px;
+            margin-top: 10px;
+            border-radius: 99px;
+            background: #e8eaed;
+            overflow: hidden;
+        }
+
+        .jpg-pdf-progress-bar {
+            width: 0%;
+            height: 100%;
+            border-radius: 99px;
+            background: #202124;
+            transition: width 0.2s ease;
+        }
+
+        .jpg-pdf-result {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 14px;
+            background: #f8f9fa;
+        }
+
+        .jpg-pdf-result-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #202124;
+        }
+
+        .jpg-pdf-result-details {
+            margin-top: 7px;
+            color: #5f6368;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .jpg-pdf-download {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-top: 15px;
+            padding: 13px 20px;
+            border-radius: 10px;
+            background: #202124;
+            color: #ffffff !important;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .jpg-pdf-download:hover {
+            background: #3c4043;
+        }
+
+        .jpg-pdf-error {
+            margin-top: 16px;
+            padding: 13px 15px;
+            border-radius: 10px;
+            background: #fce8e6;
+            color: #b3261e;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .jpg-pdf-success {
+            margin-top: 16px;
+            padding: 13px 15px;
+            border-radius: 10px;
+            background: #e6f4ea;
+            color: #137333;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .jpg-pdf-hidden {
+            display: none !important;
+        }
+
+        /* PDF Tools navigation */
+        .jpg-pdf-navigation {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e8eaed;
+        }
+
+        .jpg-pdf-back-link {
+            color: #202124;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .jpg-pdf-back-link:hover {
+            text-decoration: underline;
+        }
+
+        .jpg-pdf-home-link {
+            color: #202124;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .jpg-pdf-home-link:hover {
+            opacity: 0.75;
+        }
+
+        @media (max-width: 800px) {
+
+            .jpg-pdf-preview-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .jpg-pdf-options {
+                grid-template-columns: 1fr;
+            }
+
+            .jpg-pdf-file-summary {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .jpg-pdf-preview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .jpg-pdf-panel {
+                padding: 18px;
+            }
+
+            .jpg-pdf-image-card img {
+                height: 330px;
+            }
+
+            .jpg-pdf-navigation {
+                padding: 14px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="jpg-pdf-navigation">
+
+    <a
+        href="pdf-tools.html"
+        class="jpg-pdf-back-link"
+    >
+        ← PDF Tools
+    </a>
+
+    <a
+        href="index.html"
+        class="jpg-pdf-home-link"
+    >
+        LifeKit
+    </a>
+
+</header>
+
+<main>
+
+    <section class="hero">
+        <h1>JPG to PDF</h1>
+        <p>Turn your images into a clean PDF document.</p>
+    </section>
+
+    <div class="jpg-pdf-page">
+
+        <!-- Upload -->
+        <section class="jpg-pdf-panel">
+
+            <div
+                class="drop-zone"
+                id="dropZone"
+                style="text-align:center;"
+            >
+
+                <div class="drop-zone-icon">🖼️</div>
+
+                <h2>Drop your images here</h2>
+
+                <p>or</p>
+
+                <button
+                    type="button"
+                    class="upload-button"
+                    id="chooseImagesButton"
+                >
+                    Choose Images
+                </button>
+
+                <input
+                    type="file"
+                    id="imageInput"
+                    accept="image/jpeg,image/jpg,.jpg,.jpeg"
+                    multiple
+                    hidden
+                >
+
+                <div class="drop-zone-hint">
+                    JPG and JPEG files only • Multiple files supported
+                </div>
+
+            </div>
+
+            <div
+                id="errorMessage"
+                class="jpg-pdf-error jpg-pdf-hidden"
+            ></div>
+
+            <div
+                id="successMessage"
+                class="jpg-pdf-success jpg-pdf-hidden"
+            ></div>
+
+        </section>
+
+
+        <!-- File Summary -->
+        <section
+            id="filePanel"
+            class="jpg-pdf-panel jpg-pdf-hidden"
+        >
+
+            <h2>Your Images</h2>
+
+            <div class="jpg-pdf-file-summary">
+
+                <div class="jpg-pdf-stat">
+
+                    <div
+                        id="imageCount"
+                        class="jpg-pdf-stat-number"
+                    >
+                        0
+                    </div>
+
+                    <div class="jpg-pdf-stat-label">
+                        Images
+                    </div>
+
+                </div>
+
+                <div class="jpg-pdf-stat">
+
+                    <div
+                        id="totalSize"
+                        class="jpg-pdf-stat-number"
+                    >
+                        0 KB
+                    </div>
+
+                    <div class="jpg-pdf-stat-label">
+                        Total Size
+                    </div>
+
+                </div>
+
+                <div class="jpg-pdf-stat">
+
+                    <div
+                        id="pdfPageCount"
+                        class="jpg-pdf-stat-number"
+                    >
+                        0
+                    </div>
+
+                    <div class="jpg-pdf-stat-label">
+                        PDF Pages
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="jpg-pdf-actions">
+
+                <button
+                    type="button"
+                    class="jpg-pdf-small-button"
+                    id="addMoreButton"
+                >
+                    + Add More
+                </button>
+
+                <button
+                    type="button"
+                    class="jpg-pdf-small-button danger"
+                    id="clearAllButton"
+                >
+                    Clear All
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Preview -->
+        <section
+            id="previewPanel"
+            class="jpg-pdf-panel jpg-pdf-hidden"
+        >
+
+            <h2>Image Order</h2>
+
+            <p
+                style="
+                    margin-top:6px;
+                    color:#5f6368;
+                    font-size:14px;
+                "
+            >
+                Drag the images to change their order.
+            </p>
+
+            <div
+                id="previewGrid"
+                class="jpg-pdf-preview-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- Settings -->
+        <section
+            id="settingsPanel"
+            class="jpg-pdf-panel jpg-pdf-hidden"
+        >
+
+            <h2>PDF Settings</h2>
+
+            <div class="jpg-pdf-options">
+
+                <div class="jpg-pdf-setting">
+
+                    <label for="pageSize">
+                        Page Size
+                    </label>
+
+                    <select id="pageSize">
+
+                        <option value="a4" selected>
+                            A4
+                        </option>
+
+                        <option value="letter">
+                            Letter
+                        </option>
+
+                        <option value="original">
+                            Original Image Size
+                        </option>
+
+                    </select>
+
+                    <div class="jpg-pdf-setting-description">
+                        A4 is recommended for printing and sharing.
+                    </div>
+
+                </div>
+
+
+                <div class="jpg-pdf-setting">
+
+                    <label for="orientation">
+                        Orientation
+                    </label>
+
+                    <select id="orientation">
+
+                        <option value="auto" selected>
+                            Auto
+                        </option>
+
+                        <option value="portrait">
+                            Portrait
+                        </option>
+
+                        <option value="landscape">
+                            Landscape
+                        </option>
+
+                    </select>
+
+                    <div class="jpg-pdf-setting-description">
+                        Auto uses the image shape for each page.
+                    </div>
+
+                </div>
+
+
+                <div class="jpg-pdf-setting">
+
+                    <label for="imageFit">
+                        Image Fit
+                    </label>
+
+                    <select id="imageFit">
+
+                        <option value="fit" selected>
+                            Fit — Show Entire Image
+                        </option>
+
+                        <option value="fill">
+                            Fill — Cover Page
+                        </option>
+
+                    </select>
+
+                    <div class="jpg-pdf-setting-description">
+                        Fit prevents cropping. Fill may crop the edges.
+                    </div>
+
+                </div>
+
+
+                <div class="jpg-pdf-setting">
+
+                    <label for="margin">
+                        Page Margin
+                    </label>
+
+                    <select id="margin">
+
+                        <option value="0">
+                            None
+                        </option>
+
+                        <option value="12" selected>
+                            Small
+                        </option>
+
+                        <option value="24">
+                            Medium
+                        </option>
+
+                        <option value="36">
+                            Large
+                        </option>
+
+                    </select>
+
+                    <div class="jpg-pdf-setting-description">
+                        Margin is measured in PDF points.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="createPdfButton"
+                class="jpg-pdf-main-button"
+            >
+                Create PDF
+            </button>
+
+
+            <div
+                id="progressArea"
+                class="jpg-pdf-progress jpg-pdf-hidden"
+            >
+
+                <div
+                    id="progressText"
+                    class="jpg-pdf-progress-text"
+                >
+                    Preparing...
+                </div>
+
+                <div class="jpg-pdf-progress-track">
+
+                    <div
+                        id="progressBar"
+                        class="jpg-pdf-progress-bar"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Result -->
+        <section
+            id="resultPanel"
+            class="jpg-pdf-panel jpg-pdf-hidden"
+        >
+
+            <h2>PDF Ready</h2>
+
+            <div class="jpg-pdf-result">
+
+                <div class="jpg-pdf-result-title">
+                    Your PDF is ready 🎉
+                </div>
+
+                <div
+                    id="resultDetails"
+                    class="jpg-pdf-result-details"
+                ></div>
+
+                <a
+                    id="downloadButton"
+                    class="jpg-pdf-download"
+                    href="#"
+                    download="lifekit-images.pdf"
+                >
+                    Download PDF
+                </a>
+
+            </div>
+
+            <button
+                type="button"
+                id="convertAnotherButton"
+                class="jpg-pdf-secondary-button"
+            >
+                Convert Another Set
+            </button>
+
+        </section>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>© 2026 LifeKit. Small problems. Simple solutions.</p>
+</footer>
+
+
+<!-- PDF-LIB -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+
+<!-- JPG to PDF -->
+<script src="jpg-to-pdf.js"></script>
+
+</body>
+</html>

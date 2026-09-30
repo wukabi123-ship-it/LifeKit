@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>PDF Tools - LifeKit</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <style>
+
+        .pdf-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .pdf-tool-card {
+            display: block;
+            padding: 25px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            text-decoration: none;
+            color: inherit;
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .pdf-tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-color: #d1d5db;
+        }
+
+        .pdf-tool-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .pdf-tool-card h3 {
+            margin-bottom: 8px;
+            color: #202124;
+        }
+
+        .pdf-tool-card p {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.5;
+            min-height: 42px;
+        }
+
+        .pdf-tool-open {
+            display: inline-block;
+            margin-top: 8px;
+            color: #202124;
+            font-weight: 700;
+        }
+
+        .pdf-tools-back {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #202124;
+            color: #ffffff;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.2s ease;
+        }
+
+        .pdf-tools-back:hover {
+            background: #3c4043;
+        }
+
+        @media (max-width: 600px) {
+
+            .pdf-tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>📄 PDF Tools</h1>
+
+    <p>
+        Simple tools for working with PDF files.
+    </p>
+
+</header>
+
+
+
+<main>
+
+    <section class="hero">
+
+        <h2>
+            PDF Tools
+        </h2>
+
+        <p>
+            Choose a PDF tool below.
+        </p>
+
+
+        <div class="pdf-tools-grid">
+
+
+            <!-- PDF Merge -->
+
+            <a
+                href="pdf-merge.html"
+                class="pdf-tool-card"
+            >
+
+                <div class="pdf-tool-icon">
+                    📎
+                </div>
+
+                <h3>
+                    PDF Merge
+                </h3>
+
+                <p>
+                    Combine multiple PDF files into one document.
+                </p>
+
+                <span class="pdf-tool-open">
+                    Open Tool →
+                </span>
+
+            </a>
+
+
+
+            <!-- PDF Split -->
+
+            <a
+                href="pdf-split.html"
+                class="pdf-tool-card"
+            >
+
+                <div class="pdf-tool-icon">
+                    ✂️
+                </div>
+
+                <h3>
+                    PDF Split
+                </h3>
+
+                <p>
+                    Extract pages or split a PDF into multiple files.
+                </p>
+
+                <span class="pdf-tool-open">
+                    Open Tool →
+                </span>
+
+            </a>
+
+
+
+            <!-- PDF Compress -->
+
+            <a
+                href="pdf-compress.html"
+                class="pdf-tool-card"
+            >
+
+                <div class="pdf-tool-icon">
+                    🗜️
+                </div>
+
+                <h3>
+                    PDF Compress
+                </h3>
+
+                <p>
+                    Reduce PDF file size while keeping useful quality.
+                </p>
+
+                <span class="pdf-tool-open">
+                    Open Tool →
+                </span>
+
+            </a>
+
+
+
+            <!-- PDF to JPG -->
+
+            <a
+                href="pdf-to-jpg.html"
+                class="pdf-tool-card"
+            >
+
+                <div class="pdf-tool-icon">
+                    🖼️
+                </div>
+
+                <h3>
+                    PDF to JPG
+                </h3>
+
+                <p>
+                    Convert PDF pages into JPG images.
+                </p>
+
+                <span class="pdf-tool-open">
+                    Open Tool →
+                </span>
+
+            </a>
+
+
+
+            <!-- JPG to PDF -->
+
+            <a
+                href="jpg-to-pdf.html"
+                class="pdf-tool-card"
+            >
+
+                <div class="pdf-tool-icon">
+                    📄
+                </div>
+
+                <h3>
+                    JPG to PDF
+                </h3>
+
+                <p>
+                    Convert images into a PDF document.
+                </p>
+
+                <span class="pdf-tool-open">
+                    Open Tool →
+                </span>
+
+            </a>
+
+
+        </div>
+
+
+        <br>
+        <br>
+
+
+        <a
+            href="index.html"
+            class="pdf-tools-back"
+        >
+            ← Back to LifeKit
+        </a>
+
+
+    </section>
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        © 2026 LifeKit
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

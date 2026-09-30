@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Word Counter - LifeKit</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>🔤 Word Counter</h1>
+
+        <p>
+            Count words, characters and sentences instantly.
+        </p>
+
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+
+            <h2>
+                Count Your Text
+            </h2>
+
+            <p>
+                Type or paste your text below.
+            </p>
+
+            <br>
+
+
+            <!-- Text Input -->
+
+            <textarea
+                id="textInput"
+                placeholder="Type or paste your text here..."
+                rows="12"
+            ></textarea>
+
+
+            <br><br>
+
+
+            <!-- Statistics -->
+
+            <div class="word-stats">
+
+                <div class="stat-card">
+
+                    <strong id="wordCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Words
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <strong id="characterCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Characters
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <strong id="characterNoSpaceCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Characters without spaces
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <strong id="sentenceCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Sentences
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <strong id="paragraphCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Paragraphs
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <br>
+
+
+            <!-- Clear Button -->
+
+            <button id="clearButton">
+                Clear Text
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            © 2026 LifeKit
+        </p>
+
+    </footer>
+
+
+    <script src="word-counter.js"></script>
+
+</body>
+</html>

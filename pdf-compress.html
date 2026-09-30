@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>PDF Compress - LifeKit</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+<header>
+
+    <div class="header-inner">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            LifeKit
+        </a>
+
+        <a
+            href="pdf-tools.html"
+            class="back-link"
+        >
+            ← PDF Tools
+        </a>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <section class="hero">
+
+        <h1>PDF Compress</h1>
+
+        <p>
+            Reduce your PDF file size quickly and easily.
+        </p>
+
+    </section>
+
+
+    <section class="tool-card">
+
+
+        <!-- =========================
+             Upload
+        ========================== -->
+
+        <div
+            class="drop-zone"
+            id="dropZone"
+        >
+
+            <div class="drop-zone-icon">
+                📄
+            </div>
+
+
+            <h2>
+                Drop your PDF here
+            </h2>
+
+
+            <p>
+                or
+            </p>
+
+
+            <button
+                type="button"
+                class="upload-button"
+                id="choosePdfButton"
+            >
+                Choose PDF
+            </button>
+
+
+            <p class="drop-zone-hint">
+                PDF files only
+            </p>
+
+
+            <input
+                type="file"
+                id="pdfInput"
+                accept=".pdf,application/pdf"
+                hidden
+            >
+
+        </div>
+
+
+
+        <!-- =========================
+             File information
+        ========================== -->
+
+        <div
+            id="fileInfo"
+            hidden
+            style="
+                margin-top: 24px;
+                padding: 18px;
+                border: 1px solid #e5e7eb;
+                border-radius: 14px;
+                background: #fafafa;
+            "
+        >
+
+            <div
+                style="
+                    display: flex;
+                    align-items: center;
+                    gap: 14px;
+                "
+            >
+
+                <div
+                    style="
+                        width: 46px;
+                        height: 46px;
+                        border-radius: 12px;
+                        background: #f1f3f4;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 22px;
+                        flex-shrink: 0;
+                    "
+                >
+                    📄
+                </div>
+
+
+                <div
+                    style="
+                        min-width: 0;
+                    "
+                >
+
+                    <div
+                        id="fileName"
+                        style="
+                            font-weight: 700;
+                            word-break: break-word;
+                        "
+                    >
+                        PDF file
+                    </div>
+
+
+                    <div
+                        id="fileDetails"
+                        style="
+                            margin-top: 4px;
+                            color: #6b7280;
+                            font-size: 14px;
+                        "
+                    >
+                        0 KB
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             Compression options
+        ========================== -->
+
+        <div
+            id="compressionOptions"
+            style="
+                margin-top: 28px;
+            "
+        >
+
+            <h2
+                style="
+                    margin-bottom: 14px;
+                "
+            >
+                Compression Level
+            </h2>
+
+
+            <div
+                style="
+                    display: grid;
+                    grid-template-columns:
+                        repeat(3, minmax(0, 1fr));
+                    gap: 12px;
+                "
+            >
+
+
+                <!-- Balanced -->
+
+                <label
+                    style="
+                        display: block;
+                        cursor: pointer;
+                    "
+                >
+
+                    <input
+                        type="radio"
+                        name="compressionLevel"
+                        value="balanced"
+                        checked
+                        style="
+                            position: absolute;
+                            opacity: 0;
+                            pointer-events: none;
+                        "
+                    >
+
+
+                    <span
+                        class="compression-option"
+                        style="
+                            display: block;
+                            padding: 18px;
+                            border: 2px solid #202124;
+                            border-radius: 14px;
+                            background: #f8f9fa;
+                            height: 100%;
+                            box-sizing: border-box;
+                        "
+                    >
+
+                        <strong>
+                            Balanced
+                        </strong>
+
+
+                        <small
+                            style="
+                                display: block;
+                                margin-top: 7px;
+                                color: #6b7280;
+                                line-height: 1.4;
+                            "
+                        >
+                            Good balance between
+                            size and quality.
+                        </small>
+
+                    </span>
+
+                </label>
+
+
+
+                <!-- Smaller -->
+
+                <label
+                    style="
+                        display: block;
+                        cursor: pointer;
+                    "
+                >
+
+                    <input
+                        type="radio"
+                        name="compressionLevel"
+                        value="smaller"
+                        style="
+                            position: absolute;
+                            opacity: 0;
+                            pointer-events: none;
+                        "
+                    >
+
+
+                    <span
+                        class="compression-option"
+                        style="
+                            display: block;
+                            padding: 18px;
+                            border: 2px solid #e5e7eb;
+                            border-radius: 14px;
+                            background: #ffffff;
+                            height: 100%;
+                            box-sizing: border-box;
+                        "
+                    >
+
+                        <strong>
+                            Smaller File
+                        </strong>
+
+
+                        <small
+                            style="
+                                display: block;
+                                margin-top: 7px;
+                                color: #6b7280;
+                                line-height: 1.4;
+                            "
+                        >
+                            Smaller file with
+                            some quality reduction.
+                        </small>
+
+                    </span>
+
+                </label>
+
+
+
+                <!-- Maximum -->
+
+                <label
+                    style="
+                        display: block;
+                        cursor: pointer;
+                    "
+                >
+
+                    <input
+                        type="radio"
+                        name="compressionLevel"
+                        value="maximum"
+                        style="
+                            position: absolute;
+                            opacity: 0;
+                            pointer-events: none;
+                        "
+                    >
+
+
+                    <span
+                        class="compression-option"
+                        style="
+                            display: block;
+                            padding: 18px;
+                            border: 2px solid #e5e7eb;
+                            border-radius: 14px;
+                            background: #ffffff;
+                            height: 100%;
+                            box-sizing: border-box;
+                        "
+                    >
+
+                        <strong>
+                            Maximum Compression
+                        </strong>
+
+
+                        <small
+                            style="
+                                display: block;
+                                margin-top: 7px;
+                                color: #6b7280;
+                                line-height: 1.4;
+                            "
+                        >
+                            Smallest file size,
+                            lower image quality.
+                        </small>
+
+                    </span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             Warning
+        ========================== -->
+
+        <div
+            style="
+                margin-top: 18px;
+                padding: 14px 16px;
+                border-radius: 12px;
+                background: #fff8e1;
+                color: #6b4f00;
+                font-size: 13px;
+                line-height: 1.5;
+            "
+        >
+
+            <strong>
+                Important:
+            </strong>
+
+            Image-based compression may turn PDF
+            pages into images. Text may no longer
+            be selectable in the compressed PDF.
+
+        </div>
+
+
+
+        <!-- =========================
+             Compress button
+        ========================== -->
+
+        <button
+            type="button"
+            id="compressButton"
+            disabled
+            style="
+                width: 100%;
+                margin-top: 28px;
+                padding: 15px 20px;
+                border: none;
+                border-radius: 12px;
+                background: #202124;
+                color: #ffffff;
+                font-size: 16px;
+                font-weight: 700;
+                cursor: pointer;
+            "
+        >
+            Compress PDF
+        </button>
+
+
+
+        <!-- =========================
+             Progress
+        ========================== -->
+
+        <div
+            id="progressArea"
+            hidden
+            style="
+                margin-top: 28px;
+                text-align: center;
+            "
+        >
+
+            <div
+                style="
+                    font-size: 28px;
+                    margin-bottom: 12px;
+                "
+            >
+                ⏳
+            </div>
+
+
+            <div
+                id="progressText"
+                style="
+                    color: #4b5563;
+                    font-weight: 600;
+                "
+            >
+                Processing PDF...
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             Result
+        ========================== -->
+
+        <div
+            id="resultArea"
+            hidden
+            style="
+                margin-top: 36px;
+            "
+        >
+
+
+            <!-- Result title -->
+
+            <div
+                style="
+                    text-align: center;
+                    margin-bottom: 28px;
+                "
+            >
+
+                <div
+                    style="
+                        font-size: 42px;
+                        margin-bottom: 10px;
+                    "
+                >
+                    🎉
+                </div>
+
+
+                <h2
+                    id="savingsTitle"
+                    style="
+                        margin: 0;
+                        font-size: 28px;
+                    "
+                >
+                    Compression Complete
+                </h2>
+
+
+                <p
+                    id="savingsSubtitle"
+                    style="
+                        color: #6b7280;
+                        margin-top: 8px;
+                    "
+                >
+                    Your PDF is ready.
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 Size comparison
+            ========================== -->
+
+            <div
+                style="
+                    margin-bottom: 20px;
+                "
+            >
+
+                <div
+                    style="
+                        display: grid;
+                        grid-template-columns:
+                            repeat(2, minmax(0, 1fr));
+                        gap: 12px;
+                    "
+                >
+
+
+                    <!-- Original -->
+
+                    <div
+                        style="
+                            padding: 20px;
+                            border: 1px solid #e5e7eb;
+                            border-radius: 14px;
+                            background: #ffffff;
+                        "
+                    >
+
+                        <div
+                            style="
+                                color: #6b7280;
+                                font-size: 13px;
+                                margin-bottom: 7px;
+                            "
+                        >
+                            Original PDF
+                        </div>
+
+
+                        <strong
+                            id="originalSize"
+                            style="
+                                font-size: 24px;
+                                display: block;
+                            "
+                        >
+                            0 MB
+                        </strong>
+
+                    </div>
+
+
+
+                    <!-- Compressed -->
+
+                    <div
+                        style="
+                            padding: 20px;
+                            border: 1px solid #e5e7eb;
+                            border-radius: 14px;
+                            background: #ffffff;
+                        "
+                    >
+
+                        <div
+                            style="
+                                color: #6b7280;
+                                font-size: 13px;
+                                margin-bottom: 7px;
+                            "
+                        >
+                            Compressed PDF
+                        </div>
+
+
+                        <strong
+                            id="compressedSize"
+                            style="
+                                font-size: 24px;
+                                display: block;
+                            "
+                        >
+                            0 MB
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Size bar -->
+
+                <div
+                    style="
+                        margin-top: 18px;
+                    "
+                >
+
+                    <div
+                        style="
+                            display: flex;
+                            justify-content:
+                                space-between;
+                            gap: 10px;
+                            margin-bottom: 8px;
+                            font-size: 13px;
+                            color: #6b7280;
+                        "
+                    >
+
+                        <span>
+                            File size
+                        </span>
+
+
+                        <strong
+                            id="sizeChange"
+                            style="
+                                color: #202124;
+                            "
+                        >
+                            0% smaller
+                        </strong>
+
+                    </div>
+
+
+                    <div
+                        style="
+                            width: 100%;
+                            height: 12px;
+                            border-radius: 999px;
+                            background: #e5e7eb;
+                            overflow: hidden;
+                        "
+                    >
+
+                        <div
+                            id="sizeBar"
+                            style="
+                                width: 0%;
+                                height: 100%;
+                                background: #202124;
+                                border-radius: 999px;
+                                transition:
+                                    width 0.5s ease;
+                            "
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 Savings
+            ========================== -->
+
+            <div
+                id="savingsCard"
+                style="
+                    padding: 22px;
+                    border-radius: 14px;
+                    background: #f8f9fa;
+                    text-align: center;
+                    margin-bottom: 20px;
+                "
+            >
+
+                <div
+                    style="
+                        color: #6b7280;
+                        font-size: 13px;
+                        margin-bottom: 7px;
+                    "
+                >
+                    Space Saved
+                </div>
+
+
+                <strong
+                    id="savingsAmount"
+                    style="
+                        display: block;
+                        font-size: 30px;
+                    "
+                >
+                    0 MB
+                </strong>
+
+            </div>
+
+
+
+            <!-- =========================
+                 Compression method
+            ========================== -->
+
+            <div
+                id="compressionMethod"
+                style="
+                    margin-bottom: 20px;
+                    padding: 16px 18px;
+                    border: 1px solid #e5e7eb;
+                    border-radius: 14px;
+                    background: #ffffff;
+                "
+            >
+
+                <div
+                    style="
+                        font-size: 13px;
+                        color: #6b7280;
+                        margin-bottom: 6px;
+                    "
+                >
+                    Compression Method
+                </div>
+
+
+                <strong
+                    id="compressionMethodText"
+                >
+                    Smart compression
+                </strong>
+
+            </div>
+
+
+
+            <!-- =========================
+                 Message
+            ========================== -->
+
+            <div
+                id="compressionMessage"
+                style="
+                    padding: 20px;
+                    border-radius: 14px;
+                    background: #f8f9fa;
+                    margin-bottom: 24px;
+                "
+            >
+
+                <div
+                    style="
+                        display: flex;
+                        gap: 12px;
+                        align-items: flex-start;
+                    "
+                >
+
+                    <div
+                        id="compressionMessageIcon"
+                        style="
+                            font-size: 24px;
+                        "
+                    >
+                        🟢
+                    </div>
+
+
+                    <div>
+
+                        <strong
+                            id="compressionMessageTitle"
+                        >
+                            Great compression
+                        </strong>
+
+
+                        <p
+                            id="compressionMessageText"
+                            style="
+                                margin: 7px 0 0;
+                                color: #6b7280;
+                                line-height: 1.5;
+                            "
+                        >
+                            Your PDF was compressed successfully.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 Download
+            ========================== -->
+
+            <div
+                id="downloadArea"
+                hidden
+                style="
+                    text-align: center;
+                "
+            >
+
+                <a
+                    id="downloadButton"
+                    class="upload-button"
+                    href="#"
+                    download
+                >
+                    Download Compressed PDF
+                </a>
+
+            </div>
+
+
+
+            <!-- =========================
+                 Compress another
+            ========================== -->
+
+            <div
+                style="
+                    text-align: center;
+                    margin-top: 10px;
+                "
+            >
+
+                <button
+                    type="button"
+                    id="compressAnotherButton"
+                    style="
+                        border: none;
+                        background: none;
+                        color: #202124;
+                        font-weight: 700;
+                        cursor: pointer;
+                        padding: 10px;
+                    "
+                >
+                    Compress Another PDF
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        © 2026 LifeKit.
+        Small problems. Simple solutions.
+    </p>
+
+</footer>
+
+
+
+<!-- PDF-LIB -->
+
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"
+></script>
+
+
+
+<!-- PDF.js -->
+
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
+></script>
+
+
+
+<!-- LifeKit -->
+
+<script
+    src="pdf-compress.js"
+></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PDF Merge - LifeKit</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>📄 PDF Merge</h1>
+        <p>Combine multiple PDF files into one document.</p>
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+
+            <!-- Navigation -->
+
+            <div
+                style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 12px;
+                    flex-wrap: wrap;
+                    margin-bottom: 25px;
+                "
+            >
+
+                <a
+                    href="pdf-tools.html"
+                    style="
+                        display: inline-block;
+                        padding: 10px 16px;
+                        background: #ffffff;
+                        border: 1px solid #e5e7eb;
+                        border-radius: 10px;
+                        color: #202124;
+                        text-decoration: none;
+                        font-weight: 700;
+                    "
+                >
+                    ← PDF Tools
+                </a>
+
+
+                <a
+                    href="index.html"
+                    style="
+                        display: inline-block;
+                        padding: 10px 16px;
+                        background: #202124;
+                        border-radius: 10px;
+                        color: #ffffff;
+                        text-decoration: none;
+                        font-weight: 700;
+                    "
+                >
+                    LifeKit Home
+                </a>
+
+            </div>
+
+
+            <h2>Merge Your PDFs</h2>
+
+            <p>
+                Choose multiple PDF files and combine them into one PDF document.
+            </p>
+
+            <br>
+
+
+            <!-- Upload Area -->
+
+            <div id="dropZone" class="drop-zone">
+
+                <div class="drop-zone-icon">
+                    📄
+                </div>
+
+                <h3>
+                    Drag & Drop Your PDFs
+                </h3>
+
+                <p>
+                    or
+                </p>
+
+                <button
+                    id="choosePdfButton"
+                    type="button"
+                    class="upload-button"
+                >
+                    Choose PDF Files
+                </button>
+
+                <p class="drop-zone-hint">
+                    PDF files only
+                </p>
+
+                <input
+                    type="file"
+                    id="pdfInput"
+                    accept=".pdf,application/pdf"
+                    multiple
+                    hidden
+                >
+
+            </div>
+
+
+            <br><br>
+
+
+            <!-- File Summary -->
+
+            <div
+                id="fileSummary"
+                style="
+                    display: none;
+                    margin-bottom: 15px;
+                    text-align: left;
+                "
+            >
+
+                <div
+                    style="
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 15px;
+                        flex-wrap: wrap;
+                    "
+                >
+
+                    <div>
+
+                        <strong id="fileCount">
+                            0 PDFs
+                        </strong>
+
+                        <span
+                            id="totalSize"
+                            style="
+                                color: #6b7280;
+                                margin-left: 8px;
+                                font-size: 14px;
+                            "
+                        >
+                            • 0 B
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        id="clearButton"
+                        type="button"
+                    >
+                        Clear All
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- File List -->
+
+            <div id="fileList"></div>
+
+
+            <br>
+
+
+            <!-- Merge -->
+
+            <button
+                id="mergeButton"
+                type="button"
+                disabled
+            >
+                Merge PDFs
+            </button>
+
+
+            <br><br>
+
+
+            <!-- Download -->
+
+            <div id="downloadArea"></div>
+
+
+            <!-- Bottom Navigation -->
+
+            <div
+                style="
+                    margin-top: 35px;
+                    padding-top: 25px;
+                    border-top: 1px solid #e5e7eb;
+                "
+            >
+
+                <a
+                    href="pdf-tools.html"
+                    style="
+                        display: inline-block;
+                        padding: 12px 20px;
+                        background: #ffffff;
+                        border: 1px solid #e5e7eb;
+                        border-radius: 10px;
+                        color: #202124;
+                        text-decoration: none;
+                        font-weight: 700;
+                    "
+                >
+                    ← Back to PDF Tools
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>© 2026 LifeKit</p>
+    </footer>
+
+
+    <!-- PDF-LIB -->
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"
+    ></script>
+
+
+    <!-- LifeKit PDF Merge -->
+
+    <script src="pdf-merge.js"></script>
+
+</body>
+
+</html>
