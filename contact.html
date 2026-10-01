@@ -51,10 +51,18 @@
             margin-bottom: 18px;
         }
 
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+
         .contact-email {
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            min-height: 44px;
             padding: 12px 18px;
             border-radius: 10px;
             background: #202124;
@@ -65,6 +73,18 @@
 
         .contact-email:hover {
             background: #34363a;
+        }
+
+        .contact-address {
+            margin-top: 18px;
+            color: #5f6368;
+            font-size: 14px;
+        }
+
+        .contact-address a {
+            color: #202124;
+            font-weight: 600;
+            text-decoration: none;
         }
 
         .contact-note {
@@ -81,6 +101,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            min-height: 44px;
             margin-top: 25px;
             padding: 11px 17px;
             border-radius: 10px;
@@ -110,6 +131,15 @@
 
             .contact-card h2 {
                 font-size: 21px;
+            }
+
+            .contact-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .contact-email {
+                width: 100%;
             }
         }
     </style>
@@ -156,15 +186,32 @@
             tools, or have a suggestion for a new feature, you can contact us by email.
         </p>
 
-        <a
-            href="mailto:wukabi123@gmail.com"
-            class="contact-email"
-        >
-            Email LifeKit
-        </a>
+
+        <div class="contact-actions">
+
+            <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=wukabi123@gmail.com"
+                class="contact-email"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Email LifeKit
+            </a>
+
+        </div>
+
+
+        <div class="contact-address">
+            Email:
+            <a href="mailto:wukabi123@gmail.com">
+                wukabi123@gmail.com
+            </a>
+        </div>
+
 
         <div class="contact-note">
-            We will try to review messages and suggestions as soon as possible.
+            Clicking “Email LifeKit” opens a new Gmail compose window.
+            You can also copy the email address above and contact us using your preferred email service.
         </div>
 
     </div>
