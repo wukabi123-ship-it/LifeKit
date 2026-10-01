@@ -1,19 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Calculator - LifeKit</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="style.css">
+
+    <!-- ==============================
+         SEO
+         ============================== -->
+
+    <title>
+        Online Calculator — Simple Free Calculator | LifeKit
+    </title>
+
+    <meta
+        name="description"
+        content="Use LifeKit's simple online calculator for everyday calculations. Perform addition, subtraction, multiplication, division and percentage calculations quickly."
+    >
+
+    <meta
+        name="keywords"
+        content="online calculator, calculator online, free calculator, simple calculator, basic calculator, percentage calculator, math calculator, LifeKit"
+    >
+
+    <meta
+        name="author"
+        content="LifeKit"
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <meta
+        name="theme-color"
+        content="#202124"
+    >
+
+
+    <!-- ==============================
+         Canonical
+         ============================== -->
+
+    <link
+        rel="canonical"
+        href="https://lifekit.wukabi123.workers.dev/calculator.html"
+    >
+
+
+    <!-- ==============================
+         Favicon
+         ============================== -->
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="favicon.svg"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="favicon.svg"
+    >
+
+
+    <!-- ==============================
+         Open Graph
+         ============================== -->
+
+    <meta
+        property="og:title"
+        content="Online Calculator — Simple Free Calculator | LifeKit"
+    >
+
+    <meta
+        property="og:description"
+        content="A simple online calculator for everyday addition, subtraction, multiplication, division and percentage calculations."
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:url"
+        content="https://lifekit.wukabi123.workers.dev/calculator.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="LifeKit"
+    >
+
+
+    <!-- ==============================
+         Twitter / Social Preview
+         ============================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Online Calculator — Simple Free Calculator | LifeKit"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Use LifeKit's simple online calculator for everyday calculations."
+    >
+
+
+    <!-- ==============================
+         Structured Data
+         ============================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "LifeKit Online Calculator",
+        "url": "https://lifekit.wukabi123.workers.dev/calculator.html",
+        "description": "A simple online calculator for everyday mathematical calculations.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+
+
+    <!-- ==============================
+         Styles
+         ============================== -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
+
+    <!-- ==============================
+         Header
+         ============================== -->
+
     <header>
 
-        <h1>🔢 Calculator</h1>
+        <h1>
+            Calculator
+        </h1>
 
         <p>
             A simple calculator for everyday calculations.
@@ -21,6 +169,11 @@
 
     </header>
 
+
+
+    <!-- ==============================
+         Main
+         ============================== -->
 
     <main>
 
@@ -31,27 +184,35 @@
             </h2>
 
 
-            <!-- Calculator -->
+
+            <!-- ==============================
+                 Calculator
+                 ============================== -->
 
             <div class="calculator">
+
 
                 <!-- Display -->
 
                 <div
                     id="calculatorDisplay"
                     class="calculator-display"
+                    aria-live="polite"
                 >
                     0
                 </div>
+
 
 
                 <!-- Buttons -->
 
                 <div class="calculator-buttons">
 
+
                     <button
                         class="calculator-button clear"
                         data-action="clear"
+                        type="button"
                     >
                         AC
                     </button>
@@ -60,6 +221,8 @@
                     <button
                         class="calculator-button delete"
                         data-action="delete"
+                        type="button"
+                        aria-label="Delete"
                     >
                         ⌫
                     </button>
@@ -68,6 +231,7 @@
                     <button
                         class="calculator-button operator"
                         data-action="percent"
+                        type="button"
                     >
                         %
                     </button>
@@ -76,6 +240,7 @@
                     <button
                         class="calculator-button operator"
                         data-operator="/"
+                        type="button"
                     >
                         ÷
                     </button>
@@ -84,6 +249,7 @@
                     <button
                         class="calculator-button"
                         data-number="7"
+                        type="button"
                     >
                         7
                     </button>
@@ -92,6 +258,7 @@
                     <button
                         class="calculator-button"
                         data-number="8"
+                        type="button"
                     >
                         8
                     </button>
@@ -100,6 +267,7 @@
                     <button
                         class="calculator-button"
                         data-number="9"
+                        type="button"
                     >
                         9
                     </button>
@@ -108,6 +276,7 @@
                     <button
                         class="calculator-button operator"
                         data-operator="*"
+                        type="button"
                     >
                         ×
                     </button>
@@ -116,6 +285,7 @@
                     <button
                         class="calculator-button"
                         data-number="4"
+                        type="button"
                     >
                         4
                     </button>
@@ -124,6 +294,7 @@
                     <button
                         class="calculator-button"
                         data-number="5"
+                        type="button"
                     >
                         5
                     </button>
@@ -132,6 +303,7 @@
                     <button
                         class="calculator-button"
                         data-number="6"
+                        type="button"
                     >
                         6
                     </button>
@@ -140,6 +312,7 @@
                     <button
                         class="calculator-button operator"
                         data-operator="-"
+                        type="button"
                     >
                         −
                     </button>
@@ -148,6 +321,7 @@
                     <button
                         class="calculator-button"
                         data-number="1"
+                        type="button"
                     >
                         1
                     </button>
@@ -156,6 +330,7 @@
                     <button
                         class="calculator-button"
                         data-number="2"
+                        type="button"
                     >
                         2
                     </button>
@@ -164,6 +339,7 @@
                     <button
                         class="calculator-button"
                         data-number="3"
+                        type="button"
                     >
                         3
                     </button>
@@ -172,6 +348,7 @@
                     <button
                         class="calculator-button operator"
                         data-operator="+"
+                        type="button"
                     >
                         +
                     </button>
@@ -180,6 +357,7 @@
                     <button
                         class="calculator-button zero"
                         data-number="0"
+                        type="button"
                     >
                         0
                     </button>
@@ -188,6 +366,7 @@
                     <button
                         class="calculator-button"
                         data-action="decimal"
+                        type="button"
                     >
                         .
                     </button>
@@ -196,9 +375,11 @@
                     <button
                         class="calculator-button equals"
                         data-action="equals"
+                        type="button"
                     >
                         =
                     </button>
+
 
                 </div>
 
@@ -209,6 +390,11 @@
     </main>
 
 
+
+    <!-- ==============================
+         Footer
+         ============================== -->
+
     <footer>
 
         <p>
@@ -218,7 +404,13 @@
     </footer>
 
 
+
+    <!-- ==============================
+         JavaScript
+         ============================== -->
+
     <script src="calculator.js"></script>
 
 </body>
+
 </html>
