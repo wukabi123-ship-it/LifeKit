@@ -1,5 +1,5 @@
 // ==============================
-// LifeKit - Image Compressor
+// LifeKit - Calculator
 // ==============================
 
 
@@ -7,1023 +7,641 @@
 // Get Elements
 // ==============================
 
-const imageInput =
-    document.getElementById("imageInput");
+const display = document.getElementById("calculatorDisplay");
 
-
-const preview =
-    document.getElementById("preview");
-
-
-const compressButton =
-    document.getElementById("compressButton");
-
-
-const resetButton =
-    document.getElementById("resetButton");
-
-
-const downloadArea =
-    document.getElementById("downloadArea");
-
-
-const compressionMode =
-    document.getElementById("compressionMode");
-
-
-const qualityMode =
-    document.getElementById("qualityMode");
-
-
-const targetMode =
-    document.getElementById("targetMode");
-
-
-const quality =
-    document.getElementById("quality");
-
-
-const qualityValue =
-    document.getElementById("qualityValue");
-
-
-const targetSize =
-    document.getElementById("targetSize");
-
-
-const targetUnit =
-    document.getElementById("targetUnit");
-
-
-const originalSize =
-    document.getElementById("originalSize");
+const buttons = document.querySelectorAll(".calculator-button");
 
 
 // ==============================
-// Variables
+// Calculator Variables
 // ==============================
 
-let selectedFile = null;
-
-let previewURL = null;
-
-let downloadURL = null;
-
-
-// ==============================
-// Compression Mode
-// ==============================
-
-compressionMode.addEventListener(
-    "change",
-    function () {
-
-        if (
-            compressionMode.value ===
-            "quality"
-        ) {
-
-            qualityMode.style.display =
-                "block";
-
-            targetMode.style.display =
-                "none";
-
-        } else {
-
-            qualityMode.style.display =
-                "none";
-
-            targetMode.style.display =
-                "block";
-
-        }
-
-    }
-);
+let currentValue = "0";
+let previousValue = null;
+let currentOperator = null;
+let waitingForNewValue = false;
 
 
 // ==============================
-// Quality Slider
+// Update Display
 // ==============================
 
-quality.addEventListener(
-    "input",
-    function () {
+function updateDisplay() {
 
-        qualityValue.textContent =
-            quality.value;
-
-    }
-);
-
-
-// ==============================
-// Select Image
-// ==============================
-
-imageInput.addEventListener(
-    "change",
-    function () {
-
-        const file =
-            imageInput.files[0];
-
-
-        if (!file) {
-
-            return;
-
-        }
-
-
-        handleSelectedFile(file);
-
-    }
-);
-
-
-// ==============================
-// Handle Selected File
-// ==============================
-
-function handleSelectedFile(file) {
-
-    if (!file.type.startsWith("image/")) {
-
-        alert(
-            "Please choose an image file."
-        );
-
+    if (!display) {
         return;
-
     }
 
-
-    selectedFile =
-        file;
-
-
-    // Remove old preview URL
-
-    if (previewURL) {
-
-        URL.revokeObjectURL(
-            previewURL
-        );
-
-    }
-
-
-    // Create preview URL
-
-    previewURL =
-        URL.createObjectURL(file);
-
-
-    preview.src =
-        previewURL;
-
-
-    preview.style.display =
-        "block";
-
-
-    // Show original file size
-
-    originalSize.innerHTML = `
-
-        <strong>
-            Original Size:
-        </strong>
-
-        ${formatFileSize(file.size)}
-
-        (
-        ${file.size.toLocaleString()}
-        bytes
-        )
-
-    `;
-
-
-    // Remove old result
-
-    if (downloadURL) {
-
-        URL.revokeObjectURL(
-            downloadURL
-        );
-
-        downloadURL =
-            null;
-
-    }
-
-
-    downloadArea.innerHTML =
-        "";
-
-
-    // Show buttons
-
-    compressButton.style.display =
-        "inline-block";
-
-
-    resetButton.style.display =
-        "inline-block";
+    display.textContent = currentValue;
 
 }
 
 
 // ==============================
-// Compress Button
+// Enter Number
 // ==============================
 
-compressButton.addEventListener(
-    "click",
-    async function () {
+function enterNumber(number) {
 
-        if (!selectedFile) {
+    // If an error is showing, start again
+    if (currentValue === "Error") {
 
-            alert(
-                "Please choose an image first."
-            );
+        currentValue = number;
+        waitingForNewValue = false;
 
-            return;
-
-        }
-
-
-        compressButton.disabled =
-            true;
-
-
-        compressButton.textContent =
-            "Compressing...";
-
-
-        try {
-
-            if (
-                compressionMode.value ===
-                "quality"
-            ) {
-
-                await compressByQuality();
-
-            } else {
-
-                await compressByTargetSize();
-
-            }
-
-        } catch (error) {
-
-            console.error(error);
-
-
-            alert(
-                "Compression failed. Please try another image."
-            );
-
-        }
-
-
-        compressButton.disabled =
-            false;
-
-
-        compressButton.textContent =
-            "Compress Image";
-
-    }
-);
-
-
-// ==============================
-// Compress By Quality
-// ==============================
-
-function compressByQuality() {
-
-    return new Promise(
-        function (resolve, reject) {
-
-            const image =
-                new Image();
-
-
-            image.onload =
-                function () {
-
-                    const canvas =
-                        document.createElement(
-                            "canvas"
-                        );
-
-
-                    const ctx =
-                        canvas.getContext(
-                            "2d"
-                        );
-
-
-                    if (!ctx) {
-
-                        reject(
-                            new Error(
-                                "Canvas is not supported."
-                            )
-                        );
-
-                        return;
-
-                    }
-
-
-                    canvas.width =
-                        image.naturalWidth;
-
-
-                    canvas.height =
-                        image.naturalHeight;
-
-
-                    ctx.drawImage(
-                        image,
-                        0,
-                        0,
-                        canvas.width,
-                        canvas.height
-                    );
-
-
-                    const compressionQuality =
-                        Number(
-                            quality.value
-                        ) / 100;
-
-
-                    canvas.toBlob(
-                        function (blob) {
-
-                            if (!blob) {
-
-                                reject(
-                                    new Error(
-                                        "Compression failed."
-                                    )
-                                );
-
-                                return;
-
-                            }
-
-
-                            showCompressionResult(
-                                blob
-                            );
-
-
-                            resolve();
-
-                        },
-                        "image/jpeg",
-                        compressionQuality
-                    );
-
-                };
-
-
-            image.onerror =
-                function () {
-
-                    reject(
-                        new Error(
-                            "Unable to read image."
-                        )
-                    );
-
-                };
-
-
-            image.src =
-                URL.createObjectURL(
-                    selectedFile
-                );
-
-        }
-    );
-
-}
-
-
-// ==============================
-// Compress By Target Size
-// ==============================
-
-async function compressByTargetSize() {
-
-    const targetValue =
-        Number(
-            targetSize.value
-        );
-
-
-    if (
-        !targetValue ||
-        targetValue <= 0
-    ) {
-
-        alert(
-            "Please enter a valid target size."
-        );
+        updateDisplay();
 
         return;
-
     }
 
 
-    let targetBytes;
+    // Start a new number after an operator
+    // or after completing a calculation
+    if (waitingForNewValue) {
+
+        currentValue = number;
+        waitingForNewValue = false;
+
+        updateDisplay();
+
+        return;
+    }
 
 
-    if (
-        targetUnit.value ===
-        "KB"
-    ) {
+    // Replace the initial zero
+    if (currentValue === "0") {
 
-        targetBytes =
-            targetValue *
-            1024;
+        currentValue = number;
 
     } else {
 
-        targetBytes =
-            targetValue *
-            1024 *
-            1024;
+        currentValue += number;
 
     }
 
 
+    updateDisplay();
+
+}
+
+
+// ==============================
+// Enter Decimal
+// ==============================
+
+function enterDecimal() {
+
+    // If an error is showing, start with 0.
+    if (currentValue === "Error") {
+
+        currentValue = "0.";
+        waitingForNewValue = false;
+
+        updateDisplay();
+
+        return;
+    }
+
+
+    // Start a new decimal number
+    if (waitingForNewValue) {
+
+        currentValue = "0.";
+        waitingForNewValue = false;
+
+        updateDisplay();
+
+        return;
+    }
+
+
+    // Prevent multiple decimal points
+    if (!currentValue.includes(".")) {
+
+        currentValue += ".";
+
+        updateDisplay();
+
+    }
+
+}
+
+
+// ==============================
+// Choose Operator
+// ==============================
+
+function chooseOperator(operator) {
+
+    // Ignore operators after an error
+    if (currentValue === "Error") {
+        return;
+    }
+
+
+    const inputValue = Number(currentValue);
+
+
+    // If an operator already exists and the user
+    // has entered a new number, calculate first.
     if (
-        targetBytes >=
-        selectedFile.size
+        currentOperator !== null &&
+        !waitingForNewValue
     ) {
 
-        alert(
-            "The target size must be smaller than the original image."
+        const result = performCalculation(
+            previousValue,
+            inputValue,
+            currentOperator
         );
+
+
+        if (result === null) {
+
+            return;
+
+        }
+
+
+        currentValue = formatResult(result);
+
+    }
+
+
+    previousValue = Number(currentValue);
+
+    currentOperator = operator;
+
+    waitingForNewValue = true;
+
+}
+
+
+// ==============================
+// Perform Calculation
+// ==============================
+
+function performCalculation(
+    firstNumber,
+    secondNumber,
+    operator
+) {
+
+    let result;
+
+
+    switch (operator) {
+
+        case "+":
+
+            result =
+                firstNumber +
+                secondNumber;
+
+            break;
+
+
+        case "-":
+
+            result =
+                firstNumber -
+                secondNumber;
+
+            break;
+
+
+        case "*":
+
+            result =
+                firstNumber *
+                secondNumber;
+
+            break;
+
+
+        case "/":
+
+            if (secondNumber === 0) {
+
+                currentValue = "Error";
+
+                previousValue = null;
+
+                currentOperator = null;
+
+                waitingForNewValue = true;
+
+                updateDisplay();
+
+                return null;
+
+            }
+
+
+            result =
+                firstNumber /
+                secondNumber;
+
+            break;
+
+
+        default:
+
+            return null;
+
+    }
+
+
+    return result;
+
+}
+
+
+// ==============================
+// Calculate
+// ==============================
+
+function calculate() {
+
+    if (
+        currentOperator === null ||
+        previousValue === null ||
+        waitingForNewValue
+    ) {
 
         return;
 
     }
 
 
-    const image =
-        await loadImage(
-            selectedFile
+    const currentNumber =
+        Number(currentValue);
+
+
+    const result =
+        performCalculation(
+            previousValue,
+            currentNumber,
+            currentOperator
         );
 
 
-    const canvas =
-        document.createElement(
-            "canvas"
-        );
+    if (result === null) {
 
-
-    const ctx =
-        canvas.getContext(
-            "2d"
-        );
-
-
-    if (!ctx) {
-
-        throw new Error(
-            "Canvas is not supported."
-        );
+        return;
 
     }
 
 
-    canvas.width =
-        image.naturalWidth;
+    currentValue =
+        formatResult(result);
 
-
-    canvas.height =
-        image.naturalHeight;
-
-
-    ctx.drawImage(
-        image,
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-
-    let bestBlob =
+    previousValue =
         null;
 
+    currentOperator =
+        null;
 
-    let bestDifference =
-        Infinity;
-
-
-    let low =
-        0.01;
+    waitingForNewValue =
+        true;
 
 
-    let high =
-        1;
+    updateDisplay();
+
+}
 
 
-    for (
-        let i = 0;
-        i < 12;
-        i++
+// ==============================
+// Percentage
+// ==============================
+
+function calculatePercent() {
+
+    if (currentValue === "Error") {
+
+        return;
+
+    }
+
+
+    const value =
+        Number(currentValue);
+
+
+    currentValue =
+        formatResult(
+            value / 100
+        );
+
+
+    updateDisplay();
+
+}
+
+
+// ==============================
+// Delete Last Character
+// ==============================
+
+function deleteLastCharacter() {
+
+    if (
+        waitingForNewValue ||
+        currentValue === "Error"
     ) {
 
-        const currentQuality =
-            (low + high) / 2;
-
-
-        const blob =
-            await canvasToBlob(
-                canvas,
-                currentQuality
-            );
-
-
-        const difference =
-            Math.abs(
-                blob.size -
-                targetBytes
-            );
-
-
-        if (
-            difference <
-            bestDifference
-        ) {
-
-            bestDifference =
-                difference;
-
-
-            bestBlob =
-                blob;
-
-        }
-
-
-        if (
-            blob.size >
-            targetBytes
-        ) {
-
-            high =
-                currentQuality;
-
-        } else {
-
-            low =
-                currentQuality;
-
-        }
+        return;
 
     }
-
-
-    if (!bestBlob) {
-
-        throw new Error(
-            "Unable to create compressed image."
-        );
-
-    }
-
-
-    showCompressionResult(
-        bestBlob,
-        targetBytes
-    );
-
-}
-
-
-// ==============================
-// Canvas To Blob
-// ==============================
-
-function canvasToBlob(
-    canvas,
-    qualityValue
-) {
-
-    return new Promise(
-        function (resolve, reject) {
-
-            canvas.toBlob(
-                function (blob) {
-
-                    if (!blob) {
-
-                        reject(
-                            new Error(
-                                "Unable to create image."
-                            )
-                        );
-
-                        return;
-
-                    }
-
-
-                    resolve(blob);
-
-                },
-                "image/jpeg",
-                qualityValue
-            );
-
-        }
-    );
-
-}
-
-
-// ==============================
-// Load Image
-// ==============================
-
-function loadImage(file) {
-
-    return new Promise(
-        function (resolve, reject) {
-
-            const image =
-                new Image();
-
-
-            const objectURL =
-                URL.createObjectURL(
-                    file
-                );
-
-
-            image.onload =
-                function () {
-
-                    URL.revokeObjectURL(
-                        objectURL
-                    );
-
-
-                    resolve(image);
-
-                };
-
-
-            image.onerror =
-                function () {
-
-                    URL.revokeObjectURL(
-                        objectURL
-                    );
-
-
-                    reject(
-                        new Error(
-                            "Unable to load image."
-                        )
-                    );
-
-                };
-
-
-            image.src =
-                objectURL;
-
-        }
-    );
-
-}
-
-
-// ==============================
-// Show Compression Result
-// ==============================
-
-function showCompressionResult(
-    blob,
-    targetBytes = null
-) {
-
-    const originalFileSize =
-        selectedFile.size;
-
-
-    const compressedFileSize =
-        blob.size;
-
-
-    const savedBytes =
-        originalFileSize -
-        compressedFileSize;
-
-
-    const savedPercent =
-        originalFileSize > 0
-            ? (
-                savedBytes /
-                originalFileSize
-            ) * 100
-            : 0;
-
-
-    // Remove old download URL
-
-    if (downloadURL) {
-
-        URL.revokeObjectURL(
-            downloadURL
-        );
-
-    }
-
-
-    // Create new download URL
-
-    downloadURL =
-        URL.createObjectURL(
-            blob
-        );
-
-
-    let targetMessage =
-        "";
 
 
     if (
-        targetBytes !== null
+        currentValue.length <= 1
     ) {
 
-        const difference =
-            compressedFileSize -
-            targetBytes;
+        currentValue = "0";
 
+    } else {
 
-        const absoluteDifference =
-            Math.abs(
-                difference
+        currentValue =
+            currentValue.slice(
+                0,
+                -1
             );
-
-
-        targetMessage = `
-
-            <p>
-
-                <strong>
-                    Target:
-                </strong>
-
-                ${formatFileSize(
-                    targetBytes
-                )}
-
-            </p>
-
-
-            <p>
-
-                <strong>
-                    Difference:
-                </strong>
-
-                ${formatFileSize(
-                    absoluteDifference
-                )}
-
-                ${
-                    difference > 0
-                        ? "over target"
-                        : "under target"
-                }
-
-            </p>
-
-        `;
 
     }
 
 
-    downloadArea.innerHTML = `
+    // Prevent a negative sign from remaining alone
+    if (
+        currentValue === "-" ||
+        currentValue === ""
+    ) {
 
-        <div class="compression-result">
+        currentValue = "0";
 
-
-            <h3>
-                Compression Complete
-            </h3>
-
-
-            <p>
-
-                <strong>
-                    Original:
-                </strong>
-
-                ${formatFileSize(
-                    originalFileSize
-                )}
-
-                (
-                ${originalFileSize.toLocaleString()}
-                bytes
-                )
-
-            </p>
+    }
 
 
-            <p>
-
-                <strong>
-                    Compressed:
-                </strong>
-
-                ${formatFileSize(
-                    compressedFileSize
-                )}
-
-                (
-                ${compressedFileSize.toLocaleString()}
-                bytes
-                )
-
-            </p>
-
-
-            <p>
-
-                <strong>
-                    Saved:
-                </strong>
-
-                ${formatFileSize(
-                    Math.max(
-                        savedBytes,
-                        0
-                    )
-                )}
-
-                (${savedPercent.toFixed(1)}%)
-
-            </p>
-
-
-            ${targetMessage}
-
-
-            <br>
-
-
-            <a
-                href="${downloadURL}"
-                download="lifekit-compressed.jpg"
-            >
-
-                <button
-                    type="button"
-                >
-                    Download Compressed Image
-                </button>
-
-            </a>
-
-
-        </div>
-
-    `;
+    updateDisplay();
 
 }
 
 
 // ==============================
-// Reset
+// Clear Calculator
 // ==============================
 
-resetButton.addEventListener(
-    "click",
-    function () {
+function clearCalculator() {
 
-        resetCompressor();
+    currentValue = "0";
+
+    previousValue = null;
+
+    currentOperator = null;
+
+    waitingForNewValue = false;
+
+
+    updateDisplay();
+
+}
+
+
+// ==============================
+// Format Result
+// ==============================
+
+function formatResult(value) {
+
+    if (
+        !Number.isFinite(value)
+    ) {
+
+        return "Error";
+
+    }
+
+
+    return String(
+        Number(
+            value.toPrecision(12)
+        )
+    );
+
+}
+
+
+// ==============================
+// Handle Button Click
+// ==============================
+
+function handleButtonClick(button) {
+
+    const number =
+        button.dataset.number;
+
+    const operator =
+        button.dataset.operator;
+
+    const action =
+        button.dataset.action;
+
+
+    // Number button
+    if (
+        number !== undefined
+    ) {
+
+        enterNumber(number);
+
+        return;
+
+    }
+
+
+    // Operator button
+    if (
+        operator !== undefined
+    ) {
+
+        chooseOperator(operator);
+
+        return;
+
+    }
+
+
+    // Action buttons
+    switch (action) {
+
+        case "decimal":
+
+            enterDecimal();
+
+            break;
+
+
+        case "clear":
+
+            clearCalculator();
+
+            break;
+
+
+        case "delete":
+
+            deleteLastCharacter();
+
+            break;
+
+
+        case "percent":
+
+            calculatePercent();
+
+            break;
+
+
+        case "equals":
+
+            calculate();
+
+            break;
+
+    }
+
+}
+
+
+// ==============================
+// Button Events
+// ==============================
+
+buttons.forEach(
+    function (button) {
+
+        button.addEventListener(
+            "click",
+            function () {
+
+                handleButtonClick(button);
+
+            }
+        );
 
     }
 );
 
 
 // ==============================
-// Reset Compressor
+// Keyboard Support
 // ==============================
 
-function resetCompressor() {
+document.addEventListener(
+    "keydown",
+    function (event) {
 
-    selectedFile =
-        null;
-
-
-    imageInput.value =
-        "";
+        const key =
+            event.key;
 
 
-    if (previewURL) {
+        // Numbers
+        if (
+            key >= "0" &&
+            key <= "9"
+        ) {
 
-        URL.revokeObjectURL(
-            previewURL
-        );
+            enterNumber(key);
 
-        previewURL =
-            null;
+            return;
+
+        }
+
+
+        // Decimal
+        if (
+            key === "."
+        ) {
+
+            enterDecimal();
+
+            return;
+
+        }
+
+
+        // Operators
+        if (
+            key === "+" ||
+            key === "-" ||
+            key === "*" ||
+            key === "/"
+        ) {
+
+            chooseOperator(key);
+
+            return;
+
+        }
+
+
+        // Enter / Equals
+        if (
+            key === "Enter" ||
+            key === "="
+        ) {
+
+            event.preventDefault();
+
+            calculate();
+
+            return;
+
+        }
+
+
+        // Backspace
+        if (
+            key === "Backspace"
+        ) {
+
+            event.preventDefault();
+
+            deleteLastCharacter();
+
+            return;
+
+        }
+
+
+        // Escape / Clear
+        if (
+            key === "Escape"
+        ) {
+
+            clearCalculator();
+
+            return;
+
+        }
+
+
+        // Percentage
+        if (
+            key === "%"
+        ) {
+
+            calculatePercent();
+
+        }
 
     }
-
-
-    if (downloadURL) {
-
-        URL.revokeObjectURL(
-            downloadURL
-        );
-
-        downloadURL =
-            null;
-
-    }
-
-
-    preview.src =
-        "";
-
-
-    preview.style.display =
-        "none";
-
-
-    originalSize.innerHTML = `
-
-        <strong>
-            Original Size:
-        </strong>
-
-        —
-
-    `;
-
-
-    downloadArea.innerHTML =
-        "";
-
-
-    resetButton.style.display =
-        "none";
-
-}
+);
 
 
 // ==============================
-// Format File Size
+// Initial Display
 // ==============================
 
-function formatFileSize(bytes) {
-
-    if (
-        bytes < 1024
-    ) {
-
-        return `${bytes} B`;
-
-    }
-
-
-    if (
-        bytes <
-        1024 * 1024
-    ) {
-
-        return `${(
-            bytes / 1024
-        ).toFixed(2)} KB`;
-
-    }
-
-
-    return `${(
-        bytes /
-        (1024 * 1024)
-    ).toFixed(2)} MB`;
-
-}
+updateDisplay();
