@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lifekit.wukabi123.workers.dev/sitemap.xml
