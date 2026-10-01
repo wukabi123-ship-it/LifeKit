@@ -1,19 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Word Counter - LifeKit</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="style.css">
+
+    <!-- ==============================
+         SEO
+         ============================== -->
+
+    <title>
+        Word Counter — Count Words & Characters Online | LifeKit
+    </title>
+
+    <meta
+        name="description"
+        content="Count words, characters, sentences and paragraphs online with LifeKit. A simple and fast word counter for essays, documents and everyday writing."
+    >
+
+    <meta
+        name="keywords"
+        content="word counter, word count, character counter, count words online, character count, sentence counter, paragraph counter, writing tool, LifeKit"
+    >
+
+    <meta
+        name="author"
+        content="LifeKit"
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <meta
+        name="theme-color"
+        content="#202124"
+    >
+
+
+    <!-- ==============================
+         Canonical
+         ============================== -->
+
+    <link
+        rel="canonical"
+        href="https://lifekit.wukabi123.workers.dev/word-counter.html"
+    >
+
+
+    <!-- ==============================
+         Favicon
+         ============================== -->
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="favicon.svg"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="favicon.svg"
+    >
+
+
+    <!-- ==============================
+         Open Graph
+         ============================== -->
+
+    <meta
+        property="og:title"
+        content="Word Counter — Count Words & Characters Online | LifeKit"
+    >
+
+    <meta
+        property="og:description"
+        content="Count words, characters, sentences and paragraphs instantly with LifeKit."
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:url"
+        content="https://lifekit.wukabi123.workers.dev/word-counter.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="LifeKit"
+    >
+
+
+    <!-- ==============================
+         Twitter / Social Preview
+         ============================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Word Counter — Count Words & Characters Online | LifeKit"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Count words, characters, sentences and paragraphs instantly with LifeKit."
+    >
+
+
+    <!-- ==============================
+         Structured Data
+         ============================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "LifeKit Word Counter",
+        "url": "https://lifekit.wukabi123.workers.dev/word-counter.html",
+        "description": "An online word counter for counting words, characters, sentences and paragraphs.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+
+
+    <!-- ==============================
+         Styles
+         ============================== -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
+
+    <!-- ==============================
+         Header
+         ============================== -->
+
     <header>
 
-        <h1>🔤 Word Counter</h1>
+        <h1>
+            Word Counter
+        </h1>
 
         <p>
             Count words, characters and sentences instantly.
@@ -22,22 +170,33 @@
     </header>
 
 
+
+    <!-- ==============================
+         Main
+         ============================== -->
+
     <main>
 
         <section class="hero">
+
 
             <h2>
                 Count Your Text
             </h2>
 
+
             <p>
                 Type or paste your text below.
             </p>
 
+
             <br>
 
 
-            <!-- Text Input -->
+
+            <!-- ==============================
+                 Text Input
+                 ============================== -->
 
             <textarea
                 id="textInput"
@@ -49,9 +208,13 @@
             <br><br>
 
 
-            <!-- Statistics -->
+
+            <!-- ==============================
+                 Statistics
+                 ============================== -->
 
             <div class="word-stats">
+
 
                 <div class="stat-card">
 
@@ -64,6 +227,7 @@
                     </span>
 
                 </div>
+
 
 
                 <div class="stat-card">
@@ -79,6 +243,7 @@
                 </div>
 
 
+
                 <div class="stat-card">
 
                     <strong id="characterNoSpaceCount">
@@ -90,6 +255,7 @@
                     </span>
 
                 </div>
+
 
 
                 <div class="stat-card">
@@ -105,6 +271,7 @@
                 </div>
 
 
+
                 <div class="stat-card">
 
                     <strong id="paragraphCount">
@@ -117,22 +284,35 @@
 
                 </div>
 
+
             </div>
 
 
             <br>
 
 
-            <!-- Clear Button -->
 
-            <button id="clearButton">
+            <!-- ==============================
+                 Clear Button
+                 ============================== -->
+
+            <button
+                id="clearButton"
+                type="button"
+            >
                 Clear Text
             </button>
+
 
         </section>
 
     </main>
 
+
+
+    <!-- ==============================
+         Footer
+         ============================== -->
 
     <footer>
 
@@ -143,7 +323,13 @@
     </footer>
 
 
+
+    <!-- ==============================
+         JavaScript
+         ============================== -->
+
     <script src="word-counter.js"></script>
 
 </body>
+
 </html>
