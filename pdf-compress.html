@@ -1,832 +1,1108 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PDF Compress — Compress PDF Files Online | LifeKit</title>
 
     <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
+        name="description"
+        content="Compress PDF files online with LifeKit. Reduce PDF file size with balanced, smaller-file or maximum compression options while keeping useful quality."
     >
 
-    <title>PDF Compress - LifeKit</title>
+    <meta
+        name="keywords"
+        content="PDF compressor, compress PDF, reduce PDF size, PDF compression, online PDF compressor, LifeKit"
+    >
+
+    <meta name="author" content="LifeKit">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#202124">
 
     <link
-        rel="stylesheet"
-        href="style.css"
+        rel="canonical"
+        href="https://lifekit.wukabi123.workers.dev/pdf-compress.html"
     >
-</head>
 
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <meta property="og:type" content="website">
+    <meta
+        property="og:title"
+        content="PDF Compress — Compress PDF Files Online | LifeKit"
+    >
+    <meta
+        property="og:description"
+        content="Compress PDF files online with LifeKit. Reduce PDF file size quickly and easily."
+    >
+    <meta
+        property="og:url"
+        content="https://lifekit.wukabi123.workers.dev/pdf-compress.html"
+    >
+    <meta property="og:site_name" content="LifeKit">
+
+    <meta name="twitter:card" content="summary">
+    <meta
+        name="twitter:title"
+        content="PDF Compress — Compress PDF Files Online | LifeKit"
+    >
+    <meta
+        name="twitter:description"
+        content="Compress PDF files online with LifeKit."
+    >
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "LifeKit PDF Compressor",
+        "url": "https://lifekit.wukabi123.workers.dev/pdf-compress.html",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "description": "Compress PDF files online with LifeKit."
+    }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --lk-black: #202124;
+            --lk-black-hover: #34363a;
+            --lk-text: #202124;
+            --lk-text-secondary: #5f6368;
+            --lk-text-muted: #8a9099;
+            --lk-background: #f5f7fa;
+            --lk-surface: #ffffff;
+            --lk-surface-soft: #f8f9fa;
+            --lk-border: #e3e6ea;
+            --lk-border-strong: #d1d5db;
+            --lk-success: #188038;
+            --lk-success-soft: #e8f5e9;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+            background: var(--lk-background);
+            color: var(--lk-text);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        /* =========================
+           LifeKit Main Header
+           ========================= */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.88);
+            border-bottom: 1px solid var(--lk-border);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .site-header .header-inner {
+            width: min(1100px, calc(100% - 40px));
+            min-height: 68px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .site-header .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+
+        .site-header .logo-icon {
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            border-radius: 10px;
+            background: var(--lk-black);
+            color: #ffffff;
+            font-size: 17px;
+        }
+
+        .site-header .header-tagline {
+            color: var(--lk-text-secondary);
+            font-size: 14px;
+            text-align: right;
+            line-height: 1.4;
+        }
+
+        .site-header .header-tagline strong {
+            color: var(--lk-text);
+            font-weight: 700;
+        }
+
+        /* =========================
+           PDF Navigation
+           ========================= */
+
+        .pdf-page-nav {
+            width: min(900px, calc(100% - 40px));
+            margin: 0 auto;
+            padding-top: 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .pdf-nav-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 10px 16px;
+
+            border: 1px solid var(--lk-border);
+            border-radius: 10px;
+
+            background: var(--lk-surface);
+            color: var(--lk-text);
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .pdf-nav-button:hover {
+            background: var(--lk-surface-soft);
+            border-color: var(--lk-border-strong);
+            transform: translateY(-1px);
+        }
+
+        .pdf-nav-home {
+            background: var(--lk-black);
+            border-color: var(--lk-black);
+            color: #ffffff;
+        }
+
+        .pdf-nav-home:hover {
+            background: var(--lk-black-hover);
+            border-color: var(--lk-black-hover);
+        }
+
+        /* =========================
+           Hero
+           ========================= */
+
+        .hero {
+            width: min(900px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 52px 0 30px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin: 0 0 12px;
+            font-size: clamp(32px, 5vw, 48px);
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 0 auto;
+            color: var(--lk-text-secondary);
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           Main Card
+           ========================= */
+
+        .container {
+            width: min(900px, calc(100% - 40px));
+            margin: 0 auto 60px;
+        }
+
+        .card {
+            background: var(--lk-surface);
+            border: 1px solid var(--lk-border);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 8px 30px rgba(32, 33, 36, 0.06);
+        }
+
+        /* =========================
+           Upload Area
+           ========================= */
+
+        .drop-zone {
+            border: 2px dashed #c9cdd3;
+            border-radius: 18px;
+            padding: 48px 24px;
+            text-align: center;
+            background: #fafbfc;
+            cursor: pointer;
+
+            transition:
+                border-color 0.2s ease,
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .drop-zone:hover {
+            border-color: #8a9099;
+            background: #f8f9fa;
+        }
+
+        .drop-zone.dragover {
+            border-color: var(--lk-black);
+            background: #f1f3f4;
+            transform: translateY(-1px);
+        }
+
+        .upload-icon {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .drop-zone h2 {
+            margin: 0 0 8px;
+            font-size: 22px;
+        }
+
+        .drop-zone p {
+            margin: 0 0 18px;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           Buttons
+           ========================= */
+
+        .choose-button,
+        .primary-button,
+        .secondary-button {
+            border: 0;
+            border-radius: 12px;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease,
+                opacity 0.2s ease;
+        }
+
+        .choose-button,
+        .primary-button {
+            background: var(--lk-black);
+            color: #ffffff;
+        }
+
+        .choose-button:hover,
+        .primary-button:hover {
+            background: var(--lk-black-hover);
+            transform: translateY(-1px);
+        }
+
+        .secondary-button {
+            background: #f1f3f4;
+            color: var(--lk-black);
+        }
+
+        .secondary-button:hover {
+            background: #e5e7eb;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* =========================
+           File Info
+           ========================= */
+
+        .file-info {
+            margin-top: 24px;
+            padding: 18px;
+            background: var(--lk-surface-soft);
+            border: 1px solid var(--lk-border);
+            border-radius: 14px;
+        }
+
+        .file-info strong {
+            display: block;
+            margin-bottom: 6px;
+            overflow-wrap: anywhere;
+        }
+
+        .file-info span {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* =========================
+           Compression Options
+           ========================= */
+
+        .compression-options {
+            margin-top: 28px;
+        }
+
+        .compression-options h2 {
+            margin: 0 0 16px;
+            font-size: 20px;
+        }
+
+        .compression-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .compression-option {
+            position: relative;
+        }
+
+        .compression-option input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .compression-option label {
+            display: block;
+            height: 100%;
+            padding: 18px;
+
+            border: 1px solid #d9dde3;
+            border-radius: 14px;
+
+            background: #ffffff;
+            cursor: pointer;
+
+            transition:
+                border-color 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .compression-option label:hover {
+            border-color: #b7bcc4;
+        }
+
+        .compression-option input:checked + label {
+            border-color: var(--lk-black);
+            background: #f1f3f4;
+        }
+
+        .compression-option strong {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .compression-option span {
+            display: block;
+            color: #6b7280;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           Warning
+           ========================= */
+
+        .warning {
+            margin-top: 18px;
+            padding: 14px 16px;
+
+            border-radius: 12px;
+            background: #fff8e1;
+            border: 1px solid #f1df9b;
+
+            color: #6b5a1b;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           Compress Action
+           ========================= */
+
+        .action-area {
+            margin-top: 28px;
+            text-align: center;
+        }
+
+        /* =========================
+           Progress
+           ========================= */
+
+        .progress-area {
+            display: none;
+            margin-top: 24px;
+            text-align: center;
+        }
+
+        .progress-text {
+            color: var(--lk-text-secondary);
+            font-size: 14px;
+        }
+
+        /* =========================
+           Result
+           ========================= */
+
+        .result-area {
+            display: none;
+            margin-top: 28px;
+        }
+
+        .result-card {
+            padding: 24px;
+            border-radius: 16px;
+            background: var(--lk-surface-soft);
+            border: 1px solid var(--lk-border);
+        }
+
+        .savings-title {
+            margin: 0;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .savings-subtitle {
+            margin: 8px 0 24px;
+            text-align: center;
+            color: #6b7280;
+        }
+
+        .size-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .size-box {
+            padding: 18px;
+            background: #ffffff;
+            border: 1px solid var(--lk-border);
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .size-box span {
+            display: block;
+            margin-bottom: 7px;
+            color: #6b7280;
+            font-size: 13px;
+        }
+
+        .size-box strong {
+            font-size: 20px;
+        }
+
+        .size-change {
+            margin-top: 18px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .size-bar {
+            height: 10px;
+            margin-top: 12px;
+            background: #e5e7eb;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .size-bar-fill {
+            height: 100%;
+            width: 0;
+            background: var(--lk-black);
+            border-radius: inherit;
+            transition: width 0.5s ease;
+        }
+
+        /* =========================
+           Savings
+           ========================= */
+
+        .savings-card {
+            margin-top: 18px;
+            padding: 20px;
+
+            border-radius: 14px;
+            background: var(--lk-success-soft);
+            border: 1px solid #c8e6c9;
+
+            text-align: center;
+        }
+
+        .savings-card span {
+            display: block;
+            color: #2e6b35;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .savings-amount {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--lk-success);
+        }
+
+        /* =========================
+           Method
+           ========================= */
+
+        .method-card {
+            margin-top: 18px;
+            padding: 18px;
+
+            border-radius: 14px;
+            background: #ffffff;
+            border: 1px solid var(--lk-border);
+        }
+
+        .method-card h3 {
+            margin: 0 0 6px;
+            font-size: 16px;
+        }
+
+        .method-card p {
+            margin: 0;
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        /* =========================
+           Result Message
+           ========================= */
+
+        .compression-message {
+            margin-top: 18px;
+            padding: 18px;
+
+            border-radius: 14px;
+            background: #ffffff;
+            border: 1px solid var(--lk-border);
+
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .compression-message-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .compression-message h3 {
+            margin: 0 0 5px;
+            font-size: 16px;
+        }
+
+        .compression-message p {
+            margin: 0;
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           Download
+           ========================= */
+
+        .download-area {
+            margin-top: 24px;
+
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* =========================
+           Footer
+           ========================= */
+
+        footer {
+            border-top: 1px solid var(--lk-border);
+            padding: 28px 20px;
+            text-align: center;
+            color: var(--lk-text-muted);
+            font-size: 13px;
+        }
+
+        /* =========================
+           Mobile
+           ========================= */
+
+        @media (max-width: 700px) {
+
+            .site-header .header-inner {
+                width: min(100% - 32px, 1100px);
+                min-height: 60px;
+            }
+
+            .site-header .header-tagline {
+                display: none;
+            }
+
+            .pdf-page-nav {
+                width: min(100% - 32px, 900px);
+                padding-top: 20px;
+            }
+
+            .pdf-nav-button {
+                min-height: 40px;
+                padding: 9px 13px;
+                font-size: 13px;
+            }
+
+            .hero {
+                width: min(100% - 32px, 900px);
+                padding-top: 40px;
+            }
+
+            .container {
+                width: min(100% - 32px, 900px);
+            }
+
+            .compression-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .size-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
 
 <body>
 
-<header>
+    <!-- =========================
+         LifeKit Main Header
+         ========================= -->
 
-    <div class="header-inner">
+    <header class="site-header">
+        <div class="header-inner">
 
-        <a
-            href="index.html"
-            class="logo"
-        >
-            LifeKit
-        </a>
+            <a href="index.html" class="logo" aria-label="LifeKit Home">
+                <span class="logo-icon">LK</span>
+                <span>LifeKit</span>
+            </a>
 
-        <a
-            href="pdf-tools.html"
-            class="back-link"
-        >
-            ← PDF Tools
-        </a>
+            <div class="header-tagline">
+                Small problems.
+                <strong>Simple solutions.</strong>
+            </div>
 
-    </div>
-
-</header>
+        </div>
+    </header>
 
 
-<main>
+    <main>
 
-    <section class="hero">
+        <!-- =========================
+             PDF Tools Navigation
+             ========================= -->
 
-        <h1>PDF Compress</h1>
+        <div class="pdf-page-nav">
 
-        <p>
-            Reduce your PDF file size quickly and easily.
-        </p>
+            <a
+                href="pdf-tools.html"
+                class="pdf-nav-button"
+            >
+                ← PDF Tools
+            </a>
 
-    </section>
+            <a
+                href="index.html"
+                class="pdf-nav-button pdf-nav-home"
+            >
+                LifeKit Home
+            </a>
 
-
-    <section class="tool-card">
+        </div>
 
 
         <!-- =========================
-             Upload
-        ========================== -->
+             Hero
+             ========================= -->
 
-        <div
-            class="drop-zone"
-            id="dropZone"
-        >
+        <section class="hero">
 
-            <div class="drop-zone-icon">
-                📄
-            </div>
-
-
-            <h2>
-                Drop your PDF here
-            </h2>
-
+            <h1>PDF Compress</h1>
 
             <p>
-                or
+                Reduce your PDF file size quickly and easily while keeping useful quality.
             </p>
 
-
-            <button
-                type="button"
-                class="upload-button"
-                id="choosePdfButton"
-            >
-                Choose PDF
-            </button>
-
-
-            <p class="drop-zone-hint">
-                PDF files only
-            </p>
-
-
-            <input
-                type="file"
-                id="pdfInput"
-                accept=".pdf,application/pdf"
-                hidden
-            >
-
-        </div>
-
+        </section>
 
 
         <!-- =========================
-             File information
-        ========================== -->
+             Main Tool
+             ========================= -->
 
-        <div
-            id="fileInfo"
-            hidden
-            style="
-                margin-top: 24px;
-                padding: 18px;
-                border: 1px solid #e5e7eb;
-                border-radius: 14px;
-                background: #fafafa;
-            "
-        >
+        <div class="container">
 
-            <div
-                style="
-                    display: flex;
-                    align-items: center;
-                    gap: 14px;
-                "
-            >
+            <div class="card">
+
+                <!-- Upload -->
 
                 <div
-                    style="
-                        width: 46px;
-                        height: 46px;
-                        border-radius: 12px;
-                        background: #f1f3f4;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 22px;
-                        flex-shrink: 0;
-                    "
+                    class="drop-zone"
+                    id="dropZone"
                 >
-                    📄
+
+                    <div class="upload-icon">📄</div>
+
+                    <h2>Drop your PDF here</h2>
+
+                    <p>
+                        or choose a PDF file from your device
+                    </p>
+
+                    <button
+                        type="button"
+                        class="choose-button"
+                        id="choosePdfButton"
+                    >
+                        Choose PDF
+                    </button>
+
+                    <input
+                        type="file"
+                        id="pdfInput"
+                        accept="application/pdf,.pdf"
+                        hidden
+                    >
+
                 </div>
 
 
+                <!-- File Information -->
+
                 <div
-                    style="
-                        min-width: 0;
-                    "
+                    class="file-info"
+                    id="fileInfo"
                 >
 
-                    <div
-                        id="fileName"
-                        style="
-                            font-weight: 700;
-                            word-break: break-word;
-                        "
-                    >
-                        PDF file
-                    </div>
+                    <strong id="fileName"></strong>
 
-
-                    <div
-                        id="fileDetails"
-                        style="
-                            margin-top: 4px;
-                            color: #6b7280;
-                            font-size: 14px;
-                        "
-                    >
-                        0 KB
-                    </div>
+                    <span id="fileDetails"></span>
 
                 </div>
 
-            </div>
 
-        </div>
+                <!-- Compression Options -->
 
+                <div class="compression-options">
 
+                    <h2>Compression level</h2>
 
-        <!-- =========================
-             Compression options
-        ========================== -->
+                    <div class="compression-grid">
 
-        <div
-            id="compressionOptions"
-            style="
-                margin-top: 28px;
-            "
-        >
+                        <div class="compression-option">
 
-            <h2
-                style="
-                    margin-bottom: 14px;
-                "
-            >
-                Compression Level
-            </h2>
+                            <input
+                                type="radio"
+                                name="compressionLevel"
+                                id="balanced"
+                                value="balanced"
+                                checked
+                            >
 
+                            <label for="balanced">
 
-            <div
-                style="
-                    display: grid;
-                    grid-template-columns:
-                        repeat(3, minmax(0, 1fr));
-                    gap: 12px;
-                "
-            >
+                                <strong>Balanced</strong>
 
+                                <span>
+                                    Good balance between file size and quality.
+                                </span>
 
-                <!-- Balanced -->
+                            </label>
 
-                <label
-                    style="
-                        display: block;
-                        cursor: pointer;
-                    "
-                >
-
-                    <input
-                        type="radio"
-                        name="compressionLevel"
-                        value="balanced"
-                        checked
-                        style="
-                            position: absolute;
-                            opacity: 0;
-                            pointer-events: none;
-                        "
-                    >
-
-
-                    <span
-                        class="compression-option"
-                        style="
-                            display: block;
-                            padding: 18px;
-                            border: 2px solid #202124;
-                            border-radius: 14px;
-                            background: #f8f9fa;
-                            height: 100%;
-                            box-sizing: border-box;
-                        "
-                    >
-
-                        <strong>
-                            Balanced
-                        </strong>
-
-
-                        <small
-                            style="
-                                display: block;
-                                margin-top: 7px;
-                                color: #6b7280;
-                                line-height: 1.4;
-                            "
-                        >
-                            Good balance between
-                            size and quality.
-                        </small>
-
-                    </span>
-
-                </label>
-
-
-
-                <!-- Smaller -->
-
-                <label
-                    style="
-                        display: block;
-                        cursor: pointer;
-                    "
-                >
-
-                    <input
-                        type="radio"
-                        name="compressionLevel"
-                        value="smaller"
-                        style="
-                            position: absolute;
-                            opacity: 0;
-                            pointer-events: none;
-                        "
-                    >
-
-
-                    <span
-                        class="compression-option"
-                        style="
-                            display: block;
-                            padding: 18px;
-                            border: 2px solid #e5e7eb;
-                            border-radius: 14px;
-                            background: #ffffff;
-                            height: 100%;
-                            box-sizing: border-box;
-                        "
-                    >
-
-                        <strong>
-                            Smaller File
-                        </strong>
-
-
-                        <small
-                            style="
-                                display: block;
-                                margin-top: 7px;
-                                color: #6b7280;
-                                line-height: 1.4;
-                            "
-                        >
-                            Smaller file with
-                            some quality reduction.
-                        </small>
-
-                    </span>
-
-                </label>
-
-
-
-                <!-- Maximum -->
-
-                <label
-                    style="
-                        display: block;
-                        cursor: pointer;
-                    "
-                >
-
-                    <input
-                        type="radio"
-                        name="compressionLevel"
-                        value="maximum"
-                        style="
-                            position: absolute;
-                            opacity: 0;
-                            pointer-events: none;
-                        "
-                    >
-
-
-                    <span
-                        class="compression-option"
-                        style="
-                            display: block;
-                            padding: 18px;
-                            border: 2px solid #e5e7eb;
-                            border-radius: 14px;
-                            background: #ffffff;
-                            height: 100%;
-                            box-sizing: border-box;
-                        "
-                    >
-
-                        <strong>
-                            Maximum Compression
-                        </strong>
-
-
-                        <small
-                            style="
-                                display: block;
-                                margin-top: 7px;
-                                color: #6b7280;
-                                line-height: 1.4;
-                            "
-                        >
-                            Smallest file size,
-                            lower image quality.
-                        </small>
-
-                    </span>
-
-                </label>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =========================
-             Warning
-        ========================== -->
-
-        <div
-            style="
-                margin-top: 18px;
-                padding: 14px 16px;
-                border-radius: 12px;
-                background: #fff8e1;
-                color: #6b4f00;
-                font-size: 13px;
-                line-height: 1.5;
-            "
-        >
-
-            <strong>
-                Important:
-            </strong>
-
-            Image-based compression may turn PDF
-            pages into images. Text may no longer
-            be selectable in the compressed PDF.
-
-        </div>
-
-
-
-        <!-- =========================
-             Compress button
-        ========================== -->
-
-        <button
-            type="button"
-            id="compressButton"
-            disabled
-            style="
-                width: 100%;
-                margin-top: 28px;
-                padding: 15px 20px;
-                border: none;
-                border-radius: 12px;
-                background: #202124;
-                color: #ffffff;
-                font-size: 16px;
-                font-weight: 700;
-                cursor: pointer;
-            "
-        >
-            Compress PDF
-        </button>
-
-
-
-        <!-- =========================
-             Progress
-        ========================== -->
-
-        <div
-            id="progressArea"
-            hidden
-            style="
-                margin-top: 28px;
-                text-align: center;
-            "
-        >
-
-            <div
-                style="
-                    font-size: 28px;
-                    margin-bottom: 12px;
-                "
-            >
-                ⏳
-            </div>
-
-
-            <div
-                id="progressText"
-                style="
-                    color: #4b5563;
-                    font-weight: 600;
-                "
-            >
-                Processing PDF...
-            </div>
-
-        </div>
-
-
-
-        <!-- =========================
-             Result
-        ========================== -->
-
-        <div
-            id="resultArea"
-            hidden
-            style="
-                margin-top: 36px;
-            "
-        >
-
-
-            <!-- Result title -->
-
-            <div
-                style="
-                    text-align: center;
-                    margin-bottom: 28px;
-                "
-            >
-
-                <div
-                    style="
-                        font-size: 42px;
-                        margin-bottom: 10px;
-                    "
-                >
-                    🎉
-                </div>
-
-
-                <h2
-                    id="savingsTitle"
-                    style="
-                        margin: 0;
-                        font-size: 28px;
-                    "
-                >
-                    Compression Complete
-                </h2>
-
-
-                <p
-                    id="savingsSubtitle"
-                    style="
-                        color: #6b7280;
-                        margin-top: 8px;
-                    "
-                >
-                    Your PDF is ready.
-                </p>
-
-            </div>
-
-
-
-            <!-- =========================
-                 Size comparison
-            ========================== -->
-
-            <div
-                style="
-                    margin-bottom: 20px;
-                "
-            >
-
-                <div
-                    style="
-                        display: grid;
-                        grid-template-columns:
-                            repeat(2, minmax(0, 1fr));
-                        gap: 12px;
-                    "
-                >
-
-
-                    <!-- Original -->
-
-                    <div
-                        style="
-                            padding: 20px;
-                            border: 1px solid #e5e7eb;
-                            border-radius: 14px;
-                            background: #ffffff;
-                        "
-                    >
-
-                        <div
-                            style="
-                                color: #6b7280;
-                                font-size: 13px;
-                                margin-bottom: 7px;
-                            "
-                        >
-                            Original PDF
                         </div>
 
 
-                        <strong
-                            id="originalSize"
-                            style="
-                                font-size: 24px;
-                                display: block;
-                            "
-                        >
-                            0 MB
-                        </strong>
+                        <div class="compression-option">
 
-                    </div>
+                            <input
+                                type="radio"
+                                name="compressionLevel"
+                                id="smaller"
+                                value="smaller"
+                            >
 
+                            <label for="smaller">
 
+                                <strong>Smaller File</strong>
 
-                    <!-- Compressed -->
+                                <span>
+                                    Reduce the file size more aggressively.
+                                </span>
 
-                    <div
-                        style="
-                            padding: 20px;
-                            border: 1px solid #e5e7eb;
-                            border-radius: 14px;
-                            background: #ffffff;
-                        "
-                    >
+                            </label>
 
-                        <div
-                            style="
-                                color: #6b7280;
-                                font-size: 13px;
-                                margin-bottom: 7px;
-                            "
-                        >
-                            Compressed PDF
                         </div>
 
 
-                        <strong
-                            id="compressedSize"
-                            style="
-                                font-size: 24px;
-                                display: block;
-                            "
-                        >
-                            0 MB
-                        </strong>
+                        <div class="compression-option">
 
+                            <input
+                                type="radio"
+                                name="compressionLevel"
+                                id="maximum"
+                                value="maximum"
+                            >
+
+                            <label for="maximum">
+
+                                <strong>Maximum Compression</strong>
+
+                                <span>
+                                    Prioritize the smallest possible file size.
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="warning">
+                        ⚠️ Some image-based PDFs may be converted into images during compression.
+                        This can affect selectable text, links, forms and bookmarks.
                     </div>
 
                 </div>
 
 
+                <!-- Compress Button -->
 
-                <!-- Size bar -->
+                <div class="action-area">
 
-                <div
-                    style="
-                        margin-top: 18px;
-                    "
-                >
-
-                    <div
-                        style="
-                            display: flex;
-                            justify-content:
-                                space-between;
-                            gap: 10px;
-                            margin-bottom: 8px;
-                            font-size: 13px;
-                            color: #6b7280;
-                        "
+                    <button
+                        type="button"
+                        class="primary-button"
+                        id="compressButton"
                     >
+                        Compress PDF
+                    </button>
 
-                        <span>
-                            File size
-                        </span>
-
-
-                        <strong
-                            id="sizeChange"
-                            style="
-                                color: #202124;
-                            "
-                        >
-                            0% smaller
-                        </strong>
-
-                    </div>
+                </div>
 
 
-                    <div
-                        style="
-                            width: 100%;
-                            height: 12px;
-                            border-radius: 999px;
-                            background: #e5e7eb;
-                            overflow: hidden;
-                        "
+                <!-- Progress -->
+
+                <div
+                    class="progress-area"
+                    id="progressArea"
+                >
+
+                    <p
+                        class="progress-text"
+                        id="progressText"
                     >
-
-                        <div
-                            id="sizeBar"
-                            style="
-                                width: 0%;
-                                height: 100%;
-                                background: #202124;
-                                border-radius: 999px;
-                                transition:
-                                    width 0.5s ease;
-                            "
-                        ></div>
-
-                    </div>
+                        Preparing compression...
+                    </p>
 
                 </div>
 
-            </div>
 
-
-
-            <!-- =========================
-                 Savings
-            ========================== -->
-
-            <div
-                id="savingsCard"
-                style="
-                    padding: 22px;
-                    border-radius: 14px;
-                    background: #f8f9fa;
-                    text-align: center;
-                    margin-bottom: 20px;
-                "
-            >
+                <!-- Result -->
 
                 <div
-                    style="
-                        color: #6b7280;
-                        font-size: 13px;
-                        margin-bottom: 7px;
-                    "
-                >
-                    Space Saved
-                </div>
-
-
-                <strong
-                    id="savingsAmount"
-                    style="
-                        display: block;
-                        font-size: 30px;
-                    "
-                >
-                    0 MB
-                </strong>
-
-            </div>
-
-
-
-            <!-- =========================
-                 Compression method
-            ========================== -->
-
-            <div
-                id="compressionMethod"
-                style="
-                    margin-bottom: 20px;
-                    padding: 16px 18px;
-                    border: 1px solid #e5e7eb;
-                    border-radius: 14px;
-                    background: #ffffff;
-                "
-            >
-
-                <div
-                    style="
-                        font-size: 13px;
-                        color: #6b7280;
-                        margin-bottom: 6px;
-                    "
-                >
-                    Compression Method
-                </div>
-
-
-                <strong
-                    id="compressionMethodText"
-                >
-                    Smart compression
-                </strong>
-
-            </div>
-
-
-
-            <!-- =========================
-                 Message
-            ========================== -->
-
-            <div
-                id="compressionMessage"
-                style="
-                    padding: 20px;
-                    border-radius: 14px;
-                    background: #f8f9fa;
-                    margin-bottom: 24px;
-                "
-            >
-
-                <div
-                    style="
-                        display: flex;
-                        gap: 12px;
-                        align-items: flex-start;
-                    "
+                    class="result-area"
+                    id="resultArea"
                 >
 
-                    <div
-                        id="compressionMessageIcon"
-                        style="
-                            font-size: 24px;
-                        "
-                    >
-                        🟢
-                    </div>
+                    <div class="result-card">
 
-
-                    <div>
-
-                        <strong
-                            id="compressionMessageTitle"
+                        <h2
+                            class="savings-title"
+                            id="savingsTitle"
                         >
-                            Great compression
-                        </strong>
+                            Compression Complete
+                        </h2>
 
 
                         <p
-                            id="compressionMessageText"
-                            style="
-                                margin: 7px 0 0;
-                                color: #6b7280;
-                                line-height: 1.5;
-                            "
+                            class="savings-subtitle"
+                            id="savingsSubtitle"
                         >
-                            Your PDF was compressed successfully.
+                            Your PDF has been processed.
                         </p>
+
+
+                        <div class="size-comparison">
+
+                            <div class="size-box">
+
+                                <span>Original size</span>
+
+                                <strong id="originalSize">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="size-box">
+
+                                <span>Compressed size</span>
+
+                                <strong id="compressedSize">
+                                    —
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="size-change"
+                            id="sizeChange"
+                        >
+                            —
+                        </div>
+
+
+                        <div class="size-bar">
+
+                            <div
+                                class="size-bar-fill"
+                                id="sizeBar"
+                            ></div>
+
+                        </div>
+
+
+                        <div class="savings-card">
+
+                            <span>Space saved</span>
+
+                            <div
+                                class="savings-amount"
+                                id="savingsAmount"
+                            >
+                                —
+                            </div>
+
+                        </div>
+
+
+                        <div class="method-card">
+
+                            <h3>Compression method</h3>
+
+                            <p id="compressionMethodText">
+                                —
+                            </p>
+
+                        </div>
+
+
+                        <div class="compression-message">
+
+                            <div
+                                class="compression-message-icon"
+                                id="compressionMessageIcon"
+                            >
+                                ℹ️
+                            </div>
+
+                            <div>
+
+                                <h3 id="compressionMessageTitle">
+                                    Compression result
+                                </h3>
+
+                                <p id="compressionMessageText">
+                                    —
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Download -->
+
+                        <div
+                            class="download-area"
+                            id="downloadArea"
+                        >
+
+                            <button
+                                type="button"
+                                class="primary-button"
+                                id="downloadButton"
+                            >
+                                Download Compressed PDF
+                            </button>
+
+                            <button
+                                type="button"
+                                class="secondary-button"
+                                id="compressAnotherButton"
+                            >
+                                Compress Another PDF
+                            </button>
+
+                        </div>
 
                     </div>
 
@@ -834,103 +1110,29 @@
 
             </div>
 
-
-
-            <!-- =========================
-                 Download
-            ========================== -->
-
-            <div
-                id="downloadArea"
-                hidden
-                style="
-                    text-align: center;
-                "
-            >
-
-                <a
-                    id="downloadButton"
-                    class="upload-button"
-                    href="#"
-                    download
-                >
-                    Download Compressed PDF
-                </a>
-
-            </div>
-
-
-
-            <!-- =========================
-                 Compress another
-            ========================== -->
-
-            <div
-                style="
-                    text-align: center;
-                    margin-top: 10px;
-                "
-            >
-
-                <button
-                    type="button"
-                    id="compressAnotherButton"
-                    style="
-                        border: none;
-                        background: none;
-                        color: #202124;
-                        font-weight: 700;
-                        cursor: pointer;
-                        padding: 10px;
-                    "
-                >
-                    Compress Another PDF
-                </button>
-
-            </div>
-
         </div>
 
-    </section>
-
-</main>
+    </main>
 
 
+    <!-- Footer -->
 
-<footer>
-
-    <p>
-        © 2026 LifeKit.
-        Small problems. Simple solutions.
-    </p>
-
-</footer>
+    <footer>
+        <div>
+            © 2026 LifeKit. Simple online tools for everyday tasks.
+        </div>
+    </footer>
 
 
+    <!-- Libraries -->
 
-<!-- PDF-LIB -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"
-></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
+    <!-- PDF Compressor JavaScript -->
 
-
-<!-- PDF.js -->
-
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
-></script>
-
-
-
-<!-- LifeKit -->
-
-<script
-    src="pdf-compress.js"
-></script>
-
+    <script src="pdf-compress.js"></script>
 
 </body>
-
 </html>
