@@ -10,279 +10,1049 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>PDF to JPG - LifeKit</title>
+    <title>PDF to JPG — Convert PDF to JPG Online | LifeKit</title>
 
-    <link rel="stylesheet" href="style.css">
+    <meta
+        name="description"
+        content="Convert PDF pages to high-quality JPG images online with LifeKit. Choose image quality, resolution and specific pages, then download your JPG files or a ZIP."
+    >
+
+    <meta
+        name="keywords"
+        content="PDF to JPG, convert PDF to JPG, PDF converter, PDF image converter, PDF to image, JPG converter, online PDF tools"
+    >
+
+    <meta
+        name="author"
+        content="LifeKit"
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <meta
+        name="theme-color"
+        content="#202124"
+    >
+
+    <link
+        rel="canonical"
+        href="https://lifekit.wukabi123.workers.dev/pdf-to-jpg.html"
+    >
+
+    <link
+        rel="icon"
+        href="favicon.svg"
+        type="image/svg+xml"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="favicon.svg"
+    >
+
+
+    <!-- Open Graph -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="PDF to JPG — Convert PDF to JPG Online | LifeKit"
+    >
+
+    <meta
+        property="og:description"
+        content="Convert PDF pages into high-quality JPG images online with LifeKit."
+    >
+
+    <meta
+        property="og:url"
+        content="https://lifekit.wukabi123.workers.dev/pdf-to-jpg.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="LifeKit"
+    >
+
+
+    <!-- Twitter -->
+
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
+
+    <meta
+        name="twitter:title"
+        content="PDF to JPG — Convert PDF to JPG Online | LifeKit"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Convert PDF pages into high-quality JPG images online with LifeKit."
+    >
+
+
+    <!-- Structured Data -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PDF to JPG",
+        "url": "https://lifekit.wukabi123.workers.dev/pdf-to-jpg.html",
+        "description": "Convert PDF pages into JPG images online with LifeKit.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web Browser"
+    }
+    </script>
+
+
+    <!-- Global LifeKit CSS -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 
     <style>
 
-        .pdf-jpg-page {
-            max-width: 1100px;
+        /* =========================================================
+           PDF TO JPG
+           Page-specific styling only
+           ========================================================= */
+
+
+        /* =========================================================
+           HEADER
+           Match PDF Compressor exactly
+           ========================================================= */
+
+        .site-header .header-inner {
+            width: min(1100px, calc(100% - 40px));
+            min-height: 68px;
             margin: 0 auto;
-            padding: 0 20px 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 24px;
         }
 
 
-        .pdf-jpg-panel {
-            background: #ffffff;
-            border: 1px solid #e8eaed;
-            border-radius: 18px;
-            padding: 26px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-            margin-top: 24px;
+        .site-header .logo {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 10px;
+
+            color: #202124;
+            text-decoration: none;
+
+            font-size: 18px;
+            font-weight: 800;
         }
 
 
-        .pdf-jpg-options {
+        .site-header .logo-icon {
+            width: 34px;
+            height: 34px;
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            place-items: center;
+
+            border-radius: 10px;
+
+            background: #202124;
+            color: #ffffff;
+
+            font-size: 17px;
+            font-weight: 800;
+
+            line-height: 1;
+        }
+
+
+        .site-header .header-tagline {
+            color: #5f6368;
+
+            font-size: 14px;
+            line-height: 1.4;
+
+            text-align: right;
+        }
+
+
+        .site-header .header-tagline strong {
+            color: #202124;
+        }
+
+
+        /* =========================================================
+           PDF NAVIGATION
+           EXACT SAME STYLE AS PDF COMPRESSOR
+           ========================================================= */
+
+        .pdf-page-nav {
+            width: min(900px, calc(100% - 40px));
+
+            margin: 0 auto;
+            padding-top: 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
             gap: 14px;
-            margin-top: 22px;
         }
 
 
-        .pdf-jpg-option {
-            border: 1px solid #dadce0;
-            border-radius: 14px;
-            padding: 16px;
+        .pdf-nav-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 42px;
+
+            padding: 10px 16px;
+
+            border: 1px solid #e3e6ea;
+            border-radius: 10px;
+
+            background: #ffffff;
+            color: #202124;
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition:
+                background 0.18s ease,
+                border-color 0.18s ease,
+                transform 0.18s ease;
+        }
+
+
+        .pdf-nav-button:hover {
+            transform: translateY(-1px);
+
+            background: #f8f9fa;
+            border-color: #d1d5db;
+        }
+
+
+        .pdf-nav-home {
+            background: #202124;
+            border-color: #202124;
+
+            color: #ffffff;
+        }
+
+
+        .pdf-nav-home:hover {
+            background: #34363a;
+            border-color: #34363a;
+        }
+
+
+        /* =========================================================
+           MAIN
+           Prevent global style.css from shifting the page
+           ========================================================= */
+
+        main.pdf-jpg-main {
+            width: 100%;
+            max-width: none;
+
+            margin: 0;
+
+            padding: 0 0 80px;
+        }
+
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+
+        .pdf-jpg-hero {
+            width: min(900px, calc(100% - 40px));
+
+            margin: 28px auto 30px;
+
+            padding: 35px 25px;
+
+            background: #ffffff;
+
+            border: 1px solid #e3e6ea;
+            border-radius: 18px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.07);
+
+            text-align: center;
+        }
+
+
+        .pdf-jpg-hero h1 {
+            margin: 0 0 10px;
+
+            color: #202124;
+
+            font-size: 32px;
+            font-weight: 700;
+
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+
+        .pdf-jpg-hero p {
+            margin: 0;
+
+            color: #5f6368;
+
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================================================
+           CONTENT WRAPPER
+           ========================================================= */
+
+        .pdf-jpg-content {
+            width: min(900px, calc(100% - 40px));
+
+            margin: 0 auto;
+        }
+
+
+        /* =========================================================
+           CARD
+           ========================================================= */
+
+        .pdf-jpg-card {
+            width: 100%;
+
+            margin-bottom: 20px;
+
+            padding: 24px;
+
+            background: #ffffff;
+
+            border: 1px solid #e3e6ea;
+            border-radius: 18px;
+
+            box-shadow:
+                0 8px 26px rgba(0, 0, 0, 0.045);
+        }
+
+
+        .pdf-jpg-card-title {
+            margin: 0 0 18px;
+
+            color: #202124;
+
+            font-size: 20px;
+            font-weight: 700;
+
+            line-height: 1.3;
+        }
+
+
+        /* =========================================================
+           UPLOAD AREA
+           ========================================================= */
+
+        .pdf-jpg-upload-area {
+            width: 100%;
+
+            min-height: 250px;
+
+            padding: 40px 25px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background: #fafbfc;
+
+            border: 2px dashed #c9ced6;
+            border-radius: 16px;
+
             cursor: pointer;
-            background: #fff;
-            transition: 0.18s ease;
+
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
 
-        .pdf-jpg-option:hover {
-            border-color: #9aa0a6;
+        .pdf-jpg-upload-area:hover {
+            background: #f7f8fa;
+
+            border-color: #aeb4bc;
+
             transform: translateY(-1px);
         }
 
 
-        .pdf-jpg-option.selected {
-            border: 2px solid #202124;
-            background: #f8f9fa;
+        .pdf-jpg-upload-area.drag-over {
+            background: #f1f3f4;
+
+            border-color: #202124;
+            border-style: solid;
+
+            box-shadow:
+                0 0 0 4px rgba(32, 33, 36, 0.06);
         }
 
 
-        .pdf-jpg-option input {
-            display: none;
-        }
+        .pdf-jpg-upload-icon {
+            width: 64px;
+            height: 64px;
 
-
-        .pdf-jpg-option-title {
-            font-weight: 700;
-            color: #202124;
-            margin-bottom: 5px;
-        }
-
-
-        .pdf-jpg-option-text {
-            font-size: 13px;
-            color: #5f6368;
-            line-height: 1.5;
-        }
-
-
-        .pdf-jpg-settings {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-top: 20px;
+            place-items: center;
+
+            margin-bottom: 16px;
+
+            border-radius: 16px;
+
+            background: #f0f1f3;
+
+            font-size: 30px;
         }
 
 
-        .pdf-jpg-setting {
-            border: 1px solid #e0e0e0;
-            border-radius: 14px;
-            padding: 16px;
-        }
+        .pdf-jpg-upload-title {
+            margin: 0 0 6px;
 
-
-        .pdf-jpg-setting label {
-            display: block;
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 9px;
             color: #202124;
+
+            font-size: 19px;
+            font-weight: 700;
         }
 
 
-        .pdf-jpg-setting select {
-            width: 100%;
-            padding: 11px 12px;
-            border: 1px solid #dadce0;
-            border-radius: 9px;
-            background: #fff;
+        .pdf-jpg-upload-description {
+            margin: 0 0 16px;
+
+            color: #8a9099;
+
             font-size: 14px;
         }
 
 
-        .pdf-jpg-selection-bar {
+        /* =========================================================
+           UPLOAD BUTTON
+           ========================================================= */
+
+        .pdf-jpg-upload-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 42px;
+
+            padding: 10px 18px;
+
+            border: 1px solid #202124 !important;
+            border-radius: 10px;
+
+            background: #202124 !important;
+            color: #ffffff !important;
+
+            font-size: 14px !important;
+            font-weight: 600 !important;
+
+            cursor: pointer;
+
+            box-shadow: none !important;
+
+            transition:
+                background 0.18s ease,
+                transform 0.18s ease,
+                box-shadow 0.18s ease;
+        }
+
+
+        .pdf-jpg-upload-button:hover {
+            background: #34363a !important;
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 5px 14px rgba(0, 0, 0, 0.10) !important;
+        }
+
+
+        .pdf-jpg-upload-hint {
+            margin-top: 13px;
+
+            color: #9aa0a6;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================================
+           FILE INFO
+           ========================================================= */
+
+        .pdf-jpg-file-info {
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            gap: 12px;
-            margin-top: 24px;
+
+            gap: 15px;
+
+            margin-top: 16px;
             padding: 14px 16px;
+
             background: #f8f9fa;
+
+            border: 1px solid #e5e7eb;
             border-radius: 12px;
         }
 
 
-        .pdf-jpg-selection-info {
+        .pdf-jpg-file-name {
+            color: #202124;
+
             font-size: 14px;
-            font-weight: 600;
-            color: #202124;
+            font-weight: 700;
+
+            overflow-wrap: anywhere;
         }
 
 
-        .pdf-jpg-small-actions {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
+        .pdf-jpg-file-details {
+            margin-top: 4px;
+
+            color: #5f6368;
+
+            font-size: 12px;
         }
 
 
-        .pdf-jpg-small-button {
-            border: 1px solid #dadce0;
-            background: #fff;
-            color: #202124;
-            border-radius: 8px;
-            padding: 8px 12px;
+        /* =========================================================
+           SETTINGS
+           ========================================================= */
+
+        .pdf-jpg-quality-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 12px;
+
+            margin-top: 18px;
+        }
+
+
+        .pdf-jpg-quality-card {
+            position: relative;
+
+            padding: 16px;
+
+            border: 1px solid #e0e3e7;
+            border-radius: 12px;
+
+            background: #ffffff;
+
             cursor: pointer;
+
+            transition:
+                border-color 0.18s ease,
+                background 0.18s ease,
+                transform 0.18s ease;
+        }
+
+
+        .pdf-jpg-quality-card:hover {
+            border-color: #b5bac1;
+
+            transform: translateY(-1px);
+        }
+
+
+        .pdf-jpg-quality-card.selected {
+            border-color: #202124;
+
+            background: #f8f9fa;
+
+            box-shadow:
+                inset 0 0 0 1px #202124;
+        }
+
+
+        .pdf-jpg-quality-card input {
+            position: absolute;
+
+            opacity: 0;
+
+            pointer-events: none;
+        }
+
+
+        .pdf-jpg-quality-title {
+            margin-bottom: 5px;
+
+            color: #202124;
+
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+
+        .pdf-jpg-quality-text {
+            color: #6f747b;
+
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+
+        /* =========================================================
+           SELECT SETTINGS
+           ========================================================= */
+
+        .pdf-jpg-setting-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 14px;
+
+            margin-top: 18px;
+        }
+
+
+        .pdf-jpg-setting-box {
+            padding: 15px;
+
+            border: 1px solid #e3e6ea;
+            border-radius: 12px;
+
+            background: #ffffff;
+        }
+
+
+        .pdf-jpg-setting-box label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #202124;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+
+        .pdf-jpg-setting-box select {
+            width: 100%;
+
+            min-height: 42px;
+
+            padding: 9px 12px;
+
+            border: 1px solid #d1d5db;
+            border-radius: 9px;
+
+            background: #ffffff;
+
+            color: #202124;
+
+            font-size: 14px;
+
+            outline: none;
+        }
+
+
+        .pdf-jpg-setting-box select:focus {
+            border-color: #202124;
+
+            box-shadow:
+                0 0 0 3px rgba(32, 33, 36, 0.07);
+        }
+
+
+        /* =========================================================
+           SELECTION BAR
+           ========================================================= */
+
+        .pdf-jpg-selection-bar {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-top: 16px;
+
+            padding: 12px 14px;
+
+            background: #f8f9fa;
+
+            border: 1px solid #e7e9ec;
+            border-radius: 10px;
+        }
+
+
+        .pdf-jpg-selection-info {
+            color: #5f6368;
+
             font-size: 13px;
             font-weight: 600;
         }
 
 
+        .pdf-jpg-selection-actions {
+            display: flex;
+
+            gap: 8px;
+        }
+
+
+        .pdf-jpg-small-button {
+            min-height: 36px;
+
+            padding: 8px 12px;
+
+            border: 1px solid #d9dde2 !important;
+            border-radius: 8px;
+
+            background: #ffffff !important;
+            color: #202124 !important;
+
+            font-size: 12px !important;
+            font-weight: 600 !important;
+
+            cursor: pointer;
+
+            box-shadow: none !important;
+        }
+
+
         .pdf-jpg-small-button:hover {
-            background: #f1f3f4;
+            background: #f1f3f4 !important;
+
+            border-color: #c4c9cf !important;
+
+            transform: none !important;
+
+            box-shadow: none !important;
+        }
+
+
+        /* =========================================================
+           PREVIEW
+           ========================================================= */
+
+        .pdf-jpg-preview-description {
+            margin: -10px 0 18px;
+
+            color: #6f747b;
+
+            font-size: 13px;
         }
 
 
         .pdf-jpg-preview-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-            margin-top: 22px;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 14px;
         }
 
 
         .pdf-jpg-page-card {
-            position: relative;
-            border: 2px solid #e0e0e0;
-            border-radius: 14px;
             overflow: hidden;
-            background: #fff;
+
+            border: 2px solid #e3e6ea;
+            border-radius: 12px;
+
+            background: #ffffff;
+
             cursor: pointer;
-            transition: 0.18s ease;
+
+            transition:
+                border-color 0.18s ease,
+                transform 0.18s ease,
+                box-shadow 0.18s ease;
         }
 
 
         .pdf-jpg-page-card:hover {
-            border-color: #9aa0a6;
+            border-color: #aeb4bc;
+
             transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.06);
         }
 
 
         .pdf-jpg-page-card.selected {
             border-color: #202124;
+
+            box-shadow:
+                0 0 0 1px #202124;
         }
 
 
         .pdf-jpg-page-card img {
             display: block;
+
             width: 100%;
-            height: 280px;
+            height: 240px;
+
             object-fit: contain;
-            background: #f1f3f4;
+
+            background: #f3f4f6;
+        }
+
+
+        .pdf-jpg-page-footer {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 10px;
+
+            padding: 10px 12px;
+
+            border-top: 1px solid #e9eaec;
+
+            background: #ffffff;
         }
 
 
         .pdf-jpg-page-number {
-            padding: 10px 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            font-weight: 700;
             color: #202124;
+
+            font-size: 12px;
+            font-weight: 700;
         }
 
 
         .pdf-jpg-check {
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
+
+            display: grid;
+            place-items: center;
+
+            border: 1.5px solid #aeb4bc;
             border-radius: 50%;
-            background: #fff;
-            border: 2px solid #9aa0a6;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
+
+            background: #ffffff;
+
+            color: #ffffff;
+
+            font-size: 11px;
         }
 
 
         .pdf-jpg-page-card.selected .pdf-jpg-check {
-            background: #202124;
             border-color: #202124;
-            color: #fff;
+
+            background: #202124;
         }
 
 
-        .pdf-jpg-loading {
-            padding: 30px;
-            text-align: center;
-            color: #5f6368;
+        /* =========================================================
+           MAIN ACTION
+           ========================================================= */
+
+        .pdf-jpg-action-button {
+            width: 100%;
+
+            min-height: 46px;
+
+            margin-top: 20px;
+
+            padding: 12px 20px;
+
+            border: 1px solid #202124 !important;
+            border-radius: 10px;
+
+            background: #202124 !important;
+            color: #ffffff !important;
+
+            font-size: 14px !important;
+            font-weight: 700 !important;
+
+            cursor: pointer;
+
+            box-shadow: none !important;
+
+            transition:
+                background 0.18s ease,
+                transform 0.18s ease,
+                box-shadow 0.18s ease;
         }
 
+
+        .pdf-jpg-action-button:hover:not(:disabled) {
+            background: #34363a !important;
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 6px 16px rgba(0, 0, 0, 0.11) !important;
+        }
+
+
+        .pdf-jpg-action-button:disabled {
+            opacity: 0.5 !important;
+
+            cursor: not-allowed;
+
+            transform: none !important;
+
+            box-shadow: none !important;
+        }
+
+
+        /* =========================================================
+           SECONDARY BUTTON
+           ========================================================= */
+
+        .pdf-jpg-secondary-button {
+            width: 100%;
+
+            min-height: 44px;
+
+            margin-top: 10px;
+
+            padding: 11px 18px;
+
+            border: 1px solid #dfe2e6 !important;
+            border-radius: 10px;
+
+            background: #ffffff !important;
+            color: #202124 !important;
+
+            font-size: 14px !important;
+            font-weight: 600 !important;
+
+            cursor: pointer;
+
+            box-shadow: none !important;
+        }
+
+
+        .pdf-jpg-secondary-button:hover {
+            background: #f8f9fa !important;
+
+            border-color: #cbd0d6 !important;
+
+            transform: none !important;
+
+            box-shadow: none !important;
+        }
+
+
+        /* =========================================================
+           PROGRESS
+           ========================================================= */
 
         .pdf-jpg-progress {
-            margin-top: 20px;
-            padding: 16px;
+            margin-top: 16px;
+
+            padding: 14px;
+
             background: #f8f9fa;
-            border-radius: 12px;
-            font-size: 14px;
-            color: #202124;
+
+            border: 1px solid #e7e9ec;
+            border-radius: 10px;
+        }
+
+
+        .pdf-jpg-progress-text {
+            color: #5f6368;
+
+            font-size: 13px;
         }
 
 
         .pdf-jpg-progress-track {
             width: 100%;
-            height: 8px;
-            background: #e8eaed;
-            border-radius: 99px;
+            height: 7px;
+
+            margin-top: 9px;
+
             overflow: hidden;
-            margin-top: 10px;
+
+            background: #e5e7eb;
+
+            border-radius: 999px;
         }
 
 
         .pdf-jpg-progress-bar {
             width: 0%;
             height: 100%;
+
             background: #202124;
-            border-radius: 99px;
+
+            border-radius: 999px;
+
             transition: width 0.2s ease;
         }
 
 
+        /* =========================================================
+           RESULTS
+           ========================================================= */
+
         .pdf-jpg-results {
             display: grid;
-            gap: 12px;
-            margin-top: 22px;
+
+            gap: 10px;
+
+            margin-top: 16px;
         }
 
 
         .pdf-jpg-result-card {
             display: flex;
+
             align-items: center;
             justify-content: space-between;
+
             gap: 15px;
-            padding: 15px 16px;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            background: #fff;
+
+            padding: 13px 14px;
+
+            border: 1px solid #e3e6ea;
+            border-radius: 10px;
+
+            background: #ffffff;
         }
 
 
@@ -292,188 +1062,199 @@
 
 
         .pdf-jpg-result-name {
-            font-weight: 700;
             color: #202124;
+
+            font-size: 13px;
+            font-weight: 700;
+
             overflow-wrap: anywhere;
         }
 
 
         .pdf-jpg-result-size {
-            font-size: 12px;
-            color: #5f6368;
-            margin-top: 4px;
+            margin-top: 3px;
+
+            color: #7a8088;
+
+            font-size: 11px;
         }
 
 
         .pdf-jpg-download-button {
             flex-shrink: 0;
+
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 14px;
+
+            min-height: 38px;
+
+            padding: 8px 13px;
+
+            border-radius: 8px;
+
             background: #202124;
-            color: #fff !important;
+            color: #ffffff !important;
+
             text-decoration: none;
-            border-radius: 9px;
-            font-size: 13px;
+
+            font-size: 12px;
             font-weight: 700;
         }
 
 
         .pdf-jpg-download-button:hover {
-            background: #3c4043;
+            background: #34363a;
         }
 
 
-        .pdf-jpg-empty {
-            padding: 35px 20px;
+        /* =========================================================
+           MESSAGES
+           ========================================================= */
+
+        .pdf-jpg-error {
+            margin-top: 14px;
+
+            padding: 12px 14px;
+
+            border: 1px solid #f1c7c4;
+            border-radius: 10px;
+
+            background: #fce8e6;
+            color: #b3261e;
+
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+
+        .pdf-jpg-success {
+            margin-top: 14px;
+
+            padding: 12px 14px;
+
+            border: 1px solid #c6e5ce;
+            border-radius: 10px;
+
+            background: #e6f4ea;
+            color: #137333;
+
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+
+        /* =========================================================
+           LOADING
+           ========================================================= */
+
+        .pdf-jpg-loading {
+            padding: 25px;
+
+            color: #6f747b;
+
             text-align: center;
-            color: #5f6368;
+
+            font-size: 13px;
         }
 
+
+        /* =========================================================
+           HIDDEN
+           ========================================================= */
 
         .pdf-jpg-hidden {
             display: none !important;
         }
 
 
-        .pdf-jpg-error {
-            margin-top: 16px;
-            padding: 13px 15px;
-            border-radius: 10px;
-            background: #fce8e6;
-            color: #b3261e;
-            font-size: 14px;
-            line-height: 1.5;
-        }
+        /* =========================================================
+           BOTTOM NAV
+           ========================================================= */
 
+        .pdf-jpg-bottom-nav {
+            padding-top: 10px;
 
-        .pdf-jpg-success {
-            margin-top: 16px;
-            padding: 13px 15px;
-            border-radius: 10px;
-            background: #e6f4ea;
-            color: #137333;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-
-        .pdf-jpg-main-button {
-            width: 100%;
-            margin-top: 22px;
-            padding: 14px 20px;
-            border: none;
-            border-radius: 10px;
-            background: #202124;
-            color: #fff;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-
-        .pdf-jpg-main-button:hover {
-            background: #3c4043;
-        }
-
-
-        .pdf-jpg-main-button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-
-        .pdf-jpg-secondary-button {
-            width: 100%;
-            margin-top: 10px;
-            padding: 13px 20px;
-            border: 1px solid #dadce0;
-            border-radius: 10px;
-            background: #fff;
-            color: #202124;
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-
-        .pdf-jpg-secondary-button:hover {
-            background: #f8f9fa;
-        }
-
-
-        /* =========================
-           Navigation
-           ========================= */
-
-        .pdf-jpg-navigation {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 25px;
-        }
-
-
-        .pdf-jpg-nav-button {
-            display: inline-block;
-            padding: 10px 16px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-
-        .pdf-jpg-nav-light {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            color: #202124;
-        }
-
-
-        .pdf-jpg-nav-dark {
-            background: #202124;
-            color: #ffffff;
-        }
-
-
-        .pdf-jpg-bottom-navigation {
-            margin-top: 35px;
-            padding-top: 25px;
-            border-top: 1px solid #e5e7eb;
             text-align: center;
         }
 
 
-        .pdf-jpg-bottom-navigation a {
-            display: inline-block;
-            padding: 12px 20px;
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
+        .pdf-jpg-bottom-nav a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 42px;
+
+            padding: 10px 16px;
+
+            border: 1px solid #e3e6ea;
             border-radius: 10px;
+
+            background: #ffffff;
             color: #202124;
+
             text-decoration: none;
-            font-weight: 700;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition:
+                background 0.18s ease,
+                border-color 0.18s ease,
+                transform 0.18s ease;
         }
 
 
+        .pdf-jpg-bottom-nav a:hover {
+            background: #f8f9fa;
+
+            border-color: #d1d5db;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+
+        .pdf-jpg-footer {
+            width: 100%;
+
+            padding: 30px 20px;
+
+            border-top: 1px solid #e3e6ea;
+
+            background: rgba(255, 255, 255, 0.7);
+
+            color: #8a9099;
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
         @media (max-width: 800px) {
 
+            .pdf-jpg-quality-grid {
+                grid-template-columns: 1fr;
+            }
+
+
             .pdf-jpg-preview-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
 
-            .pdf-jpg-options {
-                grid-template-columns: 1fr;
-            }
-
-
-            .pdf-jpg-settings {
-                grid-template-columns: 1fr;
+            .pdf-jpg-file-info {
+                align-items: flex-start;
+                flex-direction: column;
             }
 
         }
@@ -481,23 +1262,104 @@
 
         @media (max-width: 600px) {
 
+            .site-header .header-inner {
+                width: calc(100% - 32px);
+
+                min-height: 64px;
+            }
+
+
+            .site-header .header-tagline {
+                display: none;
+            }
+
+
+            .pdf-page-nav {
+                width: calc(100% - 32px);
+
+                padding-top: 18px;
+            }
+
+
+            .pdf-nav-button {
+                flex: 1;
+
+                min-width: 0;
+
+                padding: 10px 12px;
+
+                font-size: 13px;
+            }
+
+
+            .pdf-jpg-hero {
+                width: calc(100% - 32px);
+
+                margin-top: 22px;
+
+                padding: 28px 18px;
+
+                border-radius: 16px;
+            }
+
+
+            .pdf-jpg-hero h1 {
+                font-size: 30px;
+            }
+
+
+            .pdf-jpg-content {
+                width: calc(100% - 32px);
+            }
+
+
+            .pdf-jpg-card {
+                padding: 18px;
+
+                border-radius: 16px;
+            }
+
+
+            .pdf-jpg-upload-area {
+                min-height: 230px;
+
+                padding: 32px 18px;
+            }
+
+
+            .pdf-jpg-setting-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .pdf-jpg-selection-bar {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+
+            .pdf-jpg-selection-actions {
+                width: 100%;
+            }
+
+
+            .pdf-jpg-small-button {
+                flex: 1;
+            }
+
+
             .pdf-jpg-preview-grid {
                 grid-template-columns: 1fr;
             }
 
 
-            .pdf-jpg-panel {
-                padding: 18px;
-            }
-
-
             .pdf-jpg-page-card img {
-                height: 340px;
+                height: 300px;
             }
 
 
             .pdf-jpg-result-card {
-                align-items: flex-start;
+                align-items: stretch;
                 flex-direction: column;
             }
 
@@ -516,539 +1378,553 @@
 <body>
 
 
-<header>
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
 
-    <div class="header-inner">
+    <header class="site-header">
+
+        <div class="header-inner">
+
+            <a
+                href="index.html"
+                class="logo"
+                aria-label="LifeKit Home"
+            >
+
+                <span class="logo-icon">
+                    LK
+                </span>
+
+                <span>
+                    LifeKit
+                </span>
+
+            </a>
+
+
+            <div class="header-tagline">
+
+                Small problems.
+
+                <strong>
+                    Simple solutions.
+                </strong>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         PDF NAVIGATION
+         ===================================================== -->
+
+    <div class="pdf-page-nav">
 
         <a
-            href="index.html"
-            class="logo"
+            href="pdf-tools.html"
+            class="pdf-nav-button"
         >
-            LifeKit
+            ← PDF Tools
         </a>
 
 
-        <div
-            style="
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                flex-wrap: wrap;
-            "
+        <a
+            href="index.html"
+            class="pdf-nav-button pdf-nav-home"
         >
-
-            <a
-                href="pdf-tools.html"
-                class="pdf-jpg-nav-button pdf-jpg-nav-light"
-            >
-                ← PDF Tools
-            </a>
-
-
-            <a
-                href="index.html"
-                class="pdf-jpg-nav-button pdf-jpg-nav-dark"
-            >
-                LifeKit Home
-            </a>
-
-        </div>
+            LifeKit Home
+        </a>
 
     </div>
 
-</header>
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="pdf-jpg-main">
 
 
+        <!-- =================================================
+             HERO
+             ================================================= -->
 
-<main>
+        <section class="pdf-jpg-hero">
 
+            <h1>
+                PDF to JPG
+            </h1>
 
-    <section class="hero">
+            <p>
+                Convert PDF pages into high-quality JPG images.
+            </p>
 
-        <h1>
-            PDF to JPG
-        </h1>
-
-        <p>
-            Convert PDF pages into high-quality JPG images.
-        </p>
-
-    </section>
-
-
-
-    <div class="pdf-jpg-page">
+        </section>
 
 
-        <!-- Navigation -->
-
-        <div class="pdf-jpg-navigation">
-
-            <a
-                href="pdf-tools.html"
-                class="pdf-jpg-nav-button pdf-jpg-nav-light"
-            >
-                ← PDF Tools
-            </a>
+        <div class="pdf-jpg-content">
 
 
-            <a
-                href="index.html"
-                class="pdf-jpg-nav-button pdf-jpg-nav-dark"
-            >
-                LifeKit Home
-            </a>
+            <!-- =================================================
+                 UPLOAD
+                 ================================================= -->
 
-        </div>
+            <section class="pdf-jpg-card">
 
-
-
-        <!-- Upload -->
-
-        <section class="pdf-jpg-panel">
-
-            <div
-                class="drop-zone"
-                id="dropZone"
-                style="text-align:center;"
-            >
-
-                <div class="drop-zone-icon">
-                    📄
-                </div>
-
-
-                <h2>
-                    Drop your PDF here
+                <h2 class="pdf-jpg-card-title">
+                    Upload your PDF
                 </h2>
 
 
-                <p>
-                    or
+                <div
+                    class="pdf-jpg-upload-area drop-zone"
+                    id="dropZone"
+                >
+
+                    <div class="pdf-jpg-upload-icon drop-zone-icon">
+                        📄
+                    </div>
+
+
+                    <div class="pdf-jpg-upload-title">
+                        Drop your PDF here
+                    </div>
+
+
+                    <div class="pdf-jpg-upload-description">
+                        or choose a PDF file from your device
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="pdf-jpg-upload-button upload-button"
+                        id="choosePdfButton"
+                    >
+                        Choose PDF
+                    </button>
+
+
+                    <input
+                        type="file"
+                        id="pdfInput"
+                        accept="application/pdf,.pdf"
+                        hidden
+                    >
+
+
+                    <div class="pdf-jpg-upload-hint">
+                        PDF files only
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="fileInfo"
+                    class="pdf-jpg-file-info pdf-jpg-hidden"
+                >
+
+                    <div>
+
+                        <div
+                            id="fileName"
+                            class="pdf-jpg-file-name"
+                        ></div>
+
+
+                        <div
+                            id="fileDetails"
+                            class="pdf-jpg-file-details"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="errorMessage"
+                    class="pdf-jpg-error pdf-jpg-hidden"
+                ></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SETTINGS
+                 ================================================= -->
+
+            <section
+                id="settingsPanel"
+                class="pdf-jpg-card pdf-jpg-hidden"
+            >
+
+                <h2 class="pdf-jpg-card-title">
+                    Conversion Settings
+                </h2>
+
+
+                <div class="pdf-jpg-quality-grid">
+
+
+                    <label
+                        class="pdf-jpg-quality-card pdf-jpg-option selected"
+                        data-quality-card
+                    >
+
+                        <input
+                            type="radio"
+                            name="quality"
+                            value="high"
+                            checked
+                        >
+
+
+                        <div class="pdf-jpg-quality-title">
+                            High Quality
+                        </div>
+
+
+                        <div class="pdf-jpg-quality-text">
+                            Best image quality with larger files.
+                        </div>
+
+                    </label>
+
+
+                    <label
+                        class="pdf-jpg-quality-card pdf-jpg-option"
+                        data-quality-card
+                    >
+
+                        <input
+                            type="radio"
+                            name="quality"
+                            value="balanced"
+                        >
+
+
+                        <div class="pdf-jpg-quality-title">
+                            Balanced
+                        </div>
+
+
+                        <div class="pdf-jpg-quality-text">
+                            Good quality with a smaller file size.
+                        </div>
+
+                    </label>
+
+
+                    <label
+                        class="pdf-jpg-quality-card pdf-jpg-option"
+                        data-quality-card
+                    >
+
+                        <input
+                            type="radio"
+                            name="quality"
+                            value="small"
+                        >
+
+
+                        <div class="pdf-jpg-quality-title">
+                            Smaller File
+                        </div>
+
+
+                        <div class="pdf-jpg-quality-text">
+                            Smaller JPG files for easier sharing.
+                        </div>
+
+                    </label>
+
+
+                </div>
+
+
+                <div class="pdf-jpg-setting-grid">
+
+
+                    <div class="pdf-jpg-setting-box">
+
+                        <label for="resolution">
+                            Resolution
+                        </label>
+
+
+                        <select id="resolution">
+
+                            <option value="1.5">
+                                150 DPI — Fast
+                            </option>
+
+
+                            <option
+                                value="2"
+                                selected
+                            >
+                                200 DPI — Recommended
+                            </option>
+
+
+                            <option value="2.5">
+                                250 DPI — High
+                            </option>
+
+
+                            <option value="3">
+                                300 DPI — Very High
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="pdf-jpg-setting-box">
+
+                        <label for="pageMode">
+                            Pages to Convert
+                        </label>
+
+
+                        <select id="pageMode">
+
+                            <option
+                                value="selected"
+                                selected
+                            >
+                                Selected Pages
+                            </option>
+
+
+                            <option value="all">
+                                All Pages
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+                <div
+                    id="selectionBar"
+                    class="pdf-jpg-selection-bar"
+                >
+
+                    <div
+                        id="selectionInfo"
+                        class="pdf-jpg-selection-info"
+                    >
+                        0 pages selected
+                    </div>
+
+
+                    <div class="pdf-jpg-selection-actions">
+
+                        <button
+                            type="button"
+                            class="pdf-jpg-small-button"
+                            id="selectAllButton"
+                        >
+                            Select All
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="pdf-jpg-small-button"
+                            id="clearSelectionButton"
+                        >
+                            Clear
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PREVIEW
+                 ================================================= -->
+
+            <section
+                id="previewPanel"
+                class="pdf-jpg-card pdf-jpg-hidden"
+            >
+
+                <h2 class="pdf-jpg-card-title">
+                    Page Preview
+                </h2>
+
+
+                <p class="pdf-jpg-preview-description">
+                    Click a page to select or deselect it.
                 </p>
+
+
+                <div
+                    id="previewGrid"
+                    class="pdf-jpg-preview-grid"
+                ></div>
+
+
+                <div
+                    id="previewLoading"
+                    class="pdf-jpg-loading pdf-jpg-hidden"
+                >
+                    Loading PDF pages...
+                </div>
 
 
                 <button
                     type="button"
-                    class="upload-button"
-                    id="choosePdfButton"
+                    id="convertButton"
+                    class="pdf-jpg-action-button pdf-jpg-main-button"
+                    disabled
                 >
-                    Choose PDF
+                    Convert Selected Pages to JPG
                 </button>
 
 
-                <input
-                    type="file"
-                    id="pdfInput"
-                    accept="application/pdf,.pdf"
-                    hidden
-                >
-
-
-                <div class="drop-zone-hint">
-                    PDF files only
-                </div>
-
-            </div>
-
-
-            <div
-                id="fileInfo"
-                class="pdf-jpg-hidden"
-                style="
-                    margin-top:20px;
-                    padding:15px;
-                    border:1px solid #e0e0e0;
-                    border-radius:12px;
-                    background:#f8f9fa;
-                "
-            >
-
-                <strong id="fileName"></strong>
-
-
                 <div
-                    id="fileDetails"
-                    style="
-                        margin-top:5px;
-                        color:#5f6368;
-                        font-size:13px;
-                    "
-                ></div>
-
-            </div>
-
-
-            <div
-                id="errorMessage"
-                class="pdf-jpg-error pdf-jpg-hidden"
-            ></div>
-
-        </section>
-
-
-
-        <!-- Settings -->
-
-        <section
-            id="settingsPanel"
-            class="pdf-jpg-panel pdf-jpg-hidden"
-        >
-
-            <h2>
-                Conversion Settings
-            </h2>
-
-
-            <div class="pdf-jpg-options">
-
-
-                <label
-                    class="pdf-jpg-option selected"
-                    data-quality-card
+                    id="progressArea"
+                    class="pdf-jpg-progress pdf-jpg-hidden"
                 >
-
-                    <input
-                        type="radio"
-                        name="quality"
-                        value="high"
-                        checked
-                    >
-
-
-                    <div class="pdf-jpg-option-title">
-                        High Quality
-                    </div>
-
-
-                    <div class="pdf-jpg-option-text">
-                        Best image quality. Larger file size.
-                    </div>
-
-                </label>
-
-
-
-                <label
-                    class="pdf-jpg-option"
-                    data-quality-card
-                >
-
-                    <input
-                        type="radio"
-                        name="quality"
-                        value="balanced"
-                    >
-
-
-                    <div class="pdf-jpg-option-title">
-                        Balanced
-                    </div>
-
-
-                    <div class="pdf-jpg-option-text">
-                        Good quality with a smaller file size.
-                    </div>
-
-                </label>
-
-
-
-                <label
-                    class="pdf-jpg-option"
-                    data-quality-card
-                >
-
-                    <input
-                        type="radio"
-                        name="quality"
-                        value="small"
-                    >
-
-
-                    <div class="pdf-jpg-option-title">
-                        Smaller File
-                    </div>
-
-
-                    <div class="pdf-jpg-option-text">
-                        Smaller JPG files for easier sharing.
-                    </div>
-
-                </label>
-
-
-            </div>
-
-
-
-            <div class="pdf-jpg-settings">
-
-
-                <div class="pdf-jpg-setting">
-
-                    <label for="resolution">
-                        Resolution
-                    </label>
-
-
-                    <select id="resolution">
-
-                        <option value="1.5">
-                            150 DPI — Fast
-                        </option>
-
-
-                        <option value="2" selected>
-                            200 DPI — Recommended
-                        </option>
-
-
-                        <option value="2.5">
-                            250 DPI — High
-                        </option>
-
-
-                        <option value="3">
-                            300 DPI — Very High
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-
-                <div class="pdf-jpg-setting">
-
-                    <label for="pageMode">
-                        Pages to Convert
-                    </label>
-
-
-                    <select id="pageMode">
-
-                        <option value="selected" selected>
-                            Selected Pages
-                        </option>
-
-
-                        <option value="all">
-                            All Pages
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-            </div>
-
-
-
-            <div
-                class="pdf-jpg-selection-bar"
-                id="selectionBar"
-            >
-
-                <div
-                    class="pdf-jpg-selection-info"
-                    id="selectionInfo"
-                >
-                    0 pages selected
-                </div>
-
-
-                <div class="pdf-jpg-small-actions">
-
-                    <button
-                        type="button"
-                        class="pdf-jpg-small-button"
-                        id="selectAllButton"
-                    >
-                        Select All
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="pdf-jpg-small-button"
-                        id="clearSelectionButton"
-                    >
-                        Clear
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- Preview -->
-
-        <section
-            id="previewPanel"
-            class="pdf-jpg-panel pdf-jpg-hidden"
-        >
-
-            <h2>
-                Page Preview
-            </h2>
-
-
-            <p
-                style="
-                    color:#5f6368;
-                    font-size:14px;
-                    margin-top:6px;
-                "
-            >
-                Click a page to select or deselect it.
-            </p>
-
-
-            <div
-                id="previewGrid"
-                class="pdf-jpg-preview-grid"
-            ></div>
-
-
-            <div
-                id="previewLoading"
-                class="pdf-jpg-loading pdf-jpg-hidden"
-            >
-                Loading PDF pages...
-            </div>
-
-
-            <button
-                type="button"
-                id="convertButton"
-                class="pdf-jpg-main-button"
-                disabled
-            >
-                Convert Selected Pages to JPG
-            </button>
-
-
-            <div
-                id="progressArea"
-                class="pdf-jpg-progress pdf-jpg-hidden"
-            >
-
-                <div id="progressText">
-                    Preparing...
-                </div>
-
-
-                <div class="pdf-jpg-progress-track">
 
                     <div
-                        id="progressBar"
-                        class="pdf-jpg-progress-bar"
-                    ></div>
+                        id="progressText"
+                        class="pdf-jpg-progress-text"
+                    >
+                        Preparing...
+                    </div>
+
+
+                    <div class="pdf-jpg-progress-track">
+
+                        <div
+                            id="progressBar"
+                            class="pdf-jpg-progress-bar"
+                        ></div>
+
+                    </div>
 
                 </div>
 
+
+                <div
+                    id="statusMessage"
+                    class="pdf-jpg-success pdf-jpg-hidden"
+                ></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RESULTS
+                 ================================================= -->
+
+            <section
+                id="resultPanel"
+                class="pdf-jpg-card pdf-jpg-hidden"
+            >
+
+                <h2 class="pdf-jpg-card-title">
+                    Converted JPG Files
+                </h2>
+
+
+                <div
+                    id="results"
+                    class="pdf-jpg-results"
+                ></div>
+
+
+                <button
+                    type="button"
+                    id="downloadZipButton"
+                    class="pdf-jpg-action-button pdf-jpg-main-button"
+                >
+                    📦 Download All as ZIP
+                </button>
+
+
+                <button
+                    type="button"
+                    id="convertAnotherButton"
+                    class="pdf-jpg-secondary-button"
+                >
+                    Convert Another PDF
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+                 BOTTOM NAVIGATION
+                 ================================================= -->
+
+            <div class="pdf-jpg-bottom-nav">
+
+                <a href="pdf-tools.html">
+                    ← Back to PDF Tools
+                </a>
+
             </div>
 
-
-            <div
-                id="statusMessage"
-                class="pdf-jpg-success pdf-jpg-hidden"
-            ></div>
-
-        </section>
-
-
-
-        <!-- Results -->
-
-        <section
-            id="resultPanel"
-            class="pdf-jpg-panel pdf-jpg-hidden"
-        >
-
-            <h2>
-                Converted JPG Files
-            </h2>
-
-
-            <div
-                id="results"
-                class="pdf-jpg-results"
-            ></div>
-
-
-            <button
-                type="button"
-                id="downloadZipButton"
-                class="pdf-jpg-main-button"
-            >
-                📦 Download All as ZIP
-            </button>
-
-
-            <button
-                type="button"
-                id="convertAnotherButton"
-                class="pdf-jpg-secondary-button"
-            >
-                Convert Another PDF
-            </button>
-
-        </section>
-
-
-
-        <!-- Bottom Navigation -->
-
-        <div class="pdf-jpg-bottom-navigation">
-
-            <a href="pdf-tools.html">
-                ← Back to PDF Tools
-            </a>
 
         </div>
 
-
-    </div>
-
-</main>
+    </main>
 
 
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
 
-<footer>
+    <footer class="pdf-jpg-footer">
 
-    <p>
-        © 2026 LifeKit. Small problems. Simple solutions.
-    </p>
+        <p>
+            © 2026 LifeKit. Small problems. Simple solutions.
+        </p>
 
-</footer>
-
-
-
-<!-- PDF.js -->
-
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
-></script>
+    </footer>
 
 
+    <!-- =====================================================
+         PDF.JS
+         ===================================================== -->
 
-<!-- JSZip -->
-
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
-></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
+    ></script>
 
 
+    <!-- =====================================================
+         JSZIP
+         ===================================================== -->
 
-<!-- PDF to JPG -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
+    ></script>
 
-<script src="pdf-to-jpg.js"></script>
+
+    <!-- =====================================================
+         PDF TO JPG JAVASCRIPT
+         ===================================================== -->
+
+    <script src="pdf-to-jpg.js"></script>
 
 
 </body>
