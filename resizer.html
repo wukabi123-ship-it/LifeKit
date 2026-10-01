@@ -147,6 +147,136 @@
         href="style.css"
     >
 
+
+    <!-- ==============================
+         Page-specific content styles
+         ============================== -->
+
+    <style>
+
+        .resizer-info {
+            width: 100%;
+            max-width: 900px;
+            margin: 55px auto 0;
+        }
+
+        .resizer-info-section {
+            margin-bottom: 42px;
+        }
+
+        .resizer-info-section h2 {
+            margin-bottom: 14px;
+            font-size: 28px;
+            line-height: 1.25;
+        }
+
+        .resizer-info-section p {
+            color: #4b5056;
+            font-size: 16px;
+            line-height: 1.75;
+            margin-bottom: 14px;
+        }
+
+        .resizer-info-section ul {
+            margin: 14px 0 0 22px;
+            color: #4b5056;
+        }
+
+        .resizer-info-section li {
+            margin-bottom: 9px;
+            line-height: 1.7;
+        }
+
+        .resizer-tip {
+            margin-top: 20px;
+            padding: 20px 22px;
+            background: #f8f9fa;
+            border: 1px solid #e3e6ea;
+            border-radius: 14px;
+        }
+
+        .resizer-tip strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #202124;
+        }
+
+        .resizer-tip span {
+            color: #5f6368;
+            line-height: 1.65;
+        }
+
+        .resizer-faq {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .resizer-faq h2 {
+            margin-bottom: 18px;
+            font-size: 28px;
+        }
+
+        .resizer-faq details {
+            margin-bottom: 12px;
+            padding: 17px 18px;
+            background: #ffffff;
+            border: 1px solid #e3e6ea;
+            border-radius: 12px;
+        }
+
+        .resizer-faq summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: #202124;
+            line-height: 1.5;
+        }
+
+        .resizer-faq details p {
+            margin-top: 12px;
+            color: #5f6368;
+            line-height: 1.7;
+        }
+
+        .resizer-footer-links {
+            margin-top: 18px;
+        }
+
+        .resizer-footer-links a {
+            color: #202124;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        @media (max-width: 700px) {
+
+            .resizer-info {
+                margin-top: 40px;
+            }
+
+            .resizer-info-section {
+                margin-bottom: 34px;
+            }
+
+            .resizer-info-section h2,
+            .resizer-faq h2 {
+                font-size: 23px;
+            }
+
+            .resizer-info-section p,
+            .resizer-info-section li,
+            .resizer-faq details p {
+                font-size: 15px;
+            }
+
+            .resizer-tip {
+                padding: 17px 18px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
@@ -401,6 +531,344 @@
 
         </section>
 
+
+
+        <!-- ==============================
+             Helpful Content
+             ============================== -->
+
+        <section class="resizer-info">
+
+
+            <!-- What is image resizing -->
+
+            <div class="resizer-info-section">
+
+                <h2>
+                    What Is Image Resizing?
+                </h2>
+
+                <p>
+                    Image resizing changes the width and height of an image.
+                    The dimensions are usually measured in pixels, such as
+                    1920 × 1080 or 800 × 600.
+                </p>
+
+                <p>
+                    Resizing is different from cropping. Resizing changes the
+                    overall dimensions of the image, while cropping removes
+                    part of the original image.
+                </p>
+
+            </div>
+
+
+
+            <!-- How to use -->
+
+            <div class="resizer-info-section">
+
+                <h2>
+                    How to Resize an Image
+                </h2>
+
+                <p>
+                    Follow these simple steps:
+                </p>
+
+                <ul>
+
+                    <li>
+                        Choose an image or drag it into the upload area.
+                    </li>
+
+                    <li>
+                        Check the original dimensions shown by the tool.
+                    </li>
+
+                    <li>
+                        Enter the width and height you need.
+                    </li>
+
+                    <li>
+                        Keep “Keep aspect ratio” enabled when you want to
+                        preserve the original proportions.
+                    </li>
+
+                    <li>
+                        Click “Resize Image” to create the resized image.
+                    </li>
+
+                    <li>
+                        Review the result and download it when ready.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- Aspect ratio -->
+
+            <div class="resizer-info-section">
+
+                <h2>
+                    What Is Aspect Ratio?
+                </h2>
+
+                <p>
+                    Aspect ratio describes the relationship between an image's
+                    width and height. For example, a 1920 × 1080 image has a
+                    16:9 aspect ratio.
+                </p>
+
+                <p>
+                    Keeping the same aspect ratio helps prevent an image from
+                    looking stretched or squashed after resizing.
+                </p>
+
+                <div class="resizer-tip">
+
+                    <strong>
+                        Tip
+                    </strong>
+
+                    <span>
+                        When the exact width and height are not required,
+                        keeping the aspect ratio enabled is usually a useful
+                        starting point.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Common dimensions -->
+
+            <div class="resizer-info-section">
+
+                <h2>
+                    Common Image Dimensions
+                </h2>
+
+                <p>
+                    Different websites, applications, and devices may use
+                    different image dimensions. Some common examples include:
+                </p>
+
+                <ul>
+
+                    <li>
+                        <strong>1920 × 1080:</strong>
+                        Common Full HD landscape dimensions.
+                    </li>
+
+                    <li>
+                        <strong>1280 × 720:</strong>
+                        Another common 16:9 size.
+                    </li>
+
+                    <li>
+                        <strong>1080 × 1080:</strong>
+                        A square image format often used for social content.
+                    </li>
+
+                    <li>
+                        <strong>800 × 600:</strong>
+                        A 4:3 image dimension useful for many general purposes.
+                    </li>
+
+                </ul>
+
+                <p>
+                    These are examples rather than universal requirements.
+                    The correct dimensions depend on where the image will be used.
+                </p>
+
+            </div>
+
+
+
+            <!-- When to resize -->
+
+            <div class="resizer-info-section">
+
+                <h2>
+                    When Should You Resize an Image?
+                </h2>
+
+                <p>
+                    Resizing can be useful when an image is much larger than
+                    the space where it will be displayed, when a website asks
+                    for specific dimensions, or when you need to prepare an
+                    image for a form, document, presentation, or social platform.
+                </p>
+
+                <p>
+                    Reducing the dimensions of a very large image can also
+                    reduce the amount of data needed to display or store it.
+                </p>
+
+            </div>
+
+
+
+            <!-- Quality -->
+
+            <div class="resizer-info-section">
+
+                <h2>
+                    Does Resizing Affect Image Quality?
+                </h2>
+
+                <p>
+                    Yes. Changing image dimensions changes the number of pixels
+                    in the image. Enlarging a small image may make it look softer
+                    or less detailed, while reducing an image usually removes
+                    some pixel detail.
+                </p>
+
+                <p>
+                    For important images, it is a good idea to keep the original
+                    file and use a resized copy for the specific purpose you need.
+                </p>
+
+            </div>
+
+
+
+            <!-- Resize vs compression -->
+
+            <div class="resizer-info-section">
+
+                <h2>
+                    Resizing vs Image Compression
+                </h2>
+
+                <p>
+                    Resizing changes the image dimensions. Compression focuses
+                    on reducing the amount of data stored in the image file.
+                </p>
+
+                <p>
+                    These two processes can be used separately or together.
+                    For example, a large photograph might first be resized to
+                    suitable dimensions and then compressed to reduce its file size.
+                </p>
+
+            </div>
+
+
+
+        </section>
+
+
+
+        <!-- ==============================
+             FAQ
+             ============================== -->
+
+        <section class="resizer-faq">
+
+            <h2>
+                Frequently Asked Questions
+            </h2>
+
+
+            <details>
+
+                <summary>
+                    Will resizing make my image smaller in file size?
+                </summary>
+
+                <p>
+                    It often can, especially when the image dimensions are reduced,
+                    but the final file size also depends on the image format and
+                    how the resulting image is encoded.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    What does “Keep aspect ratio” do?
+                </summary>
+
+                <p>
+                    It keeps the relationship between width and height consistent
+                    while changing the image dimensions. This helps reduce unwanted
+                    stretching or distortion.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    What happens if I make an image larger?
+                </summary>
+
+                <p>
+                    Enlarging an image increases its dimensions, but it does not
+                    create new original detail. A small image may therefore appear
+                    softer after being enlarged.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Should I keep the original image?
+                </summary>
+
+                <p>
+                    Yes. Keeping the original gives you a backup and allows you
+                    to create different resized versions later.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Can I resize an image to exact dimensions?
+                </summary>
+
+                <p>
+                    Yes. Enter the width and height in pixels. When exact dimensions
+                    are required, check whether keeping the original aspect ratio
+                    will fit your intended use.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Is resizing the same as cropping?
+                </summary>
+
+                <p>
+                    No. Resizing changes the dimensions of the whole image,
+                    while cropping removes part of the image.
+                </p>
+
+            </details>
+
+
+        </section>
+
+
     </main>
 
 
@@ -414,6 +882,32 @@
         <p>
             © 2026 LifeKit
         </p>
+
+        <div class="resizer-footer-links">
+
+            <a href="about.html">
+                About
+            </a>
+
+            &nbsp;·&nbsp;
+
+            <a href="privacy-policy.html">
+                Privacy Policy
+            </a>
+
+            &nbsp;·&nbsp;
+
+            <a href="terms.html">
+                Terms of Service
+            </a>
+
+            &nbsp;·&nbsp;
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
 
     </footer>
 

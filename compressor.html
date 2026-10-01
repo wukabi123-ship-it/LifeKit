@@ -10,7 +10,6 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-
     <!-- ==============================
          SEO
          ============================== -->
@@ -44,7 +43,6 @@
         content="#202124"
     >
 
-
     <!-- ==============================
          Canonical
          ============================== -->
@@ -53,7 +51,6 @@
         rel="canonical"
         href="https://lifekit.wukabi123.workers.dev/compressor.html"
     >
-
 
     <!-- ==============================
          Favicon
@@ -69,7 +66,6 @@
         rel="apple-touch-icon"
         href="favicon.svg"
     >
-
 
     <!-- ==============================
          Open Graph
@@ -100,7 +96,6 @@
         content="LifeKit"
     >
 
-
     <!-- ==============================
          Twitter / Social Preview
          ============================== -->
@@ -120,7 +115,6 @@
         content="Compress JPG, PNG and WEBP images online with LifeKit."
     >
 
-
     <!-- ==============================
          Structured Data
          ============================== -->
@@ -137,7 +131,6 @@
     }
     </script>
 
-
     <!-- ==============================
          Styles
          ============================== -->
@@ -147,11 +140,142 @@
         href="style.css"
     >
 
+    <!-- ==============================
+         Page-specific content styles
+         ============================== -->
+
+    <style>
+
+        .compressor-info {
+            width: 100%;
+            max-width: 900px;
+            margin: 55px auto 0;
+        }
+
+        .compressor-info-section {
+            margin-bottom: 42px;
+        }
+
+        .compressor-info-section h2 {
+            margin-bottom: 14px;
+            font-size: 28px;
+            line-height: 1.25;
+        }
+
+        .compressor-info-section p {
+            color: #4b5056;
+            font-size: 16px;
+            line-height: 1.75;
+            margin-bottom: 14px;
+        }
+
+        .compressor-info-section ul {
+            margin: 14px 0 0 22px;
+            color: #4b5056;
+        }
+
+        .compressor-info-section li {
+            margin-bottom: 9px;
+            line-height: 1.7;
+        }
+
+        .compressor-tip {
+            margin-top: 20px;
+            padding: 20px 22px;
+            background: #f8f9fa;
+            border: 1px solid #e3e6ea;
+            border-radius: 14px;
+        }
+
+        .compressor-tip strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #202124;
+        }
+
+        .compressor-tip span {
+            color: #5f6368;
+            line-height: 1.65;
+        }
+
+        .compressor-faq {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .compressor-faq h2 {
+            margin-bottom: 18px;
+            font-size: 28px;
+        }
+
+        .compressor-faq details {
+            margin-bottom: 12px;
+            padding: 17px 18px;
+            background: #ffffff;
+            border: 1px solid #e3e6ea;
+            border-radius: 12px;
+        }
+
+        .compressor-faq summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: #202124;
+            line-height: 1.5;
+        }
+
+        .compressor-faq details p {
+            margin-top: 12px;
+            color: #5f6368;
+            line-height: 1.7;
+        }
+
+        .compressor-footer-links {
+            margin-top: 14px;
+        }
+
+        .compressor-footer-links a {
+            color: #202124;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .compressor-footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+
+            .compressor-info {
+                margin-top: 40px;
+            }
+
+            .compressor-info-section {
+                margin-bottom: 34px;
+            }
+
+            .compressor-info-section h2,
+            .compressor-faq h2 {
+                font-size: 23px;
+            }
+
+            .compressor-info-section p,
+            .compressor-info-section li,
+            .compressor-faq details p {
+                font-size: 15px;
+            }
+
+            .compressor-tip {
+                padding: 17px 18px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
-
 <body>
-
 
     <!-- ==============================
          Header
@@ -169,8 +293,6 @@
 
     </header>
 
-
-
     <!-- ==============================
          Main
          ============================== -->
@@ -179,21 +301,15 @@
 
         <section class="hero">
 
-
             <h2>
                 Compress Your Image
             </h2>
-
 
             <p>
                 Choose an image to reduce its file size.
             </p>
 
-
-
             <br>
-
-
 
             <!-- ==============================
                  Drag & Drop Upload
@@ -208,16 +324,13 @@
                     🖼️
                 </div>
 
-
                 <h3>
                     Drag & Drop Your Image
                 </h3>
 
-
                 <p>
                     or
                 </p>
-
 
                 <label
                     for="imageInput"
@@ -226,11 +339,9 @@
                     Choose Image
                 </label>
 
-
                 <p class="drop-zone-hint">
                     JPG, PNG, WEBP and other image formats
                 </p>
-
 
                 <input
                     type="file"
@@ -241,11 +352,8 @@
 
             </div>
 
-
-
-            <br><br>
-
-
+            <br>
+            <br>
 
             <!-- ==============================
                  Preview
@@ -261,10 +369,8 @@
                 "
             >
 
-
-            <br><br>
-
-
+            <br>
+            <br>
 
             <!-- ==============================
                  Original Size
@@ -280,11 +386,7 @@
 
             </div>
 
-
-
             <br>
-
-
 
             <!-- ==============================
                  Compression Mode
@@ -298,9 +400,8 @@
 
             </label>
 
-
-            <br><br>
-
+            <br>
+            <br>
 
             <select id="compressionMode">
 
@@ -314,18 +415,14 @@
 
             </select>
 
-
-
-            <br><br>
-
-
+            <br>
+            <br>
 
             <!-- ==============================
                  Quality Mode
                  ============================== -->
 
             <div id="qualityMode">
-
 
                 <label for="quality">
 
@@ -341,9 +438,8 @@
 
                 </label>
 
-
-                <br><br>
-
+                <br>
+                <br>
 
                 <input
                     type="range"
@@ -354,18 +450,12 @@
                     step="1"
                 >
 
-
                 <p>
-
                     Lower quality usually creates
                     a smaller file.
-
                 </p>
 
-
             </div>
-
-
 
             <!-- ==============================
                  Target Size Mode
@@ -376,7 +466,6 @@
                 style="display: none;"
             >
 
-
                 <label for="targetSize">
 
                     <strong>
@@ -385,9 +474,8 @@
 
                 </label>
 
-
-                <br><br>
-
+                <br>
+                <br>
 
                 <input
                     type="number"
@@ -396,7 +484,6 @@
                     step="0.1"
                     value="1"
                 >
-
 
                 <select id="targetUnit">
 
@@ -413,23 +500,15 @@
 
                 </select>
 
-
                 <p>
-
                     LifeKit will try to make the
                     compressed image as close as
                     possible to your target size.
-
                 </p>
-
 
             </div>
 
-
-
             <br>
-
-
 
             <!-- ==============================
                  Compress Button
@@ -439,16 +518,11 @@
                 id="compressButton"
                 type="button"
             >
-
                 Compress Image
-
             </button>
 
-
-
-            <br><br>
-
-
+            <br>
+            <br>
 
             <!-- ==============================
                  Reset Button
@@ -459,16 +533,11 @@
                 type="button"
                 style="display: none;"
             >
-
                 Choose Another Image
-
             </button>
 
-
-
-            <br><br>
-
-
+            <br>
+            <br>
 
             <!-- ==============================
                  Result
@@ -476,12 +545,280 @@
 
             <div id="downloadArea"></div>
 
+        </section>
+
+        <!-- ==============================
+             Helpful Content
+             ============================== -->
+
+        <section class="compressor-info">
+
+            <!-- What is image compression -->
+
+            <div class="compressor-info-section">
+
+                <h2>
+                    What Is Image Compression?
+                </h2>
+
+                <p>
+                    Image compression reduces the amount of data stored in an image file.
+                    A smaller file can be easier to upload, share, store, or use on a website.
+                </p>
+
+                <p>
+                    The amount of size reduction depends on the original image, its format,
+                    and the compression settings you choose.
+                </p>
+
+            </div>
+
+            <!-- How to use -->
+
+            <div class="compressor-info-section">
+
+                <h2>
+                    How to Compress an Image
+                </h2>
+
+                <p>
+                    Using the LifeKit Image Compressor is simple:
+                </p>
+
+                <ul>
+
+                    <li>
+                        Choose an image or drag it into the upload area.
+                    </li>
+
+                    <li>
+                        Check the original file size and image preview.
+                    </li>
+
+                    <li>
+                        Choose Quality mode or Target Size mode.
+                    </li>
+
+                    <li>
+                        Adjust the compression settings to suit your needs.
+                    </li>
+
+                    <li>
+                        Click “Compress Image” and review the result.
+                    </li>
+
+                    <li>
+                        Download the compressed image when you are satisfied with it.
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Quality vs target -->
+
+            <div class="compressor-info-section">
+
+                <h2>
+                    Quality Mode vs Target Size Mode
+                </h2>
+
+                <p>
+                    <strong>Quality mode</strong> is useful when you want to control the
+                    balance between image quality and file size.
+                </p>
+
+                <p>
+                    <strong>Target Size mode</strong> is useful when you have a specific
+                    file size goal, such as when a website or online form has an upload limit.
+                </p>
+
+                <div class="compressor-tip">
+
+                    <strong>
+                        Tip
+                    </strong>
+
+                    <span>
+                        A smaller file is not always better. For important images,
+                        compare the compressed result with the original before downloading.
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- Image formats -->
+
+            <div class="compressor-info-section">
+
+                <h2>
+                    JPG, PNG and WEBP
+                </h2>
+
+                <p>
+                    Different image formats are designed for different situations.
+                    The best choice depends on the type of image and how you plan to use it.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <strong>JPG:</strong>
+                        Commonly used for photographs and images with many colors.
+                    </li>
+
+                    <li>
+                        <strong>PNG:</strong>
+                        Useful when you need lossless image data or transparency.
+                    </li>
+
+                    <li>
+                        <strong>WEBP:</strong>
+                        A modern format designed to provide efficient image compression
+                        for many web use cases.
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- When to compress -->
+
+            <div class="compressor-info-section">
+
+                <h2>
+                    When Should You Compress an Image?
+                </h2>
+
+                <p>
+                    Compressing an image can be useful when a file is too large to upload,
+                    takes too long to send, uses too much storage, or makes a webpage heavier
+                    than necessary.
+                </p>
+
+                <p>
+                    For website images, reducing unnecessary file size can also help pages
+                    load more efficiently, especially on slower connections.
+                </p>
+
+            </div>
+
+            <!-- Quality advice -->
+
+            <div class="compressor-info-section">
+
+                <h2>
+                    How Much Should You Compress?
+                </h2>
+
+                <p>
+                    There is no single compression setting that works for every image.
+                    A photograph, screenshot, illustration, and logo can all respond differently
+                    to compression.
+                </p>
+
+                <p>
+                    A practical approach is to start with a moderate setting, check the result,
+                    and then adjust the compression if you need a smaller file.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ==============================
+             FAQ
+             ============================== -->
+
+        <section class="compressor-faq">
+
+            <h2>
+                Frequently Asked Questions
+            </h2>
+
+            <details>
+
+                <summary>
+                    Will compression always make my image smaller?
+                </summary>
+
+                <p>
+                    Not necessarily. Some images are already highly compressed,
+                    so there may be little room for further reduction.
+                </p>
+
+            </details>
+
+            <details>
+
+                <summary>
+                    Does a smaller file always mean lower quality?
+                </summary>
+
+                <p>
+                    Smaller files can involve stronger compression, but the visible
+                    effect depends on the image and the settings used.
+                </p>
+
+            </details>
+
+            <details>
+
+                <summary>
+                    Which mode should I use?
+                </summary>
+
+                <p>
+                    Use Quality mode when you want to control the quality setting.
+                    Use Target Size mode when you have a specific file-size goal.
+                </p>
+
+            </details>
+
+            <details>
+
+                <summary>
+                    What happens if my target size is difficult to reach?
+                </summary>
+
+                <p>
+                    Some images cannot be reduced to an exact target without a noticeable
+                    change in quality. In that situation, the practical choice is to balance
+                    file size and image quality.
+                </p>
+
+            </details>
+
+            <details>
+
+                <summary>
+                    Can I compare my original and compressed image?
+                </summary>
+
+                <p>
+                    Yes. LifeKit shows a preview of the selected image and the original
+                    file size so you can review the result before downloading it.
+                </p>
+
+            </details>
+
+            <details>
+
+                <summary>
+                    Should I keep my original image?
+                </summary>
+
+                <p>
+                    It is a good idea to keep the original when the image is important.
+                    A compressed copy can then be used for uploading or sharing.
+                </p>
+
+            </details>
 
         </section>
 
     </main>
-
-
 
     <!-- ==============================
          Footer
@@ -489,13 +826,58 @@
 
     <footer>
 
-        <p>
-            © 2026 LifeKit
-        </p>
+        <div class="footer-inner">
+
+            <a
+                href="index.html"
+                class="footer-logo"
+                aria-label="LifeKit Home"
+            >
+
+                <span
+                    class="footer-logo-icon"
+                    aria-hidden="true"
+                >
+                    LK
+                </span>
+
+                <strong>
+                    LifeKit
+                </strong>
+
+            </a>
+
+            <span>
+                Small problems. Simple solutions.
+            </span>
+
+            <div class="footer-links">
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="privacy-policy.html">
+                    Privacy Policy
+                </a>
+
+                <a href="terms.html">
+                    Terms of Service
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+            <p>
+                © 2026 LifeKit
+            </p>
+
+        </div>
 
     </footer>
-
-
 
     <!-- ==============================
          JavaScript

@@ -43,7 +43,6 @@
         content="#202124"
     >
 
-
     <!-- ==============================
          Canonical
          ============================== -->
@@ -52,7 +51,6 @@
         rel="canonical"
         href="https://lifekit.wukabi123.workers.dev/pdf-merge.html"
     >
-
 
     <!-- ==============================
          Favicon
@@ -68,7 +66,6 @@
         rel="apple-touch-icon"
         href="favicon.svg"
     >
-
 
     <!-- ==============================
          Open Graph
@@ -99,7 +96,6 @@
         content="LifeKit"
     >
 
-
     <!-- ==============================
          Twitter
          ============================== -->
@@ -119,7 +115,6 @@
         content="Combine multiple PDF files into one document online with LifeKit."
     >
 
-
     <!-- ==============================
          Structured Data
          ============================== -->
@@ -136,7 +131,6 @@
     }
     </script>
 
-
     <!-- ==============================
          Styles
          ============================== -->
@@ -146,29 +140,196 @@
         href="style.css"
     >
 
+    <style>
+        .pdf-page-nav {
+            width: min(900px, calc(100% - 40px));
+            margin: 24px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .pdf-nav-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 10px 16px;
+            border: 1px solid #e3e6ea;
+            border-radius: 10px;
+            background: #ffffff;
+            color: #202124;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .pdf-nav-button:hover {
+            background: #f8f9fa;
+            border-color: #d1d5db;
+            transform: translateY(-1px);
+        }
+
+        .pdf-nav-home {
+            background: #202124;
+            border-color: #202124;
+            color: #ffffff;
+        }
+
+        .pdf-nav-home:hover {
+            background: #34363a;
+            border-color: #34363a;
+        }
+
+        .pdf-info-section {
+            margin-top: 55px;
+            padding: 30px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            text-align: left;
+        }
+
+        .pdf-info-section h2 {
+            margin-bottom: 14px;
+            color: #202124;
+        }
+
+        .pdf-info-section h3 {
+            margin-top: 26px;
+            margin-bottom: 8px;
+            color: #202124;
+        }
+
+        .pdf-info-section p {
+            margin: 0;
+            color: #5f6368;
+            line-height: 1.7;
+        }
+
+        .pdf-info-section ol,
+        .pdf-info-section ul {
+            margin: 12px 0 0;
+            padding-left: 22px;
+            color: #5f6368;
+            line-height: 1.8;
+        }
+
+        .pdf-faq {
+            margin-top: 55px;
+            text-align: left;
+        }
+
+        .pdf-faq h2 {
+            margin-bottom: 18px;
+        }
+
+        .pdf-faq details {
+            margin-bottom: 12px;
+            padding: 16px 18px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+        }
+
+        .pdf-faq summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: #202124;
+        }
+
+        .pdf-faq details p {
+            margin-top: 10px;
+            color: #5f6368;
+            line-height: 1.7;
+        }
+
+        .pdf-bottom-nav {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid #e5e7eb;
+            text-align: left;
+        }
+
+        @media (max-width: 600px) {
+            .pdf-page-nav {
+                width: min(900px, calc(100% - 24px));
+            }
+
+            .pdf-nav-button {
+                flex: 1 1 auto;
+            }
+
+            .pdf-info-section {
+                padding: 22px;
+            }
+        }
+    </style>
+
 </head>
 
-
 <body>
-
 
     <!-- ==============================
          Header
          ============================== -->
 
-    <header>
+    <header class="site-header">
 
-        <h1>
-            PDF Merge
-        </h1>
+        <div class="header-inner">
 
-        <p>
-            Combine multiple PDF files into one document.
-        </p>
+            <a
+                href="index.html"
+                class="logo"
+                aria-label="LifeKit Home"
+            >
+                <span class="logo-icon">
+                    LK
+                </span>
+
+                <span>
+                    LifeKit
+                </span>
+            </a>
+
+            <div class="header-tagline">
+                Small problems.
+                <strong>
+                    Simple solutions.
+                </strong>
+            </div>
+
+        </div>
 
     </header>
 
+    <!-- ==============================
+         Navigation
+         ============================== -->
 
+    <div class="pdf-page-nav">
+
+        <a
+            href="pdf-tools.html"
+            class="pdf-nav-button"
+        >
+            ← PDF Tools
+        </a>
+
+        <a
+            href="index.html"
+            class="pdf-nav-button pdf-nav-home"
+        >
+            LifeKit Home
+        </a>
+
+    </div>
 
     <!-- ==============================
          Main
@@ -178,71 +339,19 @@
 
         <section class="hero">
 
-
-            <!-- Navigation -->
-
-            <div
-                style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    gap: 12px;
-                    flex-wrap: wrap;
-                    margin-bottom: 25px;
-                "
-            >
-
-                <a
-                    href="pdf-tools.html"
-                    style="
-                        display: inline-block;
-                        padding: 10px 16px;
-                        background: #ffffff;
-                        border: 1px solid #e5e7eb;
-                        border-radius: 10px;
-                        color: #202124;
-                        text-decoration: none;
-                        font-weight: 700;
-                    "
-                >
-                    ← PDF Tools
-                </a>
-
-
-                <a
-                    href="index.html"
-                    style="
-                        display: inline-block;
-                        padding: 10px 16px;
-                        background: #202124;
-                        border-radius: 10px;
-                        color: #ffffff;
-                        text-decoration: none;
-                        font-weight: 700;
-                    "
-                >
-                    LifeKit Home
-                </a>
-
-            </div>
-
-
-
-            <h2>
-                Merge Your PDFs
-            </h2>
-
+            <h1>
+                PDF Merge
+            </h1>
 
             <p>
-                Choose multiple PDF files and combine them into one PDF document.
+                Combine multiple PDF files into one document.
             </p>
-
 
             <br>
 
-
-
-            <!-- Upload Area -->
+            <!-- ==============================
+                 Upload Area
+                 ============================== -->
 
             <div
                 id="dropZone"
@@ -283,13 +392,12 @@
 
             </div>
 
-
             <br>
             <br>
 
-
-
-            <!-- File Summary -->
+            <!-- ==============================
+                 File Summary
+                 ============================== -->
 
             <div
                 id="fileSummary"
@@ -329,7 +437,6 @@
 
                     </div>
 
-
                     <button
                         id="clearButton"
                         type="button"
@@ -341,18 +448,17 @@
 
             </div>
 
-
-
-            <!-- File List -->
+            <!-- ==============================
+                 File List
+                 ============================== -->
 
             <div id="fileList"></div>
 
-
             <br>
 
-
-
-            <!-- Merge -->
+            <!-- ==============================
+                 Merge
+                 ============================== -->
 
             <button
                 id="mergeButton"
@@ -362,52 +468,171 @@
                 Merge PDFs
             </button>
 
-
             <br>
             <br>
 
-
-
-            <!-- Download -->
+            <!-- ==============================
+                 Download
+                 ============================== -->
 
             <div id="downloadArea"></div>
 
+            <!-- ==============================
+                 About PDF Merge
+                 ============================== -->
 
+            <section class="pdf-info-section">
 
-            <!-- Bottom Navigation -->
+                <h2>
+                    What Is PDF Merging?
+                </h2>
 
-            <div
-                style="
-                    margin-top: 35px;
-                    padding-top: 25px;
-                    border-top: 1px solid #e5e7eb;
-                "
-            >
+                <p>
+                    PDF merging combines two or more PDF files into a single
+                    PDF document. This can make documents easier to organize,
+                    store, share and submit as one file instead of several
+                    separate files.
+                </p>
+
+                <h3>
+                    How to Merge PDF Files
+                </h3>
+
+                <ol>
+                    <li>
+                        Add the PDF files you want to combine.
+                    </li>
+                    <li>
+                        Arrange the files in the order you want.
+                    </li>
+                    <li>
+                        Start the PDF merge process.
+                    </li>
+                    <li>
+                        Download the resulting PDF document.
+                    </li>
+                </ol>
+
+                <h3>
+                    When Is PDF Merge Useful?
+                </h3>
+
+                <p>
+                    Merging can be useful for school assignments, project
+                    documents, applications, reports, scanned paperwork and
+                    other situations where related PDF files need to be
+                    collected into one document.
+                </p>
+
+                <h3>
+                    Why Combine PDFs Into One File?
+                </h3>
+
+                <p>
+                    A single PDF can be easier to send, upload and organize.
+                    For example, several related documents can be combined
+                    into one file before submitting or sharing them.
+                </p>
+
+                <h3>
+                    Check Your File Order
+                </h3>
+
+                <p>
+                    Before merging, check that the files are arranged in the
+                    correct order. The final PDF follows the order selected
+                    in the tool.
+                </p>
+
+            </section>
+
+            <!-- ==============================
+                 FAQ
+                 ============================== -->
+
+            <section class="pdf-faq">
+
+                <h2>
+                    Frequently Asked Questions
+                </h2>
+
+                <details>
+                    <summary>
+                        How many PDF files can I merge?
+                    </summary>
+
+                    <p>
+                        You can select multiple PDF files. The available
+                        limits depend on your browser and device.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>
+                        Can I change the order of the PDF files?
+                    </summary>
+
+                    <p>
+                        Yes. Arrange the files in the order you want before
+                        merging them so the final document follows that order.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>
+                        Can I merge scanned PDF files?
+                    </summary>
+
+                    <p>
+                        PDF files can be merged regardless of whether their
+                        pages contain scanned documents or digitally created
+                        content, provided the files are supported by the tool.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>
+                        What happens to my original PDF files?
+                    </summary>
+
+                    <p>
+                        The original files you select are not replaced by the
+                        merged document. A separate merged PDF is created for
+                        you to download.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>
+                        Why would I merge PDFs instead of keeping them separate?
+                    </summary>
+
+                    <p>
+                        Combining related files can make them easier to upload,
+                        share, store and manage as one document.
+                    </p>
+                </details>
+
+            </section>
+
+            <!-- ==============================
+                 Bottom Navigation
+                 ============================== -->
+
+            <div class="pdf-bottom-nav">
 
                 <a
                     href="pdf-tools.html"
-                    style="
-                        display: inline-block;
-                        padding: 12px 20px;
-                        background: #ffffff;
-                        border: 1px solid #e5e7eb;
-                        border-radius: 10px;
-                        color: #202124;
-                        text-decoration: none;
-                        font-weight: 700;
-                    "
+                    class="pdf-nav-button"
                 >
                     ← Back to PDF Tools
                 </a>
 
             </div>
 
-
         </section>
 
     </main>
-
-
 
     <!-- ==============================
          Footer
@@ -421,22 +646,19 @@
 
     </footer>
 
-
-
     <!-- ==============================
-         PDF-LIB -->
+         PDF-LIB
+         ============================== -->
 
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"
     ></script>
-
 
     <!-- ==============================
          LifeKit PDF Merge
          ============================== -->
 
     <script src="pdf-merge.js"></script>
-
 
 </body>
 

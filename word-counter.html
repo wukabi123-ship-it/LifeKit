@@ -147,6 +147,168 @@
         href="style.css"
     >
 
+
+    <!-- ==============================
+         Page-specific content styles
+         ============================== -->
+
+    <style>
+
+        .word-counter-info {
+            width: 100%;
+            max-width: 900px;
+            margin: 55px auto 0;
+        }
+
+        .word-counter-info-section {
+            margin-bottom: 42px;
+        }
+
+        .word-counter-info-section h2 {
+            margin-bottom: 14px;
+            font-size: 28px;
+            line-height: 1.25;
+        }
+
+        .word-counter-info-section p {
+            color: #4b5056;
+            font-size: 16px;
+            line-height: 1.75;
+            margin-bottom: 14px;
+        }
+
+        .word-counter-info-section ul {
+            margin: 14px 0 0 22px;
+            color: #4b5056;
+        }
+
+        .word-counter-info-section li {
+            margin-bottom: 9px;
+            line-height: 1.7;
+        }
+
+        .word-counter-tip {
+            margin-top: 20px;
+            padding: 20px 22px;
+            background: #f8f9fa;
+            border: 1px solid #e3e6ea;
+            border-radius: 14px;
+        }
+
+        .word-counter-tip strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #202124;
+        }
+
+        .word-counter-tip span {
+            color: #5f6368;
+            line-height: 1.65;
+        }
+
+        .word-counter-use-cases {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .word-counter-use-card {
+            padding: 18px;
+            background: #ffffff;
+            border: 1px solid #e3e6ea;
+            border-radius: 14px;
+        }
+
+        .word-counter-use-card strong {
+            display: block;
+            margin-bottom: 7px;
+            color: #202124;
+            font-size: 16px;
+        }
+
+        .word-counter-use-card span {
+            display: block;
+            color: #5f6368;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .word-counter-faq {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .word-counter-faq h2 {
+            margin-bottom: 18px;
+            font-size: 28px;
+        }
+
+        .word-counter-faq details {
+            margin-bottom: 12px;
+            padding: 17px 18px;
+            background: #ffffff;
+            border: 1px solid #e3e6ea;
+            border-radius: 12px;
+        }
+
+        .word-counter-faq summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: #202124;
+            line-height: 1.5;
+        }
+
+        .word-counter-faq details p {
+            margin-top: 12px;
+            color: #5f6368;
+            line-height: 1.7;
+        }
+
+        .word-counter-footer-links {
+            margin-top: 18px;
+        }
+
+        .word-counter-footer-links a {
+            color: #202124;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        @media (max-width: 700px) {
+
+            .word-counter-info {
+                margin-top: 40px;
+            }
+
+            .word-counter-info-section {
+                margin-bottom: 34px;
+            }
+
+            .word-counter-info-section h2,
+            .word-counter-faq h2 {
+                font-size: 23px;
+            }
+
+            .word-counter-info-section p,
+            .word-counter-info-section li,
+            .word-counter-faq details p {
+                font-size: 15px;
+            }
+
+            .word-counter-tip {
+                padding: 17px 18px;
+            }
+
+            .word-counter-use-cases {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
@@ -306,6 +468,363 @@
 
         </section>
 
+
+
+        <!-- ==============================
+             Helpful Content
+             ============================== -->
+
+        <section class="word-counter-info">
+
+
+            <!-- What is a word counter -->
+
+            <div class="word-counter-info-section">
+
+                <h2>
+                    What Is a Word Counter?
+                </h2>
+
+                <p>
+                    A word counter helps you measure the length and basic structure
+                    of a piece of writing. It can count words, characters, sentences,
+                    and paragraphs so you can quickly understand how much text you have.
+                </p>
+
+                <p>
+                    This can be useful when you need to meet a writing limit,
+                    check the length of an assignment, or simply understand
+                    the structure of your text.
+                </p>
+
+            </div>
+
+
+
+            <!-- How to use -->
+
+            <div class="word-counter-info-section">
+
+                <h2>
+                    How to Use the Word Counter
+                </h2>
+
+                <p>
+                    Using LifeKit's Word Counter only takes a few seconds:
+                </p>
+
+                <ul>
+
+                    <li>
+                        Type directly into the text box or paste your writing.
+                    </li>
+
+                    <li>
+                        Watch the statistics update as your text changes.
+                    </li>
+
+                    <li>
+                        Check the word, character, sentence, and paragraph counts.
+                    </li>
+
+                    <li>
+                        Use the Clear Text button when you want to start again.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- Statistics explained -->
+
+            <div class="word-counter-info-section">
+
+                <h2>
+                    What Do the Different Counts Mean?
+                </h2>
+
+                <ul>
+
+                    <li>
+                        <strong>Words:</strong>
+                        The tool's word count for the text you entered.
+                    </li>
+
+                    <li>
+                        <strong>Characters:</strong>
+                        The total number of characters in the text.
+                    </li>
+
+                    <li>
+                        <strong>Characters without spaces:</strong>
+                        The character count excluding spaces.
+                    </li>
+
+                    <li>
+                        <strong>Sentences:</strong>
+                        An estimate based on sentence-ending punctuation.
+                    </li>
+
+                    <li>
+                        <strong>Paragraphs:</strong>
+                        The number of separate text paragraphs detected.
+                    </li>
+
+                </ul>
+
+                <div class="word-counter-tip">
+
+                    <strong>
+                        Tip
+                    </strong>
+
+                    <span>
+                        Different writing platforms can use different counting rules,
+                        so a word count shown here may not always exactly match another
+                        application.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Writing use cases -->
+
+            <div class="word-counter-info-section">
+
+                <h2>
+                    When Is a Word Counter Useful?
+                </h2>
+
+                <p>
+                    A word counter can be helpful for many everyday writing tasks.
+                </p>
+
+
+                <div class="word-counter-use-cases">
+
+                    <div class="word-counter-use-card">
+
+                        <strong>
+                            School Assignments
+                        </strong>
+
+                        <span>
+                            Check whether an essay or report is within a required
+                            word range.
+                        </span>
+
+                    </div>
+
+
+                    <div class="word-counter-use-card">
+
+                        <strong>
+                            Articles and Blog Posts
+                        </strong>
+
+                        <span>
+                            Quickly check the length of a draft before publishing.
+                        </span>
+
+                    </div>
+
+
+                    <div class="word-counter-use-card">
+
+                        <strong>
+                            Applications
+                        </strong>
+
+                        <span>
+                            Keep written answers within a stated word or character limit.
+                        </span>
+
+                    </div>
+
+
+                    <div class="word-counter-use-card">
+
+                        <strong>
+                            Everyday Writing
+                        </strong>
+
+                        <span>
+                            Check messages, notes, summaries, and other text quickly.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Word count and character count -->
+
+            <div class="word-counter-info-section">
+
+                <h2>
+                    Word Count vs Character Count
+                </h2>
+
+                <p>
+                    Word count measures the number of words, while character count
+                    measures individual characters in the text.
+                </p>
+
+                <p>
+                    A writing requirement might specify either one. For example,
+                    an assignment may have a word limit, while an online form may
+                    restrict the number of characters.
+                </p>
+
+            </div>
+
+
+
+            <!-- Tips for checking writing -->
+
+            <div class="word-counter-info-section">
+
+                <h2>
+                    Tips for Checking Your Writing
+                </h2>
+
+                <ul>
+
+                    <li>
+                        Check the word count before submitting work with a required limit.
+                    </li>
+
+                    <li>
+                        Look at paragraph count to make sure long sections are not difficult to read.
+                    </li>
+
+                    <li>
+                        Review the original text after checking the numbers rather than
+                        changing good writing only to reach a particular count.
+                    </li>
+
+                    <li>
+                        Keep a copy of important writing before making major edits.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+        </section>
+
+
+
+        <!-- ==============================
+             FAQ
+             ============================== -->
+
+        <section class="word-counter-faq">
+
+            <h2>
+                Frequently Asked Questions
+            </h2>
+
+
+            <details>
+
+                <summary>
+                    Does the word count include spaces?
+                </summary>
+
+                <p>
+                    The Words count and Characters count are separate measurements.
+                    LifeKit also provides a separate Characters without spaces count
+                    so you can compare the two.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Why can my word count differ from another tool?
+                </summary>
+
+                <p>
+                    Different applications can use different rules for punctuation,
+                    symbols, line breaks, and other text patterns. Small differences
+                    are therefore possible.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    What is the difference between characters and characters without spaces?
+                </summary>
+
+                <p>
+                    Characters includes the characters counted by the tool, while
+                    Characters without spaces removes spaces from that measurement.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Can I paste text into the tool?
+                </summary>
+
+                <p>
+                    Yes. You can type directly into the text box or paste text into it.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    How are sentences counted?
+                </summary>
+
+                <p>
+                    The sentence count is based on sentence-ending punctuation and
+                    therefore should be treated as a useful estimate rather than
+                    a universal linguistic rule.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Can I use the word counter for school work?
+                </summary>
+
+                <p>
+                    Yes. It can help you check the approximate length of essays,
+                    reports, notes, and other written assignments.
+                </p>
+
+            </details>
+
+
+        </section>
+
+
     </main>
 
 
@@ -319,6 +838,32 @@
         <p>
             © 2026 LifeKit
         </p>
+
+        <div class="word-counter-footer-links">
+
+            <a href="about.html">
+                About
+            </a>
+
+            &nbsp;·&nbsp;
+
+            <a href="privacy-policy.html">
+                Privacy Policy
+            </a>
+
+            &nbsp;·&nbsp;
+
+            <a href="terms.html">
+                Terms of Service
+            </a>
+
+            &nbsp;·&nbsp;
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
 
     </footer>
 

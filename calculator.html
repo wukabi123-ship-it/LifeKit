@@ -147,6 +147,168 @@
         href="style.css"
     >
 
+
+    <!-- ==============================
+         Page-specific content styles
+         ============================== -->
+
+    <style>
+
+        .calculator-info {
+            width: 100%;
+            max-width: 900px;
+            margin: 55px auto 0;
+        }
+
+        .calculator-info-section {
+            margin-bottom: 42px;
+        }
+
+        .calculator-info-section h2 {
+            margin-bottom: 14px;
+            font-size: 28px;
+            line-height: 1.25;
+        }
+
+        .calculator-info-section p {
+            color: #4b5056;
+            font-size: 16px;
+            line-height: 1.75;
+            margin-bottom: 14px;
+        }
+
+        .calculator-info-section ul {
+            margin: 14px 0 0 22px;
+            color: #4b5056;
+        }
+
+        .calculator-info-section li {
+            margin-bottom: 9px;
+            line-height: 1.7;
+        }
+
+        .calculator-tip {
+            margin-top: 20px;
+            padding: 20px 22px;
+            background: #f8f9fa;
+            border: 1px solid #e3e6ea;
+            border-radius: 14px;
+        }
+
+        .calculator-tip strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #202124;
+        }
+
+        .calculator-tip span {
+            color: #5f6368;
+            line-height: 1.65;
+        }
+
+        .calculator-use-cases {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .calculator-use-card {
+            padding: 18px;
+            background: #ffffff;
+            border: 1px solid #e3e6ea;
+            border-radius: 14px;
+        }
+
+        .calculator-use-card strong {
+            display: block;
+            margin-bottom: 7px;
+            color: #202124;
+            font-size: 16px;
+        }
+
+        .calculator-use-card span {
+            display: block;
+            color: #5f6368;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .calculator-faq {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .calculator-faq h2 {
+            margin-bottom: 18px;
+            font-size: 28px;
+        }
+
+        .calculator-faq details {
+            margin-bottom: 12px;
+            padding: 17px 18px;
+            background: #ffffff;
+            border: 1px solid #e3e6ea;
+            border-radius: 12px;
+        }
+
+        .calculator-faq summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: #202124;
+            line-height: 1.5;
+        }
+
+        .calculator-faq details p {
+            margin-top: 12px;
+            color: #5f6368;
+            line-height: 1.7;
+        }
+
+        .calculator-footer-links {
+            margin-top: 18px;
+        }
+
+        .calculator-footer-links a {
+            color: #202124;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        @media (max-width: 700px) {
+
+            .calculator-info {
+                margin-top: 40px;
+            }
+
+            .calculator-info-section {
+                margin-bottom: 34px;
+            }
+
+            .calculator-info-section h2,
+            .calculator-faq h2 {
+                font-size: 23px;
+            }
+
+            .calculator-info-section p,
+            .calculator-info-section li,
+            .calculator-faq details p {
+                font-size: 15px;
+            }
+
+            .calculator-tip {
+                padding: 17px 18px;
+            }
+
+            .calculator-use-cases {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
@@ -387,6 +549,382 @@
 
         </section>
 
+
+
+        <!-- ==============================
+             Helpful Content
+             ============================== -->
+
+        <section class="calculator-info">
+
+
+            <!-- What is an online calculator -->
+
+            <div class="calculator-info-section">
+
+                <h2>
+                    What Is an Online Calculator?
+                </h2>
+
+                <p>
+                    An online calculator is a browser-based tool for performing
+                    common mathematical calculations without installing separate
+                    calculator software.
+                </p>
+
+                <p>
+                    LifeKit's calculator is designed for simple everyday calculations
+                    such as addition, subtraction, multiplication, division, decimals,
+                    and percentage-related calculations.
+                </p>
+
+            </div>
+
+
+
+            <!-- How to use -->
+
+            <div class="calculator-info-section">
+
+                <h2>
+                    How to Use the Calculator
+                </h2>
+
+                <p>
+                    Use the calculator just like a basic handheld calculator:
+                </p>
+
+                <ul>
+
+                    <li>
+                        Enter numbers using the number buttons.
+                    </li>
+
+                    <li>
+                        Choose an operation such as addition, subtraction,
+                        multiplication, or division.
+                    </li>
+
+                    <li>
+                        Use the decimal button when you need a decimal value.
+                    </li>
+
+                    <li>
+                        Use the percentage button for percentage calculations.
+                    </li>
+
+                    <li>
+                        Press the equals button to calculate the result.
+                    </li>
+
+                    <li>
+                        Use AC to clear the current calculation.
+                    </li>
+
+                    <li>
+                        Use the delete button to remove the most recently entered character.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- Basic operations -->
+
+            <div class="calculator-info-section">
+
+                <h2>
+                    Basic Calculator Operations
+                </h2>
+
+                <p>
+                    The main operations available on LifeKit are:
+                </p>
+
+                <ul>
+
+                    <li>
+                        <strong>Addition (+):</strong>
+                        Combines two or more values.
+                    </li>
+
+                    <li>
+                        <strong>Subtraction (−):</strong>
+                        Finds the difference between values.
+                    </li>
+
+                    <li>
+                        <strong>Multiplication (×):</strong>
+                        Multiplies values together.
+                    </li>
+
+                    <li>
+                        <strong>Division (÷):</strong>
+                        Divides one value by another.
+                    </li>
+
+                    <li>
+                        <strong>Percentage (%):</strong>
+                        Performs percentage-related calculations supported by the calculator.
+                    </li>
+
+                </ul>
+
+                <div class="calculator-tip">
+
+                    <strong>
+                        Tip
+                    </strong>
+
+                    <span>
+                        For important calculations, check the numbers you entered
+                        and review the result before using it elsewhere.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Everyday use cases -->
+
+            <div class="calculator-info-section">
+
+                <h2>
+                    When Is a Calculator Useful?
+                </h2>
+
+                <p>
+                    A simple calculator can be useful in many everyday situations.
+                </p>
+
+
+                <div class="calculator-use-cases">
+
+                    <div class="calculator-use-card">
+
+                        <strong>
+                            School Work
+                        </strong>
+
+                        <span>
+                            Check arithmetic for homework, practice questions,
+                            and everyday math exercises.
+                        </span>
+
+                    </div>
+
+
+                    <div class="calculator-use-card">
+
+                        <strong>
+                            Shopping
+                        </strong>
+
+                        <span>
+                            Add prices, compare totals, or work through
+                            simple percentage calculations.
+                        </span>
+
+                    </div>
+
+
+                    <div class="calculator-use-card">
+
+                        <strong>
+                            Budgeting
+                        </strong>
+
+                        <span>
+                            Calculate simple totals and compare amounts
+                            when planning everyday spending.
+                        </span>
+
+                    </div>
+
+
+                    <div class="calculator-use-card">
+
+                        <strong>
+                            Everyday Math
+                        </strong>
+
+                        <span>
+                            Quickly solve calculations when you do not
+                            have a physical calculator nearby.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Percentage calculations -->
+
+            <div class="calculator-info-section">
+
+                <h2>
+                    Using Percentages
+                </h2>
+
+                <p>
+                    Percentages are useful for many everyday calculations,
+                    including discounts, increases, comparisons, and other
+                    situations involving parts of a whole.
+                </p>
+
+                <p>
+                    When using a percentage calculation, make sure you understand
+                    what the percentage represents and which value it is being
+                    applied to.
+                </p>
+
+            </div>
+
+
+
+            <!-- Calculation checking -->
+
+            <div class="calculator-info-section">
+
+                <h2>
+                    Tips for Checking a Calculation
+                </h2>
+
+                <ul>
+
+                    <li>
+                        Enter the numbers carefully before pressing an operator.
+                    </li>
+
+                    <li>
+                        Check whether you need a decimal value.
+                    </li>
+
+                    <li>
+                        Look at the complete expression and result before relying on it.
+                    </li>
+
+                    <li>
+                        For important results, perform a second check using
+                        another method when practical.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+        </section>
+
+
+
+        <!-- ==============================
+             FAQ
+             ============================== -->
+
+        <section class="calculator-faq">
+
+            <h2>
+                Frequently Asked Questions
+            </h2>
+
+
+            <details>
+
+                <summary>
+                    What calculations can LifeKit perform?
+                </summary>
+
+                <p>
+                    The calculator supports common operations including addition,
+                    subtraction, multiplication, division, decimals, and
+                    percentage-related calculations.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Can I use decimal numbers?
+                </summary>
+
+                <p>
+                    Yes. Use the decimal button to enter decimal values.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    What does AC mean?
+                </summary>
+
+                <p>
+                    AC means “All Clear” and is used to reset the current calculator
+                    input and start again.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    What does the delete button do?
+                </summary>
+
+                <p>
+                    The delete button removes the most recently entered character
+                    or digit from the current input.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Can I use this calculator for school work?
+                </summary>
+
+                <p>
+                    Yes. It can be useful for checking basic arithmetic and
+                    practicing everyday calculations.
+                </p>
+
+            </details>
+
+
+            <details>
+
+                <summary>
+                    Should I rely on an online calculator for important calculations?
+                </summary>
+
+                <p>
+                    For important financial, academic, technical, or other
+                    high-consequence calculations, it is a good idea to verify
+                    the result independently.
+                </p>
+
+            </details>
+
+
+        </section>
+
+
     </main>
 
 
@@ -400,6 +938,32 @@
         <p>
             © 2026 LifeKit
         </p>
+
+        <div class="calculator-footer-links">
+
+            <a href="about.html">
+                About
+            </a>
+
+            &nbsp;·&nbsp;
+
+            <a href="privacy-policy.html">
+                Privacy Policy
+            </a>
+
+            &nbsp;·&nbsp;
+
+            <a href="terms.html">
+                Terms of Service
+            </a>
+
+            &nbsp;·&nbsp;
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
 
     </footer>
 

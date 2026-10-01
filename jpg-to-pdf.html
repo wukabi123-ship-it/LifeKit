@@ -1,27 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>JPG to PDF - LifeKit</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        JPG to PDF — Convert Images to PDF Online | LifeKit
+    </title>
+
     <meta
         name="description"
-        content="Convert JPG and JPEG images into a clean PDF document with LifeKit. Reorder images, choose page settings, and create a PDF directly in your browser."
+        content="Convert JPG and JPEG images into a PDF document with LifeKit. Reorder images, choose page size, orientation, image fitting and margins, then create a PDF in your browser."
     >
+
     <meta
         name="keywords"
-        content="JPG to PDF, JPEG to PDF, image to PDF, convert JPG to PDF, LifeKit PDF tools"
+        content="JPG to PDF, JPEG to PDF, image to PDF, convert JPG to PDF, convert JPEG to PDF, image converter, LifeKit PDF tools"
     >
-    <meta name="robots" content="index, follow">
+
+    <meta
+        name="author"
+        content="LifeKit"
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <meta
+        name="theme-color"
+        content="#202124"
+    >
+
+    <!-- ==============================
+         Canonical
+         ============================== -->
+
     <link
         rel="canonical"
         href="https://lifekit.wukabi123.workers.dev/jpg-to-pdf.html"
     >
 
-    <link rel="stylesheet" href="style.css">
+    <!-- ==============================
+         Favicon
+         ============================== -->
+
+    <link
+        rel="icon"
+        href="favicon.svg"
+        type="image/svg+xml"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="favicon.svg"
+    >
+
+    <!-- ==============================
+         Open Graph
+         ============================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="JPG to PDF — Convert Images to PDF Online | LifeKit"
+    >
+
+    <meta
+        property="og:description"
+        content="Convert JPG and JPEG images into a PDF document with LifeKit."
+    >
+
+    <meta
+        property="og:url"
+        content="https://lifekit.wukabi123.workers.dev/jpg-to-pdf.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="LifeKit"
+    >
+
+    <!-- ==============================
+         Twitter
+         ============================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
+
+    <meta
+        name="twitter:title"
+        content="JPG to PDF — Convert Images to PDF Online | LifeKit"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Convert JPG and JPEG images into a PDF document with LifeKit."
+    >
+
+    <!-- ==============================
+         Structured Data
+         ============================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "LifeKit JPG to PDF",
+        "url": "https://lifekit.wukabi123.workers.dev/jpg-to-pdf.html",
+        "description": "Convert JPG and JPEG images into a PDF document online with LifeKit.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web Browser"
+    }
+    </script>
+
+    <!-- ==============================
+         Global LifeKit CSS
+         ============================== -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
     <style>
+
         /* =========================================================
            JPG TO PDF — LIFEKIT UNIFIED PDF TOOL STYLE
            ========================================================= */
@@ -35,9 +151,9 @@
                 );
         }
 
-        /* ---------------------------------------------------------
-           Header
-           --------------------------------------------------------- */
+        /* =========================================================
+           HEADER
+           ========================================================= */
 
         .site-header {
             position: sticky;
@@ -46,6 +162,7 @@
             background: rgba(255, 255, 255, 0.88);
             border-bottom: 1px solid #e3e6ea;
             backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
         }
 
         .site-header .header-inner {
@@ -78,6 +195,7 @@
             color: #ffffff;
             font-size: 17px;
             font-weight: 800;
+            line-height: 1;
         }
 
         .site-header .header-tagline {
@@ -92,18 +210,18 @@
             font-weight: 700;
         }
 
-        /* ---------------------------------------------------------
-           PDF navigation
-           --------------------------------------------------------- */
+        /* =========================================================
+           PDF NAVIGATION
+           ========================================================= */
 
         .pdf-page-nav {
             width: min(900px, calc(100% - 40px));
-            margin: 0 auto;
-            padding-top: 28px;
+            margin: 24px auto 0;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 14px;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         .pdf-nav-button {
@@ -142,9 +260,9 @@
             border-color: #34363a;
         }
 
-        /* ---------------------------------------------------------
-           Main layout
-           --------------------------------------------------------- */
+        /* =========================================================
+           MAIN LAYOUT
+           ========================================================= */
 
         main.jpg-pdf-main {
             width: 100%;
@@ -170,7 +288,7 @@
         }
 
         .jpg-pdf-hero p {
-            max-width: 650px;
+            max-width: 680px;
             margin: 14px auto 0;
             color: #5f6368;
             font-size: 16px;
@@ -182,9 +300,9 @@
             margin: 0 auto;
         }
 
-        /* ---------------------------------------------------------
-           Panels
-           --------------------------------------------------------- */
+        /* =========================================================
+           PANELS
+           ========================================================= */
 
         .jpg-pdf-panel {
             margin-top: 20px;
@@ -192,7 +310,8 @@
             background: #ffffff;
             border: 1px solid #e3e6ea;
             border-radius: 18px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         .jpg-pdf-panel:first-child {
@@ -207,9 +326,9 @@
             font-weight: 800;
         }
 
-        /* ---------------------------------------------------------
-           Upload area
-           --------------------------------------------------------- */
+        /* =========================================================
+           UPLOAD AREA
+           ========================================================= */
 
         .jpg-pdf-page .drop-zone {
             width: 100%;
@@ -282,9 +401,9 @@
             line-height: 1.5;
         }
 
-        /* ---------------------------------------------------------
-           Error / success
-           --------------------------------------------------------- */
+        /* =========================================================
+           ERROR / SUCCESS
+           ========================================================= */
 
         .jpg-pdf-error {
             margin-top: 16px;
@@ -312,9 +431,9 @@
             display: none !important;
         }
 
-        /* ---------------------------------------------------------
-           File summary
-           --------------------------------------------------------- */
+        /* =========================================================
+           FILE SUMMARY
+           ========================================================= */
 
         .jpg-pdf-file-summary {
             display: grid;
@@ -344,9 +463,9 @@
             font-size: 12px;
         }
 
-        /* ---------------------------------------------------------
-           Small action buttons
-           --------------------------------------------------------- */
+        /* =========================================================
+           SMALL ACTION BUTTONS
+           ========================================================= */
 
         .jpg-pdf-actions {
             display: flex;
@@ -381,9 +500,9 @@
             color: #b3261e;
         }
 
-        /* ---------------------------------------------------------
-           Preview
-           --------------------------------------------------------- */
+        /* =========================================================
+           PREVIEW
+           ========================================================= */
 
         .jpg-pdf-preview-grid {
             display: grid;
@@ -409,7 +528,8 @@
         .jpg-pdf-image-card:hover {
             transform: translateY(-2px);
             border-color: #b8bcc2;
-            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+            box-shadow:
+                0 8px 22px rgba(0, 0, 0, 0.06);
         }
 
         .jpg-pdf-image-card.dragging {
@@ -488,9 +608,9 @@
             font-size: 12px;
         }
 
-        /* ---------------------------------------------------------
-           Settings
-           --------------------------------------------------------- */
+        /* =========================================================
+           SETTINGS
+           ========================================================= */
 
         .jpg-pdf-options {
             display: grid;
@@ -537,9 +657,9 @@
             line-height: 1.45;
         }
 
-        /* ---------------------------------------------------------
-           Main buttons
-           --------------------------------------------------------- */
+        /* =========================================================
+           MAIN BUTTONS
+           ========================================================= */
 
         .jpg-pdf-main-button {
             width: 100%;
@@ -591,9 +711,9 @@
             border-color: #c9ced6;
         }
 
-        /* ---------------------------------------------------------
-           Progress
-           --------------------------------------------------------- */
+        /* =========================================================
+           PROGRESS
+           ========================================================= */
 
         .jpg-pdf-progress {
             margin-top: 20px;
@@ -625,9 +745,9 @@
             transition: width 0.2s ease;
         }
 
-        /* ---------------------------------------------------------
-           Result
-           --------------------------------------------------------- */
+        /* =========================================================
+           RESULT
+           ========================================================= */
 
         .jpg-pdf-result {
             margin-top: 20px;
@@ -674,9 +794,83 @@
             transform: translateY(-1px);
         }
 
-        /* ---------------------------------------------------------
-           Empty state
-           --------------------------------------------------------- */
+        /* =========================================================
+           INFORMATION
+           ========================================================= */
+
+        .pdf-info-section {
+            margin-top: 55px;
+            padding: 30px;
+            background: #ffffff;
+            border: 1px solid #e3e6ea;
+            border-radius: 16px;
+            text-align: left;
+        }
+
+        .pdf-info-section h2 {
+            margin: 0 0 14px;
+            color: #202124;
+            font-size: 24px;
+        }
+
+        .pdf-info-section h3 {
+            margin: 28px 0 8px;
+            color: #202124;
+            font-size: 18px;
+        }
+
+        .pdf-info-section p {
+            margin: 0;
+            color: #5f6368;
+            line-height: 1.75;
+        }
+
+        .pdf-info-section ol,
+        .pdf-info-section ul {
+            margin: 12px 0 0;
+            padding-left: 22px;
+            color: #5f6368;
+            line-height: 1.8;
+        }
+
+        /* =========================================================
+           FAQ
+           ========================================================= */
+
+        .pdf-faq {
+            margin-top: 55px;
+            text-align: left;
+        }
+
+        .pdf-faq h2 {
+            margin-bottom: 18px;
+            font-size: 24px;
+        }
+
+        .pdf-faq details {
+            margin-bottom: 12px;
+            padding: 16px 18px;
+            background: #ffffff;
+            border: 1px solid #e3e6ea;
+            border-radius: 12px;
+        }
+
+        .pdf-faq summary {
+            cursor: pointer;
+            color: #202124;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .pdf-faq details p {
+            margin: 10px 0 0;
+            color: #5f6368;
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           EMPTY STATE
+           ========================================================= */
 
         .jpg-pdf-empty {
             padding: 45px 20px;
@@ -689,9 +883,44 @@
             font-size: 42px;
         }
 
-        /* ---------------------------------------------------------
-           Footer
-           --------------------------------------------------------- */
+        /* =========================================================
+           BOTTOM NAVIGATION
+           ========================================================= */
+
+        .jpg-pdf-bottom-nav {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid #e3e6ea;
+        }
+
+        .jpg-pdf-bottom-nav a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 10px 16px;
+            border: 1px solid #e3e6ea;
+            border-radius: 10px;
+            background: #ffffff;
+            color: #202124;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition:
+                background 0.18s ease,
+                border-color 0.18s ease,
+                transform 0.18s ease;
+        }
+
+        .jpg-pdf-bottom-nav a:hover {
+            background: #f8f9fa;
+            border-color: #d1d5db;
+            transform: translateY(-1px);
+        }
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
 
         footer {
             padding: 28px 20px 40px;
@@ -702,9 +931,9 @@
             font-size: 13px;
         }
 
-        /* ---------------------------------------------------------
-           Responsive
-           --------------------------------------------------------- */
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
 
         @media (max-width: 800px) {
 
@@ -719,12 +948,13 @@
             .jpg-pdf-file-summary {
                 grid-template-columns: repeat(3, 1fr);
             }
+
         }
 
         @media (max-width: 600px) {
 
             .site-header .header-inner {
-                width: calc(100% - 28px);
+                width: calc(100% - 32px);
                 min-height: 62px;
             }
 
@@ -733,18 +963,20 @@
             }
 
             .pdf-page-nav {
-                width: calc(100% - 28px);
-                padding-top: 20px;
+                width: calc(100% - 32px);
+                margin-top: 20px;
             }
 
             .pdf-nav-button {
+                flex: 1;
+                min-width: 0;
                 min-height: 40px;
                 padding: 9px 12px;
                 font-size: 13px;
             }
 
             .jpg-pdf-hero {
-                width: calc(100% - 28px);
+                width: calc(100% - 32px);
                 padding: 36px 0 20px;
             }
 
@@ -757,7 +989,7 @@
             }
 
             .jpg-pdf-page {
-                width: calc(100% - 28px);
+                width: calc(100% - 32px);
             }
 
             .jpg-pdf-panel {
@@ -789,516 +1021,745 @@
             .jpg-pdf-small-button {
                 width: 100%;
             }
+
+            .pdf-info-section {
+                padding: 22px;
+            }
+
         }
+
     </style>
+
 </head>
 
 <body>
 
-<!-- =========================================================
-     LIFEKIT HEADER
-     ========================================================= -->
+    <!-- =========================================================
+         LIFEKIT HEADER
+         ========================================================= -->
 
-<header class="site-header">
+    <header class="site-header">
 
-    <div class="header-inner">
+        <div class="header-inner">
+
+            <a
+                href="index.html"
+                class="logo"
+                aria-label="LifeKit Home"
+            >
+
+                <span class="logo-icon">
+                    LK
+                </span>
+
+                <span>
+                    LifeKit
+                </span>
+
+            </a>
+
+            <div class="header-tagline">
+
+                Small problems.
+
+                <strong>
+                    Simple solutions.
+                </strong>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- =========================================================
+         PDF NAVIGATION
+         ========================================================= -->
+
+    <div class="pdf-page-nav">
+
+        <a
+            href="pdf-tools.html"
+            class="pdf-nav-button"
+        >
+            ← PDF Tools
+        </a>
 
         <a
             href="index.html"
-            class="logo"
-            aria-label="LifeKit Home"
+            class="pdf-nav-button pdf-nav-home"
         >
-            <span class="logo-icon">LK</span>
-            <span>LifeKit</span>
+            LifeKit Home
         </a>
-
-        <div class="header-tagline">
-            Small problems.
-            <strong>Simple solutions.</strong>
-        </div>
 
     </div>
 
-</header>
+    <!-- =========================================================
+         MAIN
+         ========================================================= -->
 
-
-<!-- =========================================================
-     PDF NAVIGATION
-     ========================================================= -->
-
-<div class="pdf-page-nav">
-
-    <a
-        href="pdf-tools.html"
-        class="pdf-nav-button"
-    >
-        ← PDF Tools
-    </a>
-
-    <a
-        href="index.html"
-        class="pdf-nav-button pdf-nav-home"
-    >
-        LifeKit Home
-    </a>
-
-</div>
-
-
-<!-- =========================================================
-     MAIN
-     ========================================================= -->
-
-<main class="jpg-pdf-main">
-
-    <section class="jpg-pdf-hero">
-
-        <h1>JPG to PDF</h1>
-
-        <p>
-            Turn your images into a clean PDF document.
-        </p>
-
-    </section>
-
-
-    <div class="jpg-pdf-page">
+    <main class="jpg-pdf-main">
 
         <!-- =====================================================
-             UPLOAD
+             HERO
              ===================================================== -->
 
-        <section class="jpg-pdf-panel">
+        <section class="jpg-pdf-hero">
 
-            <div
-                class="drop-zone"
-                id="dropZone"
-            >
+            <h1>
+                JPG to PDF
+            </h1>
 
-                <div class="drop-zone-icon">
-                    🖼️
+            <p>
+                Turn your images into a clean PDF document.
+            </p>
+
+        </section>
+
+        <div class="jpg-pdf-page">
+
+            <!-- =================================================
+                 UPLOAD
+                 ================================================= -->
+
+            <section class="jpg-pdf-panel">
+
+                <div
+                    class="drop-zone"
+                    id="dropZone"
+                >
+
+                    <div class="drop-zone-icon">
+                        🖼️
+                    </div>
+
+                    <h2>
+                        Drop your images here
+                    </h2>
+
+                    <p>
+                        or
+                    </p>
+
+                    <button
+                        type="button"
+                        class="upload-button"
+                        id="chooseImagesButton"
+                    >
+                        Choose Images
+                    </button>
+
+                    <input
+                        type="file"
+                        id="imageInput"
+                        accept="image/jpeg,image/jpg,.jpg,.jpeg"
+                        multiple
+                        hidden
+                    >
+
+                    <div class="drop-zone-hint">
+                        JPG and JPEG files only • Multiple files supported
+                    </div>
+
                 </div>
 
+                <div
+                    id="errorMessage"
+                    class="jpg-pdf-error jpg-pdf-hidden"
+                ></div>
+
+                <div
+                    id="successMessage"
+                    class="jpg-pdf-success jpg-pdf-hidden"
+                ></div>
+
+            </section>
+
+            <!-- =================================================
+                 FILE SUMMARY
+                 ================================================= -->
+
+            <section
+                id="filePanel"
+                class="jpg-pdf-panel jpg-pdf-hidden"
+            >
+
                 <h2>
-                    Drop your images here
+                    Your Images
+                </h2>
+
+                <div class="jpg-pdf-file-summary">
+
+                    <div class="jpg-pdf-stat">
+
+                        <div
+                            id="imageCount"
+                            class="jpg-pdf-stat-number"
+                        >
+                            0
+                        </div>
+
+                        <div class="jpg-pdf-stat-label">
+                            Images
+                        </div>
+
+                    </div>
+
+                    <div class="jpg-pdf-stat">
+
+                        <div
+                            id="totalSize"
+                            class="jpg-pdf-stat-number"
+                        >
+                            0 KB
+                        </div>
+
+                        <div class="jpg-pdf-stat-label">
+                            Total Size
+                        </div>
+
+                    </div>
+
+                    <div class="jpg-pdf-stat">
+
+                        <div
+                            id="pdfPageCount"
+                            class="jpg-pdf-stat-number"
+                        >
+                            0
+                        </div>
+
+                        <div class="jpg-pdf-stat-label">
+                            PDF Pages
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="jpg-pdf-actions">
+
+                    <button
+                        type="button"
+                        class="jpg-pdf-small-button"
+                        id="addMoreButton"
+                    >
+                        + Add More
+                    </button>
+
+                    <button
+                        type="button"
+                        class="jpg-pdf-small-button danger"
+                        id="clearAllButton"
+                    >
+                        Clear All
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- =================================================
+                 PREVIEW
+                 ================================================= -->
+
+            <section
+                id="previewPanel"
+                class="jpg-pdf-panel jpg-pdf-hidden"
+            >
+
+                <h2>
+                    Image Order
+                </h2>
+
+                <p
+                    style="
+                        margin-top: 6px;
+                        color: #5f6368;
+                        font-size: 14px;
+                        line-height: 1.5;
+                    "
+                >
+                    Drag the images to change their order.
+                </p>
+
+                <div
+                    id="previewGrid"
+                    class="jpg-pdf-preview-grid"
+                ></div>
+
+            </section>
+
+            <!-- =================================================
+                 SETTINGS
+                 ================================================= -->
+
+            <section
+                id="settingsPanel"
+                class="jpg-pdf-panel jpg-pdf-hidden"
+            >
+
+                <h2>
+                    PDF Settings
+                </h2>
+
+                <div class="jpg-pdf-options">
+
+                    <div class="jpg-pdf-setting">
+
+                        <label for="pageSize">
+                            Page Size
+                        </label>
+
+                        <select id="pageSize">
+
+                            <option
+                                value="a4"
+                                selected
+                            >
+                                A4
+                            </option>
+
+                            <option value="letter">
+                                Letter
+                            </option>
+
+                            <option value="original">
+                                Original Image Size
+                            </option>
+
+                        </select>
+
+                        <div class="jpg-pdf-setting-description">
+                            A4 is recommended for printing and sharing.
+                        </div>
+
+                    </div>
+
+                    <div class="jpg-pdf-setting">
+
+                        <label for="orientation">
+                            Orientation
+                        </label>
+
+                        <select id="orientation">
+
+                            <option
+                                value="auto"
+                                selected
+                            >
+                                Auto
+                            </option>
+
+                            <option value="portrait">
+                                Portrait
+                            </option>
+
+                            <option value="landscape">
+                                Landscape
+                            </option>
+
+                        </select>
+
+                        <div class="jpg-pdf-setting-description">
+                            Auto uses the image shape for each page.
+                        </div>
+
+                    </div>
+
+                    <div class="jpg-pdf-setting">
+
+                        <label for="imageFit">
+                            Image Fit
+                        </label>
+
+                        <select id="imageFit">
+
+                            <option
+                                value="fit"
+                                selected
+                            >
+                                Fit — Show Entire Image
+                            </option>
+
+                            <option value="fill">
+                                Fill — Cover Page
+                            </option>
+
+                        </select>
+
+                        <div class="jpg-pdf-setting-description">
+                            Fit prevents cropping. Fill may crop the edges.
+                        </div>
+
+                    </div>
+
+                    <div class="jpg-pdf-setting">
+
+                        <label for="margin">
+                            Page Margin
+                        </label>
+
+                        <select id="margin">
+
+                            <option value="0">
+                                None
+                            </option>
+
+                            <option
+                                value="12"
+                                selected
+                            >
+                                Small
+                            </option>
+
+                            <option value="24">
+                                Medium
+                            </option>
+
+                            <option value="36">
+                                Large
+                            </option>
+
+                        </select>
+
+                        <div class="jpg-pdf-setting-description">
+                            Margin is measured in PDF points.
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="createPdfButton"
+                    class="jpg-pdf-main-button"
+                >
+                    Create PDF
+                </button>
+
+                <div
+                    id="progressArea"
+                    class="jpg-pdf-progress jpg-pdf-hidden"
+                >
+
+                    <div
+                        id="progressText"
+                        class="jpg-pdf-progress-text"
+                    >
+                        Preparing...
+                    </div>
+
+                    <div class="jpg-pdf-progress-track">
+
+                        <div
+                            id="progressBar"
+                            class="jpg-pdf-progress-bar"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- =================================================
+                 RESULT
+                 ================================================= -->
+
+            <section
+                id="resultPanel"
+                class="jpg-pdf-panel jpg-pdf-hidden"
+            >
+
+                <h2>
+                    PDF Ready
+                </h2>
+
+                <div class="jpg-pdf-result">
+
+                    <div class="jpg-pdf-result-title">
+                        Your PDF is ready 🎉
+                    </div>
+
+                    <div
+                        id="resultDetails"
+                        class="jpg-pdf-result-details"
+                    ></div>
+
+                    <a
+                        id="downloadButton"
+                        class="jpg-pdf-download"
+                        href="#"
+                        download="lifekit-images.pdf"
+                    >
+                        Download PDF
+                    </a>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="convertAnotherButton"
+                    class="jpg-pdf-secondary-button"
+                >
+                    Convert Another Set
+                </button>
+
+            </section>
+
+            <!-- =================================================
+                 ABOUT JPG TO PDF
+                 ================================================= -->
+
+            <section class="pdf-info-section">
+
+                <h2>
+                    What Is JPG to PDF Conversion?
                 </h2>
 
                 <p>
-                    or
+                    JPG to PDF conversion combines JPG or JPEG image files
+                    into a PDF document. Each image can become a page in the
+                    resulting PDF, making a group of images easier to print,
+                    share, store or submit as one document.
                 </p>
 
-                <button
-                    type="button"
-                    class="upload-button"
-                    id="chooseImagesButton"
-                >
-                    Choose Images
-                </button>
+                <h3>
+                    How to Convert JPG to PDF
+                </h3>
+
+                <ol>
+                    <li>
+                        Upload one or more JPG or JPEG images.
+                    </li>
+                    <li>
+                        Arrange the images in the order you want.
+                    </li>
+                    <li>
+                        Choose the PDF page settings.
+                    </li>
+                    <li>
+                        Choose how each image should fit on the page.
+                    </li>
+                    <li>
+                        Create the PDF.
+                    </li>
+                    <li>
+                        Download the finished PDF document.
+                    </li>
+                </ol>
+
+                <h3>
+                    Choose the Right Page Size
+                </h3>
+
+                <p>
+                    A4 is a common choice for documents intended for printing,
+                    school work and general sharing. Letter is another common
+                    paper format, while Original Image Size can be useful when
+                    you want the PDF page to follow the dimensions of the image.
+                </p>
+
+                <h3>
+                    Portrait, Landscape or Auto?
+                </h3>
+
+                <p>
+                    Portrait pages are taller than they are wide, while
+                    landscape pages are wider than they are tall. Auto can be
+                    useful when working with images that have different shapes.
+                </p>
+
+                <h3>
+                    Fit vs Fill
+                </h3>
+
+                <p>
+                    Fit keeps the complete image visible inside the page and
+                    may leave some empty space. Fill uses more of the page but
+                    can crop parts of the image.
+                </p>
+
+                <h3>
+                    Why Reorder Images?
+                </h3>
+
+                <p>
+                    The order of your images determines the page order in the
+                    final PDF. Reordering them before creating the document
+                    can help keep photos, scans or document pages organized.
+                </p>
+
+                <h3>
+                    When Is JPG to PDF Useful?
+                </h3>
+
+                <p>
+                    JPG to PDF can be useful for combining scanned pages,
+                    receipts, photos, notes, forms or other image files into a
+                    single document that is easier to share or upload.
+                </p>
+
+                <h3>
+                    Does Converting Images to PDF Change the Original Images?
+                </h3>
+
+                <p>
+                    The original image files remain separate from the PDF
+                    created by the tool. The PDF is generated as a new
+                    document for download.
+                </p>
+
+            </section>
+
+            <!-- =================================================
+                 FAQ
+                 ================================================= -->
+
+            <section class="pdf-faq">
+
+                <h2>
+                    Frequently Asked Questions
+                </h2>
+
+                <details>
+
+                    <summary>
+                        Can I convert multiple JPG images into one PDF?
+                    </summary>
 
-                <input
-                    type="file"
-                    id="imageInput"
-                    accept="image/jpeg,image/jpg,.jpg,.jpeg"
-                    multiple
-                    hidden
-                >
+                    <p>
+                        Yes. Select multiple JPG or JPEG images and they can
+                        be combined into one PDF document.
+                    </p>
 
-                <div class="drop-zone-hint">
-                    JPG and JPEG files only • Multiple files supported
-                </div>
+                </details>
 
-            </div>
+                <details>
 
-            <div
-                id="errorMessage"
-                class="jpg-pdf-error jpg-pdf-hidden"
-            ></div>
+                    <summary>
+                        Can I change the order of the images?
+                    </summary>
 
-            <div
-                id="successMessage"
-                class="jpg-pdf-success jpg-pdf-hidden"
-            ></div>
+                    <p>
+                        Yes. Drag the image cards in the preview area to change
+                        their order before creating the PDF.
+                    </p>
 
-        </section>
+                </details>
 
+                <details>
 
-        <!-- =====================================================
-             FILE SUMMARY
-             ===================================================== -->
+                    <summary>
+                        What page size should I choose?
+                    </summary>
 
-        <section
-            id="filePanel"
-            class="jpg-pdf-panel jpg-pdf-hidden"
-        >
+                    <p>
+                        A4 is a practical choice for many documents, especially
+                        when the PDF may be printed or shared.
+                    </p>
 
-            <h2>
-                Your Images
-            </h2>
+                </details>
 
-            <div class="jpg-pdf-file-summary">
+                <details>
 
-                <div class="jpg-pdf-stat">
+                    <summary>
+                        What is Original Image Size?
+                    </summary>
 
-                    <div
-                        id="imageCount"
-                        class="jpg-pdf-stat-number"
-                    >
-                        0
-                    </div>
+                    <p>
+                        This option creates PDF pages based on the dimensions
+                        of the source images instead of using a standard paper
+                        size.
+                    </p>
 
-                    <div class="jpg-pdf-stat-label">
-                        Images
-                    </div>
+                </details>
 
-                </div>
+                <details>
 
+                    <summary>
+                        Will the image be cropped?
+                    </summary>
 
-                <div class="jpg-pdf-stat">
+                    <p>
+                        Fit is designed to show the entire image. Fill uses
+                        more of the page and may crop parts of the image.
+                    </p>
 
-                    <div
-                        id="totalSize"
-                        class="jpg-pdf-stat-number"
-                    >
-                        0 KB
-                    </div>
+                </details>
 
-                    <div class="jpg-pdf-stat-label">
-                        Total Size
-                    </div>
+                <details>
 
-                </div>
+                    <summary>
+                        Can I add more images after uploading?
+                    </summary>
 
+                    <p>
+                        Yes. Use Add More to select additional JPG or JPEG
+                        images.
+                    </p>
 
-                <div class="jpg-pdf-stat">
+                </details>
 
-                    <div
-                        id="pdfPageCount"
-                        class="jpg-pdf-stat-number"
-                    >
-                        0
-                    </div>
+                <details>
 
-                    <div class="jpg-pdf-stat-label">
-                        PDF Pages
-                    </div>
+                    <summary>
+                        Are my original images replaced?
+                    </summary>
 
-                </div>
+                    <p>
+                        No. The PDF is created as a separate output file and
+                        does not replace your original image files.
+                    </p>
 
-            </div>
+                </details>
 
+            </section>
 
-            <div class="jpg-pdf-actions">
+            <!-- =================================================
+                 BOTTOM NAVIGATION
+                 ================================================= -->
 
-                <button
-                    type="button"
-                    class="jpg-pdf-small-button"
-                    id="addMoreButton"
-                >
-                    + Add More
-                </button>
+            <div class="jpg-pdf-bottom-nav">
 
-                <button
-                    type="button"
-                    class="jpg-pdf-small-button danger"
-                    id="clearAllButton"
-                >
-                    Clear All
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             PREVIEW
-             ===================================================== -->
-
-        <section
-            id="previewPanel"
-            class="jpg-pdf-panel jpg-pdf-hidden"
-        >
-
-            <h2>
-                Image Order
-            </h2>
-
-            <p
-                style="
-                    margin-top: 6px;
-                    color: #5f6368;
-                    font-size: 14px;
-                    line-height: 1.5;
-                "
-            >
-                Drag the images to change their order.
-            </p>
-
-            <div
-                id="previewGrid"
-                class="jpg-pdf-preview-grid"
-            ></div>
-
-        </section>
-
-
-        <!-- =====================================================
-             SETTINGS
-             ===================================================== -->
-
-        <section
-            id="settingsPanel"
-            class="jpg-pdf-panel jpg-pdf-hidden"
-        >
-
-            <h2>
-                PDF Settings
-            </h2>
-
-
-            <div class="jpg-pdf-options">
-
-                <div class="jpg-pdf-setting">
-
-                    <label for="pageSize">
-                        Page Size
-                    </label>
-
-                    <select id="pageSize">
-
-                        <option
-                            value="a4"
-                            selected
-                        >
-                            A4
-                        </option>
-
-                        <option value="letter">
-                            Letter
-                        </option>
-
-                        <option value="original">
-                            Original Image Size
-                        </option>
-
-                    </select>
-
-                    <div class="jpg-pdf-setting-description">
-                        A4 is recommended for printing and sharing.
-                    </div>
-
-                </div>
-
-
-                <div class="jpg-pdf-setting">
-
-                    <label for="orientation">
-                        Orientation
-                    </label>
-
-                    <select id="orientation">
-
-                        <option
-                            value="auto"
-                            selected
-                        >
-                            Auto
-                        </option>
-
-                        <option value="portrait">
-                            Portrait
-                        </option>
-
-                        <option value="landscape">
-                            Landscape
-                        </option>
-
-                    </select>
-
-                    <div class="jpg-pdf-setting-description">
-                        Auto uses the image shape for each page.
-                    </div>
-
-                </div>
-
-
-                <div class="jpg-pdf-setting">
-
-                    <label for="imageFit">
-                        Image Fit
-                    </label>
-
-                    <select id="imageFit">
-
-                        <option
-                            value="fit"
-                            selected
-                        >
-                            Fit — Show Entire Image
-                        </option>
-
-                        <option value="fill">
-                            Fill — Cover Page
-                        </option>
-
-                    </select>
-
-                    <div class="jpg-pdf-setting-description">
-                        Fit prevents cropping. Fill may crop the edges.
-                    </div>
-
-                </div>
-
-
-                <div class="jpg-pdf-setting">
-
-                    <label for="margin">
-                        Page Margin
-                    </label>
-
-                    <select id="margin">
-
-                        <option value="0">
-                            None
-                        </option>
-
-                        <option
-                            value="12"
-                            selected
-                        >
-                            Small
-                        </option>
-
-                        <option value="24">
-                            Medium
-                        </option>
-
-                        <option value="36">
-                            Large
-                        </option>
-
-                    </select>
-
-                    <div class="jpg-pdf-setting-description">
-                        Margin is measured in PDF points.
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <button
-                type="button"
-                id="createPdfButton"
-                class="jpg-pdf-main-button"
-            >
-                Create PDF
-            </button>
-
-
-            <div
-                id="progressArea"
-                class="jpg-pdf-progress jpg-pdf-hidden"
-            >
-
-                <div
-                    id="progressText"
-                    class="jpg-pdf-progress-text"
-                >
-                    Preparing...
-                </div>
-
-                <div class="jpg-pdf-progress-track">
-
-                    <div
-                        id="progressBar"
-                        class="jpg-pdf-progress-bar"
-                    ></div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             RESULT
-             ===================================================== -->
-
-        <section
-            id="resultPanel"
-            class="jpg-pdf-panel jpg-pdf-hidden"
-        >
-
-            <h2>
-                PDF Ready
-            </h2>
-
-            <div class="jpg-pdf-result">
-
-                <div class="jpg-pdf-result-title">
-                    Your PDF is ready 🎉
-                </div>
-
-                <div
-                    id="resultDetails"
-                    class="jpg-pdf-result-details"
-                ></div>
-
-                <a
-                    id="downloadButton"
-                    class="jpg-pdf-download"
-                    href="#"
-                    download="lifekit-images.pdf"
-                >
-                    Download PDF
+                <a href="pdf-tools.html">
+                    ← Back to PDF Tools
                 </a>
 
             </div>
 
+        </div>
 
-            <button
-                type="button"
-                id="convertAnotherButton"
-                class="jpg-pdf-secondary-button"
-            >
-                Convert Another Set
-            </button>
+    </main>
 
-        </section>
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
 
-    </div>
+    <footer>
 
-</main>
+        <p>
+            © 2026 LifeKit. Small problems. Simple solutions.
+        </p>
 
+    </footer>
 
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
+    <!-- =========================================================
+         PDF-LIB
+         ========================================================= -->
 
-<footer>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"
+    ></script>
 
-    <p>
-        © 2026 LifeKit. Small problems. Simple solutions.
-    </p>
+    <!-- =========================================================
+         JPG TO PDF JAVASCRIPT
+         ========================================================= -->
 
-</footer>
-
-
-<!-- =========================================================
-     PDF-LIB
-     ========================================================= -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
-
-
-<!-- =========================================================
-     JPG TO PDF
-     ========================================================= -->
-
-<script src="jpg-to-pdf.js"></script>
+    <script src="jpg-to-pdf.js"></script>
 
 </body>
+
 </html>
