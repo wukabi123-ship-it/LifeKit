@@ -2,59 +2,123 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Contact - LifeKit</title>
-    <meta name="description" content="Contact LifeKit for questions, feedback, suggestions, or website-related inquiries.">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="icon" href="favicon.svg">
-    <link rel="stylesheet" href="style.css">
+    <!-- ==============================
+         SEO
+         ============================== -->
+
+    <title>
+        Contact LifeKit - Get in Touch
+    </title>
+
+    <meta
+        name="description"
+        content="Contact LifeKit for questions, feedback, suggestions, technical issues, or website-related inquiries."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <meta
+        name="theme-color"
+        content="#202124"
+    >
+
+    <!-- ==============================
+         Favicon
+         ============================== -->
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="favicon.svg"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="favicon.svg"
+    >
+
+    <!-- ==============================
+         Styles
+         ============================== -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
     <style>
+        /* ==============================
+           Contact Page
+           ============================== */
+
         .contact-page {
-            max-width: 900px;
+            width: min(900px, calc(100% - 40px));
             margin: 0 auto;
-            padding: 45px 24px 80px;
+            padding: 46px 0 80px;
         }
 
         .contact-header {
-            margin-bottom: 35px;
+            margin-bottom: 28px;
         }
 
         .contact-header h1 {
-            font-size: 42px;
+            margin: 0;
+            color: #202124;
+            font-size: clamp(34px, 5vw, 44px);
             line-height: 1.15;
-            margin-bottom: 12px;
+            letter-spacing: -0.7px;
         }
 
         .contact-header p {
+            margin: 12px 0 0;
             color: #5f6368;
             font-size: 16px;
+            line-height: 1.6;
         }
 
+        /* ==============================
+           Contact Card
+           ============================== */
+
         .contact-card {
+            padding: 34px;
             background: #ffffff;
             border: 1px solid #e3e6ea;
-            border-radius: 18px;
-            padding: 36px;
-            box-shadow: 0 10px 30px rgba(0,0,0,.05);
+            border-radius: 16px;
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         .contact-card h2 {
-            font-size: 24px;
-            margin-bottom: 12px;
+            margin: 0 0 12px;
+            color: #202124;
+            font-size: 23px;
+            line-height: 1.3;
         }
 
         .contact-card p {
-            color: #444;
+            margin: 0 0 18px;
+            color: #444444;
             line-height: 1.75;
-            margin-bottom: 18px;
         }
+
+        /* ==============================
+           Contact Actions
+           ============================== */
 
         .contact-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
         }
 
@@ -62,66 +126,229 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-height: 44px;
-            padding: 12px 18px;
+            min-height: 42px;
+            padding: 10px 16px;
+            border: 1px solid #202124;
             border-radius: 10px;
             background: #202124;
-            color: #fff;
+            color: #ffffff;
             text-decoration: none;
+            font-size: 14px;
             font-weight: 600;
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
         }
 
         .contact-email:hover {
             background: #34363a;
+            border-color: #34363a;
+            transform: translateY(-1px);
         }
+
+        /* ==============================
+           Email Address
+           ============================== */
 
         .contact-address {
             margin-top: 18px;
             color: #5f6368;
             font-size: 14px;
+            line-height: 1.6;
         }
 
         .contact-address a {
             color: #202124;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
         }
 
+        .contact-address a:hover {
+            text-decoration: underline;
+        }
+
+        /* ==============================
+           Contact Note
+           ============================== */
+
         .contact-note {
-            margin-top: 24px;
+            margin-top: 22px;
             padding: 16px 18px;
+            border: 1px solid #e3e6ea;
             border-radius: 12px;
             background: #f8f9fa;
             color: #5f6368;
             font-size: 14px;
-            line-height: 1.6;
+            line-height: 1.65;
+        }
+
+        /* ==============================
+           Helpful Links
+           ============================== */
+
+        .contact-help {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .contact-help p {
+            margin-bottom: 12px;
+            color: #5f6368;
+            font-size: 14px;
+        }
+
+        .contact-help-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contact-help-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            padding: 9px 14px;
+            border: 1px solid #e3e6ea;
+            border-radius: 10px;
+            background: #ffffff;
+            color: #202124;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .contact-help-links a:hover {
+            background: #f8f9fa;
+            border-color: #d1d5db;
+            transform: translateY(-1px);
+        }
+
+        /* ==============================
+           Bottom Navigation
+           ============================== */
+
+        .contact-bottom-nav {
+            margin-top: 28px;
         }
 
         .contact-back {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-height: 44px;
-            margin-top: 25px;
-            padding: 11px 17px;
+            min-height: 42px;
+            padding: 10px 16px;
+            border: 1px solid #e3e6ea;
             border-radius: 10px;
-            background: #202124;
-            color: #fff;
+            background: #ffffff;
+            color: #202124;
             text-decoration: none;
+            font-size: 14px;
             font-weight: 600;
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
         }
 
         .contact-back:hover {
-            background: #34363a;
+            background: #f8f9fa;
+            border-color: #d1d5db;
+            transform: translateY(-1px);
         }
 
-        @media (max-width: 700px) {
+        /* ==============================
+           LifeKit Footer
+           ============================== */
+
+        .site-footer {
+            margin-top: 20px;
+            padding: 48px 20px 34px;
+            background: #202124;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .site-footer-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .site-footer-logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            margin-bottom: 14px;
+            background: #ffffff;
+            color: #202124;
+            border-radius: 14px;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .site-footer-brand {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+
+        .site-footer-tagline {
+            margin: 7px 0 24px;
+            color: #b8bcc2;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .site-footer-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            margin-bottom: 24px;
+        }
+
+        .site-footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .site-footer-links a:hover {
+            color: #d1d5db;
+        }
+
+        .site-footer-copy {
+            margin: 0;
+            color: #8f949b;
+            font-size: 13px;
+        }
+
+        /* ==============================
+           Mobile
+           ============================== */
+
+        @media (max-width: 600px) {
+
             .contact-page {
-                padding: 30px 16px 60px;
+                width: calc(100% - 32px);
+                padding: 36px 0 60px;
             }
 
             .contact-header h1 {
-                font-size: 32px;
+                font-size: 34px;
             }
 
             .contact-card {
@@ -140,6 +367,25 @@
 
             .contact-email {
                 width: 100%;
+                box-sizing: border-box;
+            }
+
+            .contact-help-links {
+                flex-direction: column;
+            }
+
+            .contact-help-links a {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .site-footer {
+                margin-top: 0;
+                padding: 40px 18px 30px;
+            }
+
+            .site-footer-links {
+                gap: 12px 16px;
             }
         }
     </style>
@@ -147,81 +393,204 @@
 
 <body>
 
-<header class="site-header">
-    <div class="header-inner">
+    <!-- ==============================
+         Header
+         ============================== -->
 
-        <a href="index.html" class="logo" aria-label="LifeKit Home">
-            <span class="logo-icon">LK</span>
-            <span>LifeKit</span>
-        </a>
+    <header class="site-header">
 
-        <div class="header-tagline">
-            Small problems.
-            <strong>Simple solutions.</strong>
-        </div>
-
-    </div>
-</header>
-
-
-<main class="contact-page">
-
-    <div class="contact-header">
-
-        <h1>Contact LifeKit</h1>
-
-        <p>
-            Have a question, suggestion, or problem with a LifeKit tool?
-        </p>
-
-    </div>
-
-
-    <div class="contact-card">
-
-        <h2>Get in touch</h2>
-
-        <p>
-            If you have questions about LifeKit, find a problem with one of our
-            tools, or have a suggestion for a new feature, you can contact us by email.
-        </p>
-
-
-        <div class="contact-actions">
+        <div class="header-inner">
 
             <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=wukabi123@gmail.com"
-                class="contact-email"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="index.html"
+                class="logo"
+                aria-label="LifeKit Home"
             >
-                Email LifeKit
+
+                <span class="logo-icon">
+                    LK
+                </span>
+
+                <span>
+                    LifeKit
+                </span>
+
+            </a>
+
+            <div class="header-tagline">
+
+                Small problems.
+
+                <strong>
+                    Simple solutions.
+                </strong>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- ==============================
+         Main
+         ============================== -->
+
+    <main class="contact-page">
+
+        <div class="contact-header">
+
+            <h1>
+                Contact LifeKit
+            </h1>
+
+            <p>
+                Have a question, suggestion, or problem with a LifeKit tool?
+            </p>
+
+        </div>
+
+        <!-- ==============================
+             Contact Card
+             ============================== -->
+
+        <div class="contact-card">
+
+            <h2>
+                Get in Touch
+            </h2>
+
+            <p>
+                If you have questions about LifeKit, find a problem with one of
+                our tools, or have a suggestion for a new feature, you can
+                contact us by email.
+            </p>
+
+            <div class="contact-actions">
+
+                <a
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=wukabi123@gmail.com"
+                    class="contact-email"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Email LifeKit
+                </a>
+
+            </div>
+
+            <div class="contact-address">
+
+                Email:
+
+                <a href="mailto:wukabi123@gmail.com">
+                    wukabi123@gmail.com
+                </a>
+
+            </div>
+
+            <div class="contact-note">
+                Clicking “Email LifeKit” opens a new Gmail compose window.
+                You can also copy the email address above and contact us using
+                your preferred email service.
+            </div>
+
+            <!-- ==============================
+                 Helpful Links
+                 ============================== -->
+
+            <div class="contact-help">
+
+                <p>
+                    You may also find these pages useful:
+                </p>
+
+                <div class="contact-help-links">
+
+                    <a href="about.html">
+                        About LifeKit
+                    </a>
+
+                    <a href="privacy-policy.html">
+                        Privacy Policy
+                    </a>
+
+                    <a href="terms.html">
+                        Terms of Service
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ==============================
+             Bottom Navigation
+             ============================== -->
+
+        <div class="contact-bottom-nav">
+
+            <a
+                href="index.html"
+                class="contact-back"
+            >
+                ← Back to LifeKit
             </a>
 
         </div>
 
+    </main>
 
-        <div class="contact-address">
-            Email:
-            <a href="mailto:wukabi123@gmail.com">
-                wukabi123@gmail.com
-            </a>
+    <!-- ==============================
+         LifeKit Footer
+         ============================== -->
+
+    <footer class="site-footer">
+
+        <div class="site-footer-inner">
+
+            <div class="site-footer-logo">
+                LK
+            </div>
+
+            <p class="site-footer-brand">
+                LifeKit
+            </p>
+
+            <p class="site-footer-tagline">
+                Small problems. Simple solutions.
+            </p>
+
+            <nav
+                class="site-footer-links"
+                aria-label="Footer navigation"
+            >
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="privacy-policy.html">
+                    Privacy Policy
+                </a>
+
+                <a href="terms.html">
+                    Terms of Service
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </nav>
+
+            <p class="site-footer-copy">
+                © 2026 LifeKit. All rights reserved.
+            </p>
+
         </div>
 
-
-        <div class="contact-note">
-            Clicking “Email LifeKit” opens a new Gmail compose window.
-            You can also copy the email address above and contact us using your preferred email service.
-        </div>
-
-    </div>
-
-
-    <a href="index.html" class="contact-back">
-        ← Back to LifeKit
-    </a>
-
-</main>
+    </footer>
 
 </body>
 </html>

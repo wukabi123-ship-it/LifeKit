@@ -2,93 +2,260 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Terms of Service - LifeKit</title>
-    <meta name="description" content="LifeKit Terms of Service. Read the terms and conditions for using LifeKit online tools.">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="icon" href="favicon.svg">
-    <link rel="stylesheet" href="style.css">
+    <!-- ==============================
+         SEO
+         ============================== -->
+
+    <title>
+        Terms of Service - LifeKit
+    </title>
+
+    <meta
+        name="description"
+        content="LifeKit Terms of Service. Read the terms and conditions for using LifeKit online tools, including file processing, third-party services, advertising, and website use."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <meta
+        name="theme-color"
+        content="#202124"
+    >
+
+    <!-- ==============================
+         Favicon
+         ============================== -->
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="favicon.svg"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="favicon.svg"
+    >
+
+    <!-- ==============================
+         Styles
+         ============================== -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
     <style>
+        /* ==============================
+           Terms Page
+           ============================== */
+
         .terms-page {
-            max-width: 900px;
+            width: min(900px, calc(100% - 40px));
             margin: 0 auto;
-            padding: 45px 24px 80px;
+            padding: 46px 0 80px;
         }
 
         .terms-header {
-            margin-bottom: 35px;
+            margin-bottom: 28px;
         }
 
         .terms-header h1 {
-            font-size: 42px;
+            margin: 0;
+            color: #202124;
+            font-size: clamp(34px, 5vw, 44px);
             line-height: 1.15;
-            margin-bottom: 12px;
+            letter-spacing: -0.7px;
         }
 
         .terms-header p {
+            margin: 12px 0 0;
             color: #5f6368;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         .terms-content {
+            padding: 34px;
             background: #ffffff;
             border: 1px solid #e3e6ea;
-            border-radius: 18px;
-            padding: 36px;
-            box-shadow: 0 10px 30px rgba(0,0,0,.05);
+            border-radius: 16px;
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         .terms-content h2 {
-            font-size: 24px;
             margin: 30px 0 12px;
+            color: #202124;
+            font-size: 23px;
+            line-height: 1.3;
         }
 
         .terms-content h2:first-child {
             margin-top: 0;
         }
 
-        .terms-content p {
-            color: #444;
-            line-height: 1.75;
-            margin-bottom: 14px;
+        .terms-content h3 {
+            margin: 24px 0 10px;
+            color: #202124;
+            font-size: 18px;
         }
 
-        .terms-content ul {
-            margin: 10px 0 18px 22px;
+        .terms-content p {
+            margin: 0 0 14px;
+            color: #444444;
+            line-height: 1.75;
+        }
+
+        .terms-content ul,
+        .terms-content ol {
+            margin: 10px 0 18px;
+            padding-left: 24px;
         }
 
         .terms-content li {
             margin-bottom: 8px;
-            line-height: 1.65;
-            color: #444;
+            color: #444444;
+            line-height: 1.7;
+        }
+
+        .terms-content a {
+            color: #202124;
+            font-weight: 600;
+        }
+
+        .terms-content a:hover {
+            color: #5f6368;
+        }
+
+        /* ==============================
+           Bottom Navigation
+           ============================== */
+
+        .terms-bottom-nav {
+            margin-top: 28px;
         }
 
         .terms-back {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-top: 25px;
-            padding: 11px 17px;
+            min-height: 42px;
+            padding: 10px 16px;
+            border: 1px solid #e3e6ea;
             border-radius: 10px;
-            background: #202124;
-            color: #fff;
+            background: #ffffff;
+            color: #202124;
             text-decoration: none;
+            font-size: 14px;
             font-weight: 600;
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
         }
 
         .terms-back:hover {
-            background: #34363a;
+            background: #f8f9fa;
+            border-color: #d1d5db;
+            transform: translateY(-1px);
         }
 
-        @media (max-width: 700px) {
+        /* ==============================
+           LifeKit Footer
+           ============================== */
+
+        .site-footer {
+            margin-top: 20px;
+            padding: 48px 20px 34px;
+            background: #202124;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .site-footer-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .site-footer-logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            margin-bottom: 14px;
+            background: #ffffff;
+            color: #202124;
+            border-radius: 14px;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .site-footer-brand {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+
+        .site-footer-tagline {
+            margin: 7px 0 24px;
+            color: #b8bcc2;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .site-footer-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            margin-bottom: 24px;
+        }
+
+        .site-footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .site-footer-links a:hover {
+            color: #d1d5db;
+        }
+
+        .site-footer-copy {
+            margin: 0;
+            color: #8f949b;
+            font-size: 13px;
+        }
+
+        /* ==============================
+           Mobile
+           ============================== */
+
+        @media (max-width: 600px) {
+
             .terms-page {
-                padding: 30px 16px 60px;
+                width: calc(100% - 32px);
+                padding: 36px 0 60px;
             }
 
             .terms-header h1 {
-                font-size: 32px;
+                font-size: 34px;
             }
 
             .terms-content {
@@ -99,196 +266,534 @@
             .terms-content h2 {
                 font-size: 21px;
             }
+
+            .terms-content h3 {
+                font-size: 17px;
+            }
+
+            .site-footer {
+                margin-top: 0;
+                padding: 40px 18px 30px;
+            }
+
+            .site-footer-links {
+                gap: 12px 16px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<header class="site-header">
-    <div class="header-inner">
+    <!-- ==============================
+         Header
+         ============================== -->
 
-        <a href="index.html" class="logo" aria-label="LifeKit Home">
-            <span class="logo-icon">LK</span>
-            <span>LifeKit</span>
-        </a>
+    <header class="site-header">
 
-        <div class="header-tagline">
-            Small problems.
-            <strong>Simple solutions.</strong>
+        <div class="header-inner">
+
+            <a
+                href="index.html"
+                class="logo"
+                aria-label="LifeKit Home"
+            >
+
+                <span class="logo-icon">
+                    LK
+                </span>
+
+                <span>
+                    LifeKit
+                </span>
+
+            </a>
+
+            <div class="header-tagline">
+
+                Small problems.
+
+                <strong>
+                    Simple solutions.
+                </strong>
+
+            </div>
+
         </div>
 
-    </div>
-</header>
+    </header>
 
+    <!-- ==============================
+         Main
+         ============================== -->
 
-<main class="terms-page">
+    <main class="terms-page">
 
-    <div class="terms-header">
+        <div class="terms-header">
 
-        <h1>Terms of Service</h1>
+            <h1>
+                Terms of Service
+            </h1>
 
-        <p>
-            Last updated: October 1, 2026
-        </p>
+            <p>
+                Last updated: October 2, 2026
+            </p>
 
-    </div>
+        </div>
 
+        <div class="terms-content">
 
-    <div class="terms-content">
+            <!-- ==============================
+                 1. Acceptance
+                 ============================== -->
 
-        <h2>1. Acceptance of These Terms</h2>
+            <h2>
+                1. Acceptance of These Terms
+            </h2>
 
-        <p>
-            By accessing or using LifeKit, you agree to follow these Terms of Service.
-            If you do not agree with these terms, please do not use the website.
-        </p>
+            <p>
+                By accessing or using LifeKit, you agree to follow these Terms
+                of Service.
+            </p>
 
+            <p>
+                If you do not agree with these terms, please do not use the
+                website or its tools.
+            </p>
 
-        <h2>2. About LifeKit</h2>
+            <!-- ==============================
+                 2. About LifeKit
+                 ============================== -->
 
-        <p>
-            LifeKit provides online tools designed to help users perform common
-            digital tasks, including image processing, calculations, text counting,
-            time calculations, and PDF-related tasks.
-        </p>
+            <h2>
+                2. About LifeKit
+            </h2>
 
-        <p>
-            LifeKit may add, remove, modify, or improve tools and features from time
-            to time.
-        </p>
+            <p>
+                LifeKit provides online utility tools designed to help users
+                perform common digital tasks.
+            </p>
 
+            <p>
+                These tools may include image processing, calculations,
+                text-related utilities, time calculations, PDF processing,
+                document utilities, and other similar features.
+            </p>
 
-        <h2>3. Use of the Website</h2>
+            <p>
+                LifeKit may add, remove, modify, improve, replace, suspend, or
+                discontinue tools and features from time to time.
+            </p>
 
-        <p>
-            You agree to use LifeKit only for lawful purposes and in a way that does
-            not interfere with the operation or security of the website.
-        </p>
+            <!-- ==============================
+                 3. Use of Website
+                 ============================== -->
 
-        <p>
-            You must not knowingly attempt to damage, disrupt, overload, or gain
-            unauthorized access to LifeKit or its systems.
-        </p>
+            <h2>
+                3. Acceptable Use
+            </h2>
 
+            <p>
+                You agree to use LifeKit only for lawful purposes and in a way
+                that does not interfere with the operation, security, or
+                availability of the website.
+            </p>
 
-        <h2>4. User Files and Content</h2>
+            <p>
+                You must not knowingly attempt to:
+            </p>
 
-        <p>
-            Some LifeKit tools allow users to process files such as images and PDF
-            documents.
-        </p>
+            <ul>
 
-        <p>
-            You are responsible for ensuring that you have the necessary rights or
-            permission to use any files or content that you process through LifeKit.
-        </p>
+                <li>
+                    Damage, disrupt, overload, or interfere with LifeKit.
+                </li>
 
-        <p>
-            You should not use LifeKit to process content that you are not legally
-            permitted to use.
-        </p>
+                <li>
+                    Gain unauthorized access to the website, systems, or
+                    infrastructure.
+                </li>
 
+                <li>
+                    Circumvent or interfere with security or technical
+                    protections.
+                </li>
 
-        <h2>5. No Guarantee of Results</h2>
+                <li>
+                    Use the website to distribute malicious software or harmful
+                    code.
+                </li>
 
-        <p>
-            LifeKit tools are provided for general informational and practical
-            purposes.
-        </p>
+                <li>
+                    Abuse automated systems in a way that places unreasonable
+                    load on the website.
+                </li>
 
-        <p>
-            While we aim to make the tools useful and reliable, we do not guarantee
-            that every tool will always produce perfect, complete, or error-free
-            results.
-        </p>
+            </ul>
 
-        <p>
-            Users should check important results before relying on them.
-        </p>
+            <!-- ==============================
+                 4. User Files
+                 ============================== -->
 
+            <h2>
+                4. User Files and Content
+            </h2>
 
-        <h2>6. Availability</h2>
+            <p>
+                Some LifeKit tools allow users to process files such as images
+                and PDF documents.
+            </p>
 
-        <p>
-            We aim to keep LifeKit available and functional, but the website may
-            occasionally be unavailable because of maintenance, technical problems,
-            hosting issues, or other circumstances.
-        </p>
+            <p>
+                You are responsible for ensuring that you have the necessary
+                rights, permission, or lawful authority to use any files or
+                content that you process through LifeKit.
+            </p>
 
-        <p>
-            We may change, suspend, or discontinue any part of the website without
-            prior notice.
-        </p>
+            <p>
+                You must not use LifeKit to process or distribute content that
+                you are not legally permitted to use.
+            </p>
 
+            <p>
+                You remain responsible for the files and information that you
+                choose to process with the website.
+            </p>
 
-        <h2>7. Third-Party Services</h2>
+            <!-- ==============================
+                 5. Browser-Based Processing
+                 ============================== -->
 
-        <p>
-            LifeKit may use third-party services for hosting, security, analytics,
-            advertising, or other website functions.
-        </p>
+            <h2>
+                5. Browser-Based Processing
+            </h2>
 
-        <p>
-            Third-party services are subject to their own terms and policies.
-        </p>
+            <p>
+                Certain LifeKit tools are designed to process files directly
+                in your web browser.
+            </p>
 
+            <p>
+                When a tool performs browser-based processing, the file may be
+                handled locally on your device rather than being intentionally
+                stored by LifeKit as part of that tool operation.
+            </p>
 
-        <h2>8. Intellectual Property</h2>
+            <p>
+                Not every future LifeKit feature is necessarily required to
+                operate in the same way. You should review the applicable
+                information for the tool you are using and the
+                <a href="privacy-policy.html">
+                    Privacy Policy
+                </a>
+                for additional information.
+            </p>
 
-        <p>
-            Unless otherwise stated, the LifeKit website, branding, design, original
-            text, and website code are owned by or used by the LifeKit website owner.
-        </p>
+            <!-- ==============================
+                 6. Accuracy of Results
+                 ============================== -->
 
-        <p>
-            You may use LifeKit for its intended purposes, but you may not copy,
-            reproduce, redistribute, or commercially exploit the website or its
-            original materials without appropriate permission.
-        </p>
+            <h2>
+                6. No Guarantee of Results
+            </h2>
 
+            <p>
+                LifeKit tools are provided for general practical and
+                informational purposes.
+            </p>
 
-        <h2>9. Limitation of Liability</h2>
+            <p>
+                We aim to make LifeKit useful, reliable, and easy to use, but
+                we do not guarantee that every calculation, conversion,
+                compression result, generated file, or other output will always
+                be perfect, complete, accurate, or error-free.
+            </p>
 
-        <p>
-            To the extent permitted by applicable law, LifeKit and its website owner
-            are not responsible for losses or damages resulting from the use of, or
-            inability to use, the website or its tools.
-        </p>
+            <p>
+                You should review important results before relying on them,
+                submitting them, sharing them, or using them for important
+                decisions.
+            </p>
 
-        <p>
-            Users are responsible for maintaining backups of important files and
-            checking important results before relying on them.
-        </p>
+            <!-- ==============================
+                 7. Availability
+                 ============================== -->
 
+            <h2>
+                7. Website Availability
+            </h2>
 
-        <h2>10. Changes to These Terms</h2>
+            <p>
+                We aim to keep LifeKit available and functional, but the
+                website may occasionally be unavailable because of maintenance,
+                technical problems, hosting issues, network problems, software
+                changes, or circumstances outside our control.
+            </p>
 
-        <p>
-            These Terms of Service may be updated from time to time.
-        </p>
+            <p>
+                We may change, suspend, restrict, or discontinue any part of the
+                website without guaranteeing advance notice.
+            </p>
 
-        <p>
-            When changes are made, the updated version will be published on this
-            page with a new update date.
-        </p>
+            <!-- ==============================
+                 8. Third-Party Services
+                 ============================== -->
 
+            <h2>
+                8. Third-Party Services
+            </h2>
 
-        <h2>11. Contact</h2>
+            <p>
+                LifeKit may use third-party services for hosting, content
+                delivery, security, analytics, advertising, libraries, or
+                other website functions.
+            </p>
 
-        <p>
-            If you have questions about these Terms of Service or LifeKit, you may
-            contact the LifeKit website owner.
-        </p>
+            <p>
+                Some tools may also rely on third-party libraries or resources
+                delivered through external services.
+            </p>
 
-    </div>
+            <p>
+                Third-party services are generally subject to their own terms,
+                privacy policies, and technical conditions.
+            </p>
 
+            <p>
+                LifeKit is not responsible for the policies, availability, or
+                operation of third-party services that are outside LifeKit's
+                control.
+            </p>
 
-    <a href="index.html" class="terms-back">
-        ← Back to LifeKit
-    </a>
+            <!-- ==============================
+                 9. Advertising
+                 ============================== -->
 
-</main>
+            <h2>
+                9. Advertising
+            </h2>
+
+            <p>
+                LifeKit may display advertisements provided by third-party
+                advertising services, including Google AdSense or other
+                advertising networks.
+            </p>
+
+            <p>
+                Advertisements may be selected, delivered, measured, or
+                personalized by third-party advertising providers according to
+                their own systems, policies, and applicable requirements.
+            </p>
+
+            <p>
+                LifeKit does not guarantee the availability, accuracy, quality,
+                or suitability of third-party advertisements displayed on the
+                website.
+            </p>
+
+            <p>
+                For information about how LifeKit handles advertising-related
+                privacy matters, please see the
+                <a href="privacy-policy.html">
+                    Privacy Policy
+                </a>.
+            </p>
+
+            <!-- ==============================
+                 10. Intellectual Property
+                 ============================== -->
+
+            <h2>
+                10. Intellectual Property
+            </h2>
+
+            <p>
+                Unless otherwise stated, the LifeKit name, branding, website
+                design, original text, original graphics, and website code are
+                owned by or used by the LifeKit website owner.
+            </p>
+
+            <p>
+                You may use LifeKit for its intended purposes, but you may not
+                copy, reproduce, redistribute, republish, sell, or commercially
+                exploit LifeKit's original website materials without appropriate
+                permission, except where applicable law permits otherwise.
+            </p>
+
+            <!-- ==============================
+                 11. User Responsibility
+                 ============================== -->
+
+            <h2>
+                11. User Responsibility
+            </h2>
+
+            <p>
+                You are responsible for checking your files, settings, outputs,
+                downloads, and other results before using them for important
+                purposes.
+            </p>
+
+            <p>
+                You are also responsible for keeping your own backups of
+                important files. You should not rely on LifeKit as your only
+                storage location for important documents or images.
+            </p>
+
+            <!-- ==============================
+                 12. Limitation of Liability
+                 ============================== -->
+
+            <h2>
+                12. Limitation of Liability
+            </h2>
+
+            <p>
+                To the extent permitted by applicable law, LifeKit and its
+                website owner are not responsible for losses, damages, data
+                loss, service interruptions, or other consequences resulting
+                from the use of, or inability to use, the website or its tools.
+            </p>
+
+            <p>
+                Nothing in these Terms is intended to exclude or limit any
+                rights or responsibilities that cannot lawfully be excluded or
+                limited under applicable law.
+            </p>
+
+            <!-- ==============================
+                 13. Links
+                 ============================== -->
+
+            <h2>
+                13. External Links
+            </h2>
+
+            <p>
+                LifeKit may contain links to third-party websites or services.
+                These links may be provided for convenience or additional
+                information.
+            </p>
+
+            <p>
+                We do not control third-party websites and are not responsible
+                for their content, policies, security, or availability.
+            </p>
+
+            <!-- ==============================
+                 14. Changes
+                 ============================== -->
+
+            <h2>
+                14. Changes to These Terms
+            </h2>
+
+            <p>
+                These Terms of Service may be updated from time to time to
+                reflect changes to LifeKit, its tools, third-party services,
+                advertising practices, or applicable requirements.
+            </p>
+
+            <p>
+                When changes are made, the updated version will be published on
+                this page with a revised update date.
+            </p>
+
+            <p>
+                Your continued use of LifeKit after an updated version is
+                published means that you continue to use the website under the
+                updated terms, to the extent permitted by applicable law.
+            </p>
+
+            <!-- ==============================
+                 15. Contact
+                 ============================== -->
+
+            <h2>
+                15. Contact
+            </h2>
+
+            <p>
+                If you have questions about these Terms of Service or LifeKit,
+                you may contact the LifeKit website owner through the Contact
+                page.
+            </p>
+
+            <p>
+                <a href="contact.html">
+                    Visit the LifeKit Contact page
+                </a>
+            </p>
+
+        </div>
+
+        <!-- ==============================
+             Bottom Navigation
+             ============================== -->
+
+        <div class="terms-bottom-nav">
+
+            <a
+                href="index.html"
+                class="terms-back"
+            >
+                ← Back to LifeKit
+            </a>
+
+        </div>
+
+    </main>
+
+    <!-- ==============================
+         LifeKit Footer
+         ============================== -->
+
+    <footer class="site-footer">
+
+        <div class="site-footer-inner">
+
+            <div class="site-footer-logo">
+                LK
+            </div>
+
+            <p class="site-footer-brand">
+                LifeKit
+            </p>
+
+            <p class="site-footer-tagline">
+                Small problems. Simple solutions.
+            </p>
+
+            <nav
+                class="site-footer-links"
+                aria-label="Footer navigation"
+            >
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="privacy-policy.html">
+                    Privacy Policy
+                </a>
+
+                <a href="terms.html">
+                    Terms of Service
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </nav>
+
+            <p class="site-footer-copy">
+                © 2026 LifeKit. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
 
 </body>
 </html>
