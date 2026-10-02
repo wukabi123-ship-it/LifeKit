@@ -271,6 +271,79 @@
             line-height: 1.7;
         }
 
+        /* ==============================
+           LifeKit Footer
+           ============================== */
+
+        .site-footer {
+            margin-top: 80px;
+            padding: 48px 20px 34px;
+            background: #202124;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .site-footer-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .site-footer-logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            margin-bottom: 14px;
+            background: #ffffff;
+            color: #202124;
+            border-radius: 14px;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .site-footer-brand {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+
+        .site-footer-tagline {
+            margin: 7px 0 24px;
+            color: #b8bcc2;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .site-footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            margin-bottom: 24px;
+        }
+
+        .site-footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .site-footer-links a:hover {
+            color: #d1d5db;
+        }
+
+        .site-footer-copy {
+            margin: 0;
+            color: #8f949b;
+            font-size: 13px;
+        }
+
         @media (max-width: 600px) {
             .pdf-tools-grid {
                 grid-template-columns: 1fr;
@@ -279,8 +352,18 @@
             .pdf-info-section {
                 padding: 22px;
             }
+
+            .site-footer {
+                margin-top: 60px;
+                padding: 40px 18px 30px;
+            }
+
+            .site-footer-links {
+                gap: 12px 16px;
+            }
         }
     </style>
+
 </head>
 
 <body>
@@ -327,6 +410,7 @@
                     href="pdf-merge.html"
                     class="pdf-tool-card"
                 >
+
                     <div class="pdf-tool-icon">
                         📎
                     </div>
@@ -342,6 +426,7 @@
                     <span class="pdf-tool-open">
                         Open Tool →
                     </span>
+
                 </a>
 
                 <!-- PDF Split -->
@@ -350,6 +435,7 @@
                     href="pdf-split.html"
                     class="pdf-tool-card"
                 >
+
                     <div class="pdf-tool-icon">
                         ✂️
                     </div>
@@ -365,6 +451,7 @@
                     <span class="pdf-tool-open">
                         Open Tool →
                     </span>
+
                 </a>
 
                 <!-- PDF Compress -->
@@ -373,6 +460,7 @@
                     href="pdf-compress.html"
                     class="pdf-tool-card"
                 >
+
                     <div class="pdf-tool-icon">
                         🗜️
                     </div>
@@ -388,6 +476,7 @@
                     <span class="pdf-tool-open">
                         Open Tool →
                     </span>
+
                 </a>
 
                 <!-- PDF to JPG -->
@@ -396,6 +485,7 @@
                     href="pdf-to-jpg.html"
                     class="pdf-tool-card"
                 >
+
                     <div class="pdf-tool-icon">
                         🖼️
                     </div>
@@ -411,6 +501,7 @@
                     <span class="pdf-tool-open">
                         Open Tool →
                     </span>
+
                 </a>
 
                 <!-- JPG to PDF -->
@@ -419,6 +510,7 @@
                     href="jpg-to-pdf.html"
                     class="pdf-tool-card"
                 >
+
                     <div class="pdf-tool-icon">
                         📄
                     </div>
@@ -434,6 +526,7 @@
                     <span class="pdf-tool-open">
                         Open Tool →
                     </span>
+
                 </a>
 
             </div>
@@ -464,15 +557,19 @@
                     <li>
                         Merge several PDF files into one document.
                     </li>
+
                     <li>
                         Split a PDF or extract selected pages.
                     </li>
+
                     <li>
                         Compress a PDF to reduce its file size.
                     </li>
+
                     <li>
                         Convert PDF pages into JPG images.
                     </li>
+
                     <li>
                         Convert JPG images into a PDF document.
                     </li>
@@ -513,6 +610,7 @@
                 </h2>
 
                 <details>
+
                     <summary>
                         Are these PDF tools free to use?
                     </summary>
@@ -521,9 +619,11 @@
                         LifeKit provides these PDF tools as free online utilities.
                         Open a tool above to see its available features.
                     </p>
+
                 </details>
 
                 <details>
+
                     <summary>
                         Which PDF tool should I use to combine files?
                     </summary>
@@ -532,9 +632,11 @@
                         Use PDF Merge when you want to combine multiple PDF files
                         into a single document.
                     </p>
+
                 </details>
 
                 <details>
+
                     <summary>
                         How can I remove or extract PDF pages?
                     </summary>
@@ -543,9 +645,11 @@
                         Use PDF Split to work with individual pages or separate
                         parts of a PDF file.
                     </p>
+
                 </details>
 
                 <details>
+
                     <summary>
                         Which tool can make a PDF smaller?
                     </summary>
@@ -554,9 +658,11 @@
                         Use PDF Compress when you need to reduce the file size of
                         a PDF.
                     </p>
+
                 </details>
 
                 <details>
+
                     <summary>
                         Can I convert a PDF page into an image?
                     </summary>
@@ -564,9 +670,11 @@
                     <p>
                         Yes. Use PDF to JPG to convert PDF pages into JPG images.
                     </p>
+
                 </details>
 
                 <details>
+
                     <summary>
                         Can I turn JPG images into a PDF?
                     </summary>
@@ -574,6 +682,7 @@
                     <p>
                         Yes. Use JPG to PDF to create a PDF document from image files.
                     </p>
+
                 </details>
 
             </section>
@@ -597,13 +706,51 @@
     </main>
 
     <!-- ==============================
-         Footer
+         LifeKit Footer
          ============================== -->
 
-    <footer>
-        <p>
-            © 2026 LifeKit
-        </p>
+    <footer class="site-footer">
+
+        <div class="site-footer-inner">
+
+            <div class="site-footer-logo">
+                LK
+            </div>
+
+            <p class="site-footer-brand">
+                LifeKit
+            </p>
+
+            <p class="site-footer-tagline">
+                Small problems. Simple solutions.
+            </p>
+
+            <nav class="site-footer-links" aria-label="Footer navigation">
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="privacy-policy.html">
+                    Privacy Policy
+                </a>
+
+                <a href="terms.html">
+                    Terms of Service
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </nav>
+
+            <p class="site-footer-copy">
+                © 2026 LifeKit. All rights reserved.
+            </p>
+
+        </div>
+
     </footer>
 
 </body>

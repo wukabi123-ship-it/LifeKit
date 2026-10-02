@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
     const dropZone = document.getElementById("dropZone");
     const choosePdfButton = document.getElementById("choosePdfButton");
     const pdfInput = document.getElementById("pdfInput");
@@ -7,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const fileInfo = document.getElementById("fileInfo");
     const fileName = document.getElementById("fileName");
     const fileDetails = document.getElementById("fileDetails");
-
     const errorMessage = document.getElementById("errorMessage");
 
     const settingsPanel = document.getElementById("settingsPanel");
@@ -19,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const selectionBar = document.getElementById("selectionBar");
     const selectionInfo = document.getElementById("selectionInfo");
-
     const selectAllButton = document.getElementById("selectAllButton");
     const clearSelectionButton = document.getElementById("clearSelectionButton");
 
@@ -27,11 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const previewLoading = document.getElementById("previewLoading");
 
     const convertButton = document.getElementById("convertButton");
-
     const progressArea = document.getElementById("progressArea");
     const progressText = document.getElementById("progressText");
     const progressBar = document.getElementById("progressBar");
-
     const statusMessage = document.getElementById("statusMessage");
 
     const results = document.getElementById("results");
@@ -40,34 +35,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let selectedFile = null;
     let pdfDocument = null;
-
     let pageData = [];
     let selectedPages = new Set();
-
     let convertedFiles = [];
 
     let zipBlob = null;
     let zipUrl = null;
 
-    /*
-     * PDF.js worker
-     *
-     * We intentionally disable the worker later.
-     * This makes the tool more reliable when the user opens
-     * LifeKit directly using file://
-     */
+    /* =========================
+       PDF.js WORKER
+    ========================= */
+
     if (typeof pdfjsLib !== "undefined") {
         pdfjsLib.GlobalWorkerOptions.workerSrc =
             "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
     }
-
 
     /* =========================
        BASIC HELPERS
     ========================= */
 
     function formatFileSize(bytes) {
-
         if (!Number.isFinite(bytes) || bytes <= 0) {
             return "0 Bytes";
         }
@@ -89,9 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return `${value.toFixed(index === 0 ? 0 : 2)} ${units[index]}`;
     }
 
-
     function escapeHtml(value) {
-
         return String(value)
             .replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")
@@ -100,37 +86,43 @@ document.addEventListener("DOMContentLoaded", () => {
             .replace(/'/g, "&#039;");
     }
 
-
     function showError(message) {
+        if (!errorMessage) {
+            return;
+        }
 
         errorMessage.textContent = message;
         errorMessage.classList.remove("pdf-jpg-hidden");
     }
 
-
     function hideError() {
+        if (!errorMessage) {
+            return;
+        }
 
         errorMessage.textContent = "";
         errorMessage.classList.add("pdf-jpg-hidden");
     }
 
-
     function showStatus(message) {
+        if (!statusMessage) {
+            return;
+        }
 
         statusMessage.textContent = message;
         statusMessage.classList.remove("pdf-jpg-hidden");
     }
 
-
     function hideStatus() {
+        if (!statusMessage) {
+            return;
+        }
 
         statusMessage.textContent = "";
         statusMessage.classList.add("pdf-jpg-hidden");
     }
 
-
     function clearZipUrl() {
-
         if (zipUrl) {
             URL.revokeObjectURL(zipUrl);
             zipUrl = null;
@@ -139,48 +131,38 @@ document.addEventListener("DOMContentLoaded", () => {
         zipBlob = null;
     }
 
-
     function getBaseName(filename) {
-
-        return filename
+        return String(filename)
             .replace(/\.pdf$/i, "")
             .replace(/[\\/:*?"<>|]/g, "_");
     }
 
-
     function wait(ms) {
-
         return new Promise(resolve => {
             setTimeout(resolve, ms);
         });
     }
-
 
     /* =========================
        QUALITY SETTINGS
     ========================= */
 
     function getQualitySettings() {
+        const selectedQuality = document.querySelector(
+            'input[name="quality"]:checked'
+        );
 
-        const selectedQuality =
-            document.querySelector(
-                'input[name="quality"]:checked'
-            );
-
-        const quality =
-            selectedQuality
-                ? selectedQuality.value
-                : "high";
+        const quality = selectedQuality
+            ? selectedQuality.value
+            : "high";
 
         if (quality === "small") {
-
             return {
                 jpegQuality: 0.68
             };
         }
 
         if (quality === "balanced") {
-
             return {
                 jpegQuality: 0.82
             };
@@ -191,7 +173,6 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-
     /* =========================
        QUALITY CARDS
     ========================= */
@@ -199,9 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document
         .querySelectorAll("[data-quality-card]")
         .forEach(card => {
-
             card.addEventListener("click", () => {
-
                 document
                     .querySelectorAll("[data-quality-card]")
                     .forEach(item => {
@@ -210,76 +189,59 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 card.classList.add("selected");
 
-                const radio =
-                    card.querySelector("input[type='radio']");
+                const radio = card.querySelector(
+                    "input[type='radio']"
+                );
 
                 if (radio) {
                     radio.checked = true;
                 }
             });
-
         });
-
 
     /* =========================
        PDF VALIDATION
     ========================= */
 
     function isPdfFile(file) {
-
         if (!file) {
             return false;
         }
 
-        const nameIsPdf =
-            /\.pdf$/i.test(file.name);
-
-        const typeIsPdf =
-            file.type === "application/pdf";
+        const nameIsPdf = /\.pdf$/i.test(file.name);
+        const typeIsPdf = file.type === "application/pdf";
 
         return nameIsPdf || typeIsPdf;
     }
-
 
     /* =========================
        LOAD PDF
     ========================= */
 
     async function loadPdf(file) {
-
         if (typeof pdfjsLib === "undefined") {
-
             throw new Error(
                 "PDF.js could not be loaded. Please check your internet connection."
             );
         }
 
-        const arrayBuffer =
-            await file.arrayBuffer();
+        const arrayBuffer = await file.arrayBuffer();
 
-        /*
-         * Uint8Array is copied so PDF.js cannot
-         * affect the original ArrayBuffer.
-         */
-        const bytes =
-            new Uint8Array(arrayBuffer);
+        const bytes = new Uint8Array(arrayBuffer);
 
-        const loadingTask =
-            pdfjsLib.getDocument({
-                data: bytes,
-                disableWorker: true
-            });
+        const loadingTask = pdfjsLib.getDocument({
+            data: bytes,
+            disableWorker: true
+        });
 
         return await loadingTask.promise;
     }
-
 
     /* =========================
        FILE HANDLING
     ========================= */
 
     async function handleFile(file) {
-
         hideError();
         hideStatus();
 
@@ -288,20 +250,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (!isPdfFile(file)) {
-
-            showError(
-                "Please choose a valid PDF file."
-            );
-
+            showError("Please choose a valid PDF file.");
             return;
         }
 
         if (file.size === 0) {
-
-            showError(
-                "This PDF file appears to be empty."
-            );
-
+            showError("This PDF file appears to be empty.");
             return;
         }
 
@@ -309,7 +263,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         selectedFile = file;
         pdfDocument = null;
-
         pageData = [];
         selectedPages.clear();
         convertedFiles = [];
@@ -329,21 +282,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         convertButton.disabled = true;
 
-        previewLoading.classList.remove(
-            "pdf-jpg-hidden"
-        );
+        previewLoading.classList.remove("pdf-jpg-hidden");
+        previewGrid.classList.add("pdf-jpg-hidden");
 
-        previewGrid.classList.add(
-            "pdf-jpg-hidden"
-        );
+        progressArea.classList.add("pdf-jpg-hidden");
+        progressBar.style.width = "0%";
+        progressText.textContent = "Preparing...";
 
         try {
+            pdfDocument = await loadPdf(file);
 
-            pdfDocument =
-                await loadPdf(file);
-
-            const pageCount =
-                pdfDocument.numPages;
+            const pageCount = pdfDocument.numPages;
 
             fileDetails.textContent =
                 `${formatFileSize(file.size)} • ${pageCount} page${pageCount === 1 ? "" : "s"}`;
@@ -351,7 +300,6 @@ document.addEventListener("DOMContentLoaded", () => {
             await createPagePreviews();
 
         } catch (error) {
-
             console.error(
                 "LifeKit PDF to JPG:",
                 error
@@ -361,39 +309,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 "This PDF could not be read. It may be damaged, password-protected, or unsupported."
             );
 
-            settingsPanel.classList.add(
-                "pdf-jpg-hidden"
-            );
-
-            previewPanel.classList.add(
-                "pdf-jpg-hidden"
-            );
+            settingsPanel.classList.add("pdf-jpg-hidden");
+            previewPanel.classList.add("pdf-jpg-hidden");
 
         } finally {
-
-            previewLoading.classList.add(
-                "pdf-jpg-hidden"
-            );
-
-            previewGrid.classList.remove(
-                "pdf-jpg-hidden"
-            );
+            previewLoading.classList.add("pdf-jpg-hidden");
+            previewGrid.classList.remove("pdf-jpg-hidden");
         }
     }
-
 
     /* =========================
        CREATE PREVIEWS
     ========================= */
 
     async function createPagePreviews() {
-
         if (!pdfDocument) {
             return;
         }
 
         previewGrid.innerHTML = "";
-
         pageData = [];
 
         for (
@@ -401,45 +335,37 @@ document.addEventListener("DOMContentLoaded", () => {
             pageNumber <= pdfDocument.numPages;
             pageNumber++
         ) {
-
-            const page =
-                await pdfDocument.getPage(pageNumber);
+            const page = await pdfDocument.getPage(pageNumber);
 
             const previewScale = 0.35;
 
-            const viewport =
-                page.getViewport({
-                    scale: previewScale
-                });
+            const viewport = page.getViewport({
+                scale: previewScale
+            });
 
-            const canvas =
-                document.createElement("canvas");
+            const canvas = document.createElement("canvas");
 
-            const context =
-                canvas.getContext("2d");
+            const context = canvas.getContext("2d");
 
-            canvas.width =
-                Math.max(
-                    1,
-                    Math.floor(viewport.width)
-                );
+            canvas.width = Math.max(
+                1,
+                Math.floor(viewport.width)
+            );
 
-            canvas.height =
-                Math.max(
-                    1,
-                    Math.floor(viewport.height)
-                );
+            canvas.height = Math.max(
+                1,
+                Math.floor(viewport.height)
+            );
 
             await page.render({
                 canvasContext: context,
                 viewport: viewport
             }).promise;
 
-            const imageUrl =
-                canvas.toDataURL(
-                    "image/jpeg",
-                    0.72
-                );
+            const imageUrl = canvas.toDataURL(
+                "image/jpeg",
+                0.72
+            );
 
             pageData.push({
                 pageNumber,
@@ -448,11 +374,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             selectedPages.add(pageNumber);
 
-            const card =
-                createPageCard(
-                    pageNumber,
-                    imageUrl
-                );
+            const card = createPageCard(
+                pageNumber,
+                imageUrl
+            );
 
             previewGrid.appendChild(card);
 
@@ -460,6 +385,7 @@ document.addEventListener("DOMContentLoaded", () => {
              * Small pause keeps the browser responsive
              * when a PDF contains many pages.
              */
+
             if (pageNumber % 3 === 0) {
                 await wait(10);
             }
@@ -468,24 +394,16 @@ document.addEventListener("DOMContentLoaded", () => {
         updateSelectionUI();
     }
 
-
     /* =========================
        PAGE CARD
     ========================= */
 
-    function createPageCard(
-        pageNumber,
-        imageUrl
-    ) {
+    function createPageCard(pageNumber, imageUrl) {
+        const card = document.createElement("div");
 
-        const card =
-            document.createElement("div");
+        card.className = "pdf-jpg-page-card selected";
 
-        card.className =
-            "pdf-jpg-page-card selected";
-
-        card.dataset.page =
-            String(pageNumber);
+        card.dataset.page = String(pageNumber);
 
         card.innerHTML = `
             <img
@@ -494,7 +412,6 @@ document.addEventListener("DOMContentLoaded", () => {
             >
 
             <div class="pdf-jpg-page-number">
-
                 <span>
                     Page ${pageNumber}
                 </span>
@@ -502,69 +419,48 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span class="pdf-jpg-check">
                     ✓
                 </span>
-
             </div>
         `;
 
-        card.addEventListener(
-            "click",
-            () => {
-
-                togglePage(pageNumber);
-            }
-        );
+        card.addEventListener("click", () => {
+            togglePage(pageNumber);
+        });
 
         return card;
     }
-
 
     /* =========================
        PAGE SELECTION
     ========================= */
 
     function togglePage(pageNumber) {
-
         if (selectedPages.has(pageNumber)) {
-
             selectedPages.delete(pageNumber);
-
         } else {
-
             selectedPages.add(pageNumber);
         }
 
-        updatePageCard(
-            pageNumber
-        );
-
+        updatePageCard(pageNumber);
         updateSelectionUI();
     }
 
-
     function updatePageCard(pageNumber) {
-
-        const card =
-            previewGrid.querySelector(
-                `[data-page="${pageNumber}"]`
-            );
+        const card = previewGrid.querySelector(
+            `[data-page="${pageNumber}"]`
+        );
 
         if (!card) {
             return;
         }
 
         if (selectedPages.has(pageNumber)) {
-
             card.classList.add("selected");
-
         } else {
-
             card.classList.remove("selected");
         }
     }
 
-
     function selectAllPages() {
-
         if (!pdfDocument) {
             return;
         }
@@ -583,44 +479,34 @@ document.addEventListener("DOMContentLoaded", () => {
         updateSelectionUI();
     }
 
-
     function clearAllPages() {
-
         selectedPages.clear();
 
         refreshAllPageCards();
         updateSelectionUI();
     }
 
-
     function refreshAllPageCards() {
-
         for (
             let i = 1;
             i <= pageData.length;
             i++
         ) {
-
             updatePageCard(i);
         }
     }
 
-
     function updateSelectionUI() {
+        const count = selectedPages.size;
 
-        const count =
-            selectedPages.size;
-
-        const total =
-            pdfDocument
-                ? pdfDocument.numPages
-                : 0;
+        const total = pdfDocument
+            ? pdfDocument.numPages
+            : 0;
 
         selectionInfo.textContent =
             `${count} page${count === 1 ? "" : "s"} selected`;
 
         if (pageMode.value === "all") {
-
             selectionBar.classList.add(
                 "pdf-jpg-hidden"
             );
@@ -629,7 +515,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 `Convert All ${total} Pages to JPG`;
 
         } else {
-
             selectionBar.classList.remove(
                 "pdf-jpg-hidden"
             );
@@ -646,99 +531,67 @@ document.addEventListener("DOMContentLoaded", () => {
                 : total === 0;
     }
 
-
     /* =========================
        PAGE MODE
     ========================= */
 
-    pageMode.addEventListener(
-        "change",
-        () => {
-
-            if (pageMode.value === "all") {
-
-                selectAllPages();
-
-            } else {
-
-                updateSelectionUI();
-            }
+    pageMode.addEventListener("change", () => {
+        if (pageMode.value === "all") {
+            selectAllPages();
+        } else {
+            updateSelectionUI();
         }
-    );
-
+    });
 
     /* =========================
        SELECT ALL / CLEAR
     ========================= */
 
-    selectAllButton.addEventListener(
-        "click",
-        () => {
+    selectAllButton.addEventListener("click", () => {
+        selectAllPages();
+    });
 
-            selectAllPages();
-        }
-    );
-
-
-    clearSelectionButton.addEventListener(
-        "click",
-        () => {
-
-            clearAllPages();
-        }
-    );
-
+    clearSelectionButton.addEventListener("click", () => {
+        clearAllPages();
+    });
 
     /* =========================
        RENDER FULL PAGE
     ========================= */
 
-    async function renderPageToJpg(
-        pageNumber,
-        settings
-    ) {
+    async function renderPageToJpg(pageNumber, settings) {
+        const page = await pdfDocument.getPage(pageNumber);
 
-        const page =
-            await pdfDocument.getPage(
-                pageNumber
-            );
+        const scale = Number(resolution.value);
 
-        const scale =
-            Number(resolution.value);
+        const viewport = page.getViewport({
+            scale
+        });
 
-        const viewport =
-            page.getViewport({
-                scale
-            });
+        const canvas = document.createElement("canvas");
 
-        const canvas =
-            document.createElement("canvas");
+        canvas.width = Math.max(
+            1,
+            Math.ceil(viewport.width)
+        );
 
-        canvas.width =
-            Math.max(
-                1,
-                Math.ceil(viewport.width)
-            );
+        canvas.height = Math.max(
+            1,
+            Math.ceil(viewport.height)
+        );
 
-        canvas.height =
-            Math.max(
-                1,
-                Math.ceil(viewport.height)
-            );
-
-        const context =
-            canvas.getContext("2d", {
-                alpha: false
-            });
+        const context = canvas.getContext("2d", {
+            alpha: false
+        });
 
         /*
          * White background prevents transparent
          * PDF areas from becoming black in JPG.
          */
+
         context.save();
 
-        context.fillStyle =
-            "#ffffff";
+        context.fillStyle = "#ffffff";
 
         context.fillRect(
             0,
@@ -755,21 +608,15 @@ document.addEventListener("DOMContentLoaded", () => {
             background: "white"
         }).promise;
 
-        const blob =
-            await new Promise(
-                resolve => {
-
-                    canvas.toBlob(
-                        resolve,
-                        "image/jpeg",
-                        settings.jpegQuality
-                    );
-
-                }
+        const blob = await new Promise(resolve => {
+            canvas.toBlob(
+                resolve,
+                "image/jpeg",
+                settings.jpegQuality
             );
+        });
 
         if (!blob) {
-
             throw new Error(
                 `Could not create JPG for page ${pageNumber}.`
             );
@@ -778,54 +625,40 @@ document.addEventListener("DOMContentLoaded", () => {
         return blob;
     }
 
-
     /* =========================
        CONVERT
     ========================= */
 
     async function convertToJpg() {
-
         if (!pdfDocument) {
-
-            showError(
-                "Please upload a PDF first."
-            );
-
+            showError("Please upload a PDF first.");
             return;
         }
 
         hideError();
         hideStatus();
 
-        const settings =
-            getQualitySettings();
+        const settings = getQualitySettings();
 
         let pagesToConvert;
 
         if (pageMode.value === "all") {
-
-            pagesToConvert =
-                Array.from(
-                    { length: pdfDocument.numPages },
-                    (_, index) => index + 1
-                );
-
+            pagesToConvert = Array.from(
+                {
+                    length: pdfDocument.numPages
+                },
+                (_, index) => index + 1
+            );
         } else {
-
-            pagesToConvert =
-                Array.from(
-                    selectedPages
-                ).sort(
-                    (a, b) => a - b
-                );
+            pagesToConvert = Array.from(
+                selectedPages
+            ).sort((a, b) => a - b);
         }
 
         if (pagesToConvert.length === 0) {
-
             showError(
                 "Please select at least one page."
             );
-
             return;
         }
 
@@ -839,30 +672,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
         convertedFiles = [];
 
-        const baseName =
-            getBaseName(
-                selectedFile.name
-            );
+        const baseName = getBaseName(
+            selectedFile.name
+        );
 
         try {
-
             for (
                 let index = 0;
                 index < pagesToConvert.length;
                 index++
             ) {
-
                 const pageNumber =
                     pagesToConvert[index];
 
                 progressText.textContent =
                     `Converting page ${index + 1} of ${pagesToConvert.length}...`;
 
-                const blob =
-                    await renderPageToJpg(
-                        pageNumber,
-                        settings
-                    );
+                const blob = await renderPageToJpg(
+                    pageNumber,
+                    settings
+                );
 
                 convertedFiles.push({
                     pageNumber,
@@ -871,12 +700,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         `${baseName}-page-${pageNumber}.jpg`
                 });
 
-                const percent =
-                    Math.round(
-                        ((index + 1) /
-                            pagesToConvert.length) *
-                        100
-                    );
+                const percent = Math.round(
+                    ((index + 1) /
+                        pagesToConvert.length) *
+                    100
+                );
 
                 progressBar.style.width =
                     `${percent}%`;
@@ -894,7 +722,6 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
         } catch (error) {
-
             console.error(
                 "PDF to JPG conversion failed:",
                 error
@@ -905,91 +732,69 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
         } finally {
-
             convertButton.disabled = false;
         }
     }
-
 
     /* =========================
        RESULTS
     ========================= */
 
     function showResults() {
-
         results.innerHTML = "";
 
         resultPanel.classList.remove(
             "pdf-jpg-hidden"
         );
 
-        convertedFiles.forEach(
-            (file, index) => {
+        convertedFiles.forEach(file => {
+            const url = URL.createObjectURL(
+                file.blob
+            );
 
-                const url =
-                    URL.createObjectURL(
-                        file.blob
-                    );
+            const card = document.createElement("div");
 
-                const card =
-                    document.createElement("div");
+            card.className =
+                "pdf-jpg-result-card";
 
-                card.className =
-                    "pdf-jpg-result-card";
-
-                card.innerHTML = `
-                    <div class="pdf-jpg-result-info">
-
-                        <div class="pdf-jpg-result-name">
-                            ${escapeHtml(file.fileName)}
-                        </div>
-
-                        <div class="pdf-jpg-result-size">
-                            Page ${file.pageNumber}
-                            • ${formatFileSize(file.blob.size)}
-                        </div>
-
+            card.innerHTML = `
+                <div class="pdf-jpg-result-info">
+                    <div class="pdf-jpg-result-name">
+                        ${escapeHtml(file.fileName)}
                     </div>
 
-                    <a
-                        class="pdf-jpg-download-button"
-                        href="${url}"
-                        download="${escapeHtml(file.fileName)}"
-                    >
-                        Download
-                    </a>
-                `;
+                    <div class="pdf-jpg-result-size">
+                        Page ${file.pageNumber}
+                        • ${formatFileSize(file.blob.size)}
+                    </div>
+                </div>
 
-                results.appendChild(card);
+                <a
+                    class="pdf-jpg-download-button"
+                    href="${url}"
+                    download="${escapeHtml(file.fileName)}"
+                >
+                    Download
+                </a>
+            `;
 
-                /*
-                 * Keep object URLs alive while the result
-                 * page is visible.
-                 */
-            }
-        );
+            results.appendChild(card);
+        });
     }
-
 
     /* =========================
        ZIP DOWNLOAD
     ========================= */
 
     async function createZip() {
-
-        if (
-            !convertedFiles.length
-        ) {
-
+        if (!convertedFiles.length) {
             return;
         }
 
         if (typeof JSZip === "undefined") {
-
             showError(
                 "ZIP library could not be loaded. You can still download each JPG individually."
             );
-
             return;
         }
 
@@ -1002,53 +807,43 @@ document.addEventListener("DOMContentLoaded", () => {
             "Creating ZIP...";
 
         try {
-
             clearZipUrl();
 
-            const zip =
-                new JSZip();
+            const zip = new JSZip();
 
-            convertedFiles.forEach(
-                file => {
+            convertedFiles.forEach(file => {
+                zip.file(
+                    file.fileName,
+                    file.blob
+                );
+            });
 
-                    zip.file(
-                        file.fileName,
-                        file.blob
+            zipBlob = await zip.generateAsync(
+                {
+                    type: "blob",
+                    compression: "DEFLATE",
+                    compressionOptions: {
+                        level: 6
+                    }
+                },
+                metadata => {
+                    const percent = Math.round(
+                        metadata.percent
                     );
+
+                    downloadZipButton.textContent =
+                        `Creating ZIP... ${percent}%`;
                 }
             );
 
-            zipBlob =
-                await zip.generateAsync(
-                    {
-                        type: "blob",
-                        compression: "DEFLATE",
-                        compressionOptions: {
-                            level: 6
-                        }
-                    },
-                    metadata => {
-
-                        const percent =
-                            Math.round(
-                                metadata.percent
-                            );
-
-                        downloadZipButton.textContent =
-                            `Creating ZIP... ${percent}%`;
-                    }
-                );
-
-            zipUrl =
-                URL.createObjectURL(
-                    zipBlob
-                );
+            zipUrl = URL.createObjectURL(
+                zipBlob
+            );
 
             const link =
                 document.createElement("a");
 
-            link.href =
-                zipUrl;
+            link.href = zipUrl;
 
             link.download =
                 `${getBaseName(selectedFile.name)}-jpg.zip`;
@@ -1060,7 +855,6 @@ document.addEventListener("DOMContentLoaded", () => {
             link.remove();
 
         } catch (error) {
-
             console.error(
                 "ZIP creation failed:",
                 error
@@ -1071,7 +865,6 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
         } finally {
-
             downloadZipButton.disabled = false;
 
             downloadZipButton.textContent =
@@ -1079,26 +872,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-
     /* =========================
        RESET
     ========================= */
 
     function resetTool() {
-
         clearZipUrl();
 
         /*
-         * Clean up individual JPG URLs.
+         * Clean up individual JPG object URLs.
          */
+
         document
             .querySelectorAll(
                 ".pdf-jpg-download-button"
             )
             .forEach(link => {
-
-                if (link.href.startsWith("blob:")) {
-
+                if (
+                    link.href &&
+                    link.href.startsWith("blob:")
+                ) {
                     try {
                         URL.revokeObjectURL(
                             link.href
@@ -1111,7 +904,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         selectedFile = null;
         pdfDocument = null;
-
         pageData = [];
         selectedPages.clear();
         convertedFiles = [];
@@ -1144,27 +936,24 @@ document.addEventListener("DOMContentLoaded", () => {
         hideError();
         hideStatus();
 
-        progressBar.style.width =
-            "0%";
+        progressBar.style.width = "0%";
 
         progressText.textContent =
             "Preparing...";
 
-        convertButton.disabled =
-            true;
+        convertButton.disabled = true;
 
         /*
          * Reset default quality.
          */
+
         const highQuality =
             document.querySelector(
                 'input[name="quality"][value="high"]'
             );
 
         if (highQuality) {
-
-            highQuality.checked =
-                true;
+            highQuality.checked = true;
         }
 
         document
@@ -1172,20 +961,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 "[data-quality-card]"
             )
             .forEach((card, index) => {
-
                 card.classList.toggle(
                     "selected",
                     index === 0
                 );
             });
 
-        resolution.value =
-            "2";
-
-        pageMode.value =
-            "selected";
+        resolution.value = "2";
+        pageMode.value = "selected";
     }
-
 
     /* =========================
        UPLOAD BUTTON
@@ -1194,16 +978,13 @@ document.addEventListener("DOMContentLoaded", () => {
     choosePdfButton.addEventListener(
         "click",
         () => {
-
             pdfInput.click();
         }
     );
 
-
     pdfInput.addEventListener(
         "change",
         event => {
-
             const file =
                 event.target.files &&
                 event.target.files[0];
@@ -1214,7 +995,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 
-
     /* =========================
        DRAG & DROP
     ========================= */
@@ -1223,11 +1003,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "dragenter",
         "dragover"
     ].forEach(eventName => {
-
         dropZone.addEventListener(
             eventName,
             event => {
-
                 event.preventDefault();
                 event.stopPropagation();
 
@@ -1236,19 +1014,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
             }
         );
-
     });
-
 
     [
         "dragleave",
         "drop"
     ].forEach(eventName => {
-
         dropZone.addEventListener(
             eventName,
             event => {
-
                 event.preventDefault();
                 event.stopPropagation();
 
@@ -1257,14 +1031,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
             }
         );
-
     });
-
 
     dropZone.addEventListener(
         "drop",
         event => {
-
             const files =
                 event.dataTransfer.files;
 
@@ -1272,14 +1043,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 files &&
                 files.length > 0
             ) {
-
-                handleFile(
-                    files[0]
-                );
+                handleFile(files[0]);
             }
         }
     );
-
 
     /* =========================
        CONVERT BUTTON
@@ -1290,7 +1057,6 @@ document.addEventListener("DOMContentLoaded", () => {
         convertToJpg
     );
 
-
     /* =========================
        ZIP BUTTON
     ========================= */
@@ -1299,7 +1065,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "click",
         createZip
     );
-
 
     /* =========================
        CONVERT ANOTHER
@@ -1310,7 +1075,6 @@ document.addEventListener("DOMContentLoaded", () => {
         resetTool
     );
 
-
     /* =========================
        LIBRARY CHECK
     ========================= */
@@ -1319,16 +1083,12 @@ document.addEventListener("DOMContentLoaded", () => {
         typeof pdfjsLib !== "undefined" &&
         typeof JSZip !== "undefined"
     ) {
-
         console.log(
             "LifeKit PDF to JPG: PDF.js and JSZip loaded successfully."
         );
-
     } else {
-
         console.warn(
             "LifeKit PDF to JPG: One or more libraries failed to load."
         );
     }
-
 });

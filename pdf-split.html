@@ -141,136 +141,363 @@
     >
 
     <style>
+
         .pdf-page-nav {
+
             width: min(900px, calc(100% - 40px));
+
             margin: 24px auto 0;
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             gap: 12px;
+
             flex-wrap: wrap;
+
         }
 
         .pdf-nav-button {
+
             display: inline-flex;
+
             align-items: center;
+
             justify-content: center;
+
             min-height: 42px;
+
             padding: 10px 16px;
+
             border: 1px solid #e3e6ea;
+
             border-radius: 10px;
+
             background: #ffffff;
+
             color: #202124;
+
             font-size: 14px;
+
             font-weight: 600;
+
             text-decoration: none;
+
             transition:
                 background 0.2s ease,
                 border-color 0.2s ease,
                 transform 0.2s ease;
+
         }
 
         .pdf-nav-button:hover {
+
             background: #f8f9fa;
+
             border-color: #d1d5db;
+
             transform: translateY(-1px);
+
         }
 
         .pdf-nav-home {
+
             background: #202124;
+
             border-color: #202124;
+
             color: #ffffff;
+
         }
 
         .pdf-nav-home:hover {
+
             background: #34363a;
+
             border-color: #34363a;
+
         }
 
         .pdf-info-section {
+
             margin-top: 55px;
+
             padding: 30px;
+
             background: #ffffff;
+
             border: 1px solid #e5e7eb;
+
             border-radius: 16px;
+
             text-align: left;
+
         }
 
         .pdf-info-section h2 {
+
             margin-bottom: 14px;
+
             color: #202124;
+
         }
 
         .pdf-info-section h3 {
+
             margin-top: 26px;
+
             margin-bottom: 8px;
+
             color: #202124;
+
         }
 
         .pdf-info-section p {
+
             margin: 0;
+
             color: #5f6368;
+
             line-height: 1.7;
+
         }
 
         .pdf-info-section ol,
         .pdf-info-section ul {
+
             margin: 12px 0 0;
+
             padding-left: 22px;
+
             color: #5f6368;
+
             line-height: 1.8;
+
         }
 
         .pdf-faq {
+
             margin-top: 55px;
+
             text-align: left;
+
         }
 
         .pdf-faq h2 {
+
             margin-bottom: 18px;
+
         }
 
         .pdf-faq details {
+
             margin-bottom: 12px;
+
             padding: 16px 18px;
+
             background: #ffffff;
+
             border: 1px solid #e5e7eb;
+
             border-radius: 12px;
+
         }
 
         .pdf-faq summary {
+
             cursor: pointer;
+
             font-weight: 700;
+
             color: #202124;
+
         }
 
         .pdf-faq details p {
+
             margin-top: 10px;
+
             color: #5f6368;
+
             line-height: 1.7;
+
         }
 
         .pdf-bottom-nav {
+
             margin-top: 35px;
+
             padding-top: 25px;
+
             border-top: 1px solid #e5e7eb;
+
             text-align: left;
+
+        }
+
+        /* ==============================
+           LifeKit Footer
+           ============================== */
+
+        .site-footer {
+
+            margin-top: 80px;
+
+            padding: 48px 20px 34px;
+
+            background: #202124;
+
+            color: #ffffff;
+
+            text-align: center;
+
+        }
+
+        .site-footer-inner {
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+        }
+
+        .site-footer-logo {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 52px;
+
+            height: 52px;
+
+            margin-bottom: 14px;
+
+            background: #ffffff;
+
+            color: #202124;
+
+            border-radius: 14px;
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+            letter-spacing: -0.5px;
+
+        }
+
+        .site-footer-brand {
+
+            margin: 0;
+
+            font-size: 22px;
+
+            font-weight: 800;
+
+            letter-spacing: -0.3px;
+
+        }
+
+        .site-footer-tagline {
+
+            margin: 7px 0 24px;
+
+            color: #b8bcc2;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+        }
+
+        .site-footer-links {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px 18px;
+
+            margin-bottom: 24px;
+
+        }
+
+        .site-footer-links a {
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: color 0.2s ease;
+
+        }
+
+        .site-footer-links a:hover {
+
+            color: #d1d5db;
+
+        }
+
+        .site-footer-copy {
+
+            margin: 0;
+
+            color: #8f949b;
+
+            font-size: 13px;
+
         }
 
         @media (max-width: 600px) {
 
             .pdf-page-nav {
+
                 width: min(900px, calc(100% - 24px));
+
             }
 
             .pdf-nav-button {
+
                 flex: 1 1 auto;
+
             }
 
             .pdf-info-section {
+
                 padding: 22px;
+
             }
+
+            .site-footer {
+
+                margin-top: 60px;
+
+                padding: 40px 18px 30px;
+
+            }
+
+            .site-footer-links {
+
+                gap: 12px 16px;
+
+            }
+
         }
+
     </style>
 
 </head>
@@ -302,10 +529,13 @@
             </a>
 
             <div class="header-tagline">
+
                 Small problems.
+
                 <strong>
                     Simple solutions.
                 </strong>
+
             </div>
 
         </div>
@@ -486,11 +716,17 @@
                             font-size: 14px;
                         "
                     >
+
                         Enter page numbers or ranges.
+
                         For example:
+
                         <strong>1-3</strong>
+
                         or
+
                         <strong>1,3,5</strong>
+
                     </p>
 
                     <input
@@ -664,22 +900,28 @@
                 </h3>
 
                 <ol>
+
                     <li>
                         Upload the PDF file you want to split.
                     </li>
+
                     <li>
                         Choose a split mode.
                     </li>
+
                     <li>
                         Select the pages you need or choose how many pages
                         each new file should contain.
                     </li>
+
                     <li>
                         Start the split process.
                     </li>
+
                     <li>
                         Download the resulting PDF files.
                     </li>
+
                 </ol>
 
                 <h3>
@@ -737,6 +979,7 @@
                 </h2>
 
                 <details>
+
                     <summary>
                         Can I extract only a few pages from a PDF?
                     </summary>
@@ -745,9 +988,11 @@
                         Yes. Choose Extract Selected Pages and enter the page
                         numbers or ranges you want to keep.
                     </p>
+
                 </details>
 
                 <details>
+
                     <summary>
                         How do I select a range of pages?
                     </summary>
@@ -756,9 +1001,11 @@
                         Use a hyphen to define a range. For example, 1-5
                         selects pages 1 through 5.
                     </p>
+
                 </details>
 
                 <details>
+
                     <summary>
                         Can I select individual pages?
                     </summary>
@@ -767,9 +1014,11 @@
                         Yes. Separate individual page numbers with commas,
                         such as 1, 4, 7.
                     </p>
+
                 </details>
 
                 <details>
+
                     <summary>
                         What does Split Every N Pages mean?
                     </summary>
@@ -779,9 +1028,11 @@
                         with each file containing the number of pages you
                         specify.
                     </p>
+
                 </details>
 
                 <details>
+
                     <summary>
                         Does splitting change my original PDF?
                     </summary>
@@ -790,9 +1041,11 @@
                         No. The original file remains separate from the PDF
                         files created by the split operation.
                     </p>
+
                 </details>
 
                 <details>
+
                     <summary>
                         Can I split a large PDF?
                     </summary>
@@ -801,6 +1054,7 @@
                         The practical file size and processing limit depends
                         on your browser, device memory and the PDF itself.
                     </p>
+
                 </details>
 
             </section>
@@ -825,14 +1079,53 @@
     </main>
 
     <!-- ==============================
-         Footer
+         LifeKit Footer
          ============================== -->
 
-    <footer>
+    <footer class="site-footer">
 
-        <p>
-            © 2026 LifeKit
-        </p>
+        <div class="site-footer-inner">
+
+            <div class="site-footer-logo">
+                LK
+            </div>
+
+            <p class="site-footer-brand">
+                LifeKit
+            </p>
+
+            <p class="site-footer-tagline">
+                Small problems. Simple solutions.
+            </p>
+
+            <nav
+                class="site-footer-links"
+                aria-label="Footer navigation"
+            >
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="privacy.html">
+                    Privacy Policy
+                </a>
+
+                <a href="terms.html">
+                    Terms of Service
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </nav>
+
+            <p class="site-footer-copy">
+                © 2026 LifeKit. All rights reserved.
+            </p>
+
+        </div>
 
     </footer>
 

@@ -141,135 +141,363 @@
     >
 
     <style>
+
         .pdf-page-nav {
+
             width: min(900px, calc(100% - 40px));
+
             margin: 24px auto 0;
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             gap: 12px;
+
             flex-wrap: wrap;
+
         }
 
         .pdf-nav-button {
+
             display: inline-flex;
+
             align-items: center;
+
             justify-content: center;
+
             min-height: 42px;
+
             padding: 10px 16px;
+
             border: 1px solid #e3e6ea;
+
             border-radius: 10px;
+
             background: #ffffff;
+
             color: #202124;
+
             font-size: 14px;
+
             font-weight: 600;
+
             text-decoration: none;
+
             transition:
                 background 0.2s ease,
                 border-color 0.2s ease,
                 transform 0.2s ease;
+
         }
 
         .pdf-nav-button:hover {
+
             background: #f8f9fa;
+
             border-color: #d1d5db;
+
             transform: translateY(-1px);
+
         }
 
         .pdf-nav-home {
+
             background: #202124;
+
             border-color: #202124;
+
             color: #ffffff;
+
         }
 
         .pdf-nav-home:hover {
+
             background: #34363a;
+
             border-color: #34363a;
+
         }
 
         .pdf-info-section {
+
             margin-top: 55px;
+
             padding: 30px;
+
             background: #ffffff;
+
             border: 1px solid #e5e7eb;
+
             border-radius: 16px;
+
             text-align: left;
+
         }
 
         .pdf-info-section h2 {
+
             margin-bottom: 14px;
+
             color: #202124;
+
         }
 
         .pdf-info-section h3 {
+
             margin-top: 26px;
+
             margin-bottom: 8px;
+
             color: #202124;
+
         }
 
         .pdf-info-section p {
+
             margin: 0;
+
             color: #5f6368;
+
             line-height: 1.7;
+
         }
 
         .pdf-info-section ol,
         .pdf-info-section ul {
+
             margin: 12px 0 0;
+
             padding-left: 22px;
+
             color: #5f6368;
+
             line-height: 1.8;
+
         }
 
         .pdf-faq {
+
             margin-top: 55px;
+
             text-align: left;
+
         }
 
         .pdf-faq h2 {
+
             margin-bottom: 18px;
+
         }
 
         .pdf-faq details {
+
             margin-bottom: 12px;
+
             padding: 16px 18px;
+
             background: #ffffff;
+
             border: 1px solid #e5e7eb;
+
             border-radius: 12px;
+
         }
 
         .pdf-faq summary {
+
             cursor: pointer;
+
             font-weight: 700;
+
             color: #202124;
+
         }
 
         .pdf-faq details p {
+
             margin-top: 10px;
+
             color: #5f6368;
+
             line-height: 1.7;
+
         }
 
         .pdf-bottom-nav {
+
             margin-top: 35px;
+
             padding-top: 25px;
+
             border-top: 1px solid #e5e7eb;
+
             text-align: left;
+
+        }
+
+        /* ==============================
+           LifeKit Footer
+           ============================== */
+
+        .site-footer {
+
+            margin-top: 80px;
+
+            padding: 48px 20px 34px;
+
+            background: #202124;
+
+            color: #ffffff;
+
+            text-align: center;
+
+        }
+
+        .site-footer-inner {
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+        }
+
+        .site-footer-logo {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 52px;
+
+            height: 52px;
+
+            margin-bottom: 14px;
+
+            background: #ffffff;
+
+            color: #202124;
+
+            border-radius: 14px;
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+            letter-spacing: -0.5px;
+
+        }
+
+        .site-footer-brand {
+
+            margin: 0;
+
+            font-size: 22px;
+
+            font-weight: 800;
+
+            letter-spacing: -0.3px;
+
+        }
+
+        .site-footer-tagline {
+
+            margin: 7px 0 24px;
+
+            color: #b8bcc2;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+        }
+
+        .site-footer-links {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px 18px;
+
+            margin-bottom: 24px;
+
+        }
+
+        .site-footer-links a {
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: color 0.2s ease;
+
+        }
+
+        .site-footer-links a:hover {
+
+            color: #d1d5db;
+
+        }
+
+        .site-footer-copy {
+
+            margin: 0;
+
+            color: #8f949b;
+
+            font-size: 13px;
+
         }
 
         @media (max-width: 600px) {
+
             .pdf-page-nav {
+
                 width: min(900px, calc(100% - 24px));
+
             }
 
             .pdf-nav-button {
+
                 flex: 1 1 auto;
+
             }
 
             .pdf-info-section {
+
                 padding: 22px;
+
             }
+
+            .site-footer {
+
+                margin-top: 60px;
+
+                padding: 40px 18px 30px;
+
+            }
+
+            .site-footer-links {
+
+                gap: 12px 16px;
+
+            }
+
         }
+
     </style>
 
 </head>
@@ -289,6 +517,7 @@
                 class="logo"
                 aria-label="LifeKit Home"
             >
+
                 <span class="logo-icon">
                     LK
                 </span>
@@ -296,13 +525,17 @@
                 <span>
                     LifeKit
                 </span>
+
             </a>
 
             <div class="header-tagline">
+
                 Small problems.
+
                 <strong>
                     Simple solutions.
                 </strong>
+
             </div>
 
         </div>
@@ -499,18 +732,23 @@
                 </h3>
 
                 <ol>
+
                     <li>
                         Add the PDF files you want to combine.
                     </li>
+
                     <li>
                         Arrange the files in the order you want.
                     </li>
+
                     <li>
                         Start the PDF merge process.
                     </li>
+
                     <li>
                         Download the resulting PDF document.
                     </li>
+
                 </ol>
 
                 <h3>
@@ -557,6 +795,7 @@
                 </h2>
 
                 <details>
+
                     <summary>
                         How many PDF files can I merge?
                     </summary>
@@ -565,9 +804,11 @@
                         You can select multiple PDF files. The available
                         limits depend on your browser and device.
                     </p>
+
                 </details>
 
                 <details>
+
                     <summary>
                         Can I change the order of the PDF files?
                     </summary>
@@ -576,9 +817,11 @@
                         Yes. Arrange the files in the order you want before
                         merging them so the final document follows that order.
                     </p>
+
                 </details>
 
                 <details>
+
                     <summary>
                         Can I merge scanned PDF files?
                     </summary>
@@ -588,9 +831,11 @@
                         pages contain scanned documents or digitally created
                         content, provided the files are supported by the tool.
                     </p>
+
                 </details>
 
                 <details>
+
                     <summary>
                         What happens to my original PDF files?
                     </summary>
@@ -600,9 +845,11 @@
                         merged document. A separate merged PDF is created for
                         you to download.
                     </p>
+
                 </details>
 
                 <details>
+
                     <summary>
                         Why would I merge PDFs instead of keeping them separate?
                     </summary>
@@ -611,6 +858,7 @@
                         Combining related files can make them easier to upload,
                         share, store and manage as one document.
                     </p>
+
                 </details>
 
             </section>
@@ -635,14 +883,53 @@
     </main>
 
     <!-- ==============================
-         Footer
+         LifeKit Footer
          ============================== -->
 
-    <footer>
+    <footer class="site-footer">
 
-        <p>
-            © 2026 LifeKit
-        </p>
+        <div class="site-footer-inner">
+
+            <div class="site-footer-logo">
+                LK
+            </div>
+
+            <p class="site-footer-brand">
+                LifeKit
+            </p>
+
+            <p class="site-footer-tagline">
+                Small problems. Simple solutions.
+            </p>
+
+            <nav
+                class="site-footer-links"
+                aria-label="Footer navigation"
+            >
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="privacy.html">
+                    Privacy Policy
+                </a>
+
+                <a href="terms.html">
+                    Terms of Service
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </nav>
+
+            <p class="site-footer-copy">
+                © 2026 LifeKit. All rights reserved.
+            </p>
+
+        </div>
 
     </footer>
 
